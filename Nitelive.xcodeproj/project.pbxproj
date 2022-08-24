@@ -1,0 +1,990 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2203E60E283F757A0043ACD2 /* ClubChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203E60D283F757A0043ACD2 /* ClubChatMessage.swift */; };
+		2203E612283F860B0043ACD2 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203E611283F860B0043ACD2 /* LazyView.swift */; };
+		2203E61A2840D0CD0043ACD2 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203E6192840D0CD0043ACD2 /* CellView.swift */; };
+		2203E61C2840D2350043ACD2 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203E61B2840D2350043ACD2 /* ListView.swift */; };
+		2203E61F284383270043ACD2 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203E61E284383270043ACD2 /* CameraService.swift */; };
+		2203E62128438C540043ACD2 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203E62028438C540043ACD2 /* CameraView.swift */; };
+		2203E623284390060043ACD2 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203E622284390060043ACD2 /* CustomCameraView.swift */; };
+		2203E625284391850043ACD2 /* SelfieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203E624284391850043ACD2 /* SelfieView.swift */; };
+		22112FFF2864745B00247D53 /* UserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22112FFE2864745B00247D53 /* UserNameView.swift */; };
+		221130012865BB7600247D53 /* DirectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221130002865BB7600247D53 /* DirectionsView.swift */; };
+		221CC83E28227A2200AFC176 /* NiteliveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC83D28227A2200AFC176 /* NiteliveApp.swift */; };
+		221CC84228227A2300AFC176 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221CC84128227A2300AFC176 /* Assets.xcassets */; };
+		221CC84528227A2300AFC176 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221CC84428227A2300AFC176 /* Preview Assets.xcassets */; };
+		221CC84D28227ABC00AFC176 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 221CC84C28227ABC00AFC176 /* FirebaseAuth */; };
+		221CC84F28227ABC00AFC176 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 221CC84E28227ABC00AFC176 /* FirebaseFirestore */; };
+		221CC85128227ABC00AFC176 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 221CC85028227ABC00AFC176 /* FirebaseFirestoreSwift-Beta */; };
+		221CC85328227ABC00AFC176 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 221CC85228227ABC00AFC176 /* FirebaseStorage */; };
+		221CC85928227E4800AFC176 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC85828227E4800AFC176 /* FirebaseManager.swift */; };
+		221CC85C28227EB300AFC176 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC85B28227EB300AFC176 /* User.swift */; };
+		221CC85F28227F1200AFC176 /* FirebaseContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC85E28227F1200AFC176 /* FirebaseContants.swift */; };
+		221CC861282281E600AFC176 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 221CC860282281E600AFC176 /* GoogleService-Info.plist */; };
+		221CC86B282284B300AFC176 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC86A282284B300AFC176 /* MainView.swift */; };
+		221CC86F2822856500AFC176 /* Shot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC86E2822856500AFC176 /* Shot.swift */; };
+		221CC872282285B600AFC176 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC871282285B600AFC176 /* Extensions.swift */; };
+		221CC8742822884800AFC176 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC8732822884800AFC176 /* FirebaseData.swift */; };
+		221CC8782823C51300AFC176 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC8772823C51300AFC176 /* Club.swift */; };
+		221CC8812823CB8700AFC176 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC8802823CB8700AFC176 /* PreferenceKeys.swift */; };
+		221CC8852823CC9100AFC176 /* ShotPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC8842823CC9100AFC176 /* ShotPlayer.swift */; };
+		221CC8872823CD0C00AFC176 /* PlayerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC8862823CD0C00AFC176 /* PlayerControls.swift */; };
+		222EEFFF28379C2300695CBC /* PostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222EEFFE28379C2300695CBC /* PostButton.swift */; };
+		224F6E312844DD1A001F9AC6 /* LoginCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E302844DD1A001F9AC6 /* LoginCameraView.swift */; };
+		224F6E4F28476EAD001F9AC6 /* VerticalPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E4E28476EAD001F9AC6 /* VerticalPager.swift */; };
+		224F6E5128476EDC001F9AC6 /* ShotViewHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E5028476EDC001F9AC6 /* ShotViewHostingController.swift */; };
+		224F6E5328476F10001F9AC6 /* ShotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E5228476F10001F9AC6 /* ShotView.swift */; };
+		224F6E59284A1366001F9AC6 /* ClubVerticalPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E58284A1366001F9AC6 /* ClubVerticalPager.swift */; };
+		224F6E5B284A13CF001F9AC6 /* ClubShotViewHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E5A284A13CF001F9AC6 /* ClubShotViewHostingController.swift */; };
+		224F6E5D284A1414001F9AC6 /* ClubShotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E5C284A1414001F9AC6 /* ClubShotView.swift */; };
+		224F6E62284CE04A001F9AC6 /* ClubsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E61284CE04A001F9AC6 /* ClubsMapView.swift */; };
+		224F6E65284CE084001F9AC6 /* ClubsMapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E64284CE084001F9AC6 /* ClubsMapManager.swift */; };
+		224F6E68284CE994001F9AC6 /* MapBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E67284CE994001F9AC6 /* MapBalloon.swift */; };
+		224F6E6A284CEA29001F9AC6 /* ClubMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E69284CEA29001F9AC6 /* ClubMarker.swift */; };
+		224F6E6C284DF595001F9AC6 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E6B284DF595001F9AC6 /* ProfileImageView.swift */; };
+		224F6E6E284E095F001F9AC6 /* RecordingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E6D284E095F001F9AC6 /* RecordingTimer.swift */; };
+		226C6EC3282D012200D1D866 /* RecorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EC2282D012200D1D866 /* RecorderButton.swift */; };
+		226C6EC6282D0EA500D1D866 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EC5282D0EA500D1D866 /* UserManager.swift */; };
+		226C6EC8282D0F2D00D1D866 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EC7282D0F2D00D1D866 /* AlertItem.swift */; };
+		226C6ECB282FA3FC00D1D866 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6ECA282FA3FC00D1D866 /* ProfileView.swift */; };
+		226C6ECD282FA43D00D1D866 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6ECC282FA43D00D1D866 /* LoginView.swift */; };
+		226C6ECF282FA48100D1D866 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6ECE282FA48100D1D866 /* ImagePicker.swift */; };
+		226C6ED1282FA8EE00D1D866 /* RecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6ED0282FA8EE00D1D866 /* RecorderView.swift */; };
+		226C6ED5282FA9BA00D1D866 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6ED4282FA9BA00D1D866 /* Player.swift */; };
+		226C6ED7282FAA0E00D1D866 /* VideoCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6ED6282FAA0E00D1D866 /* VideoCameraView.swift */; };
+		226C6ED9282FAA3800D1D866 /* VideoCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6ED8282FAA3800D1D866 /* VideoCameraController.swift */; };
+		226C6EDB282FAA7700D1D866 /* VideoPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EDA282FAA7700D1D866 /* VideoPlayback.swift */; };
+		226C6EDD282FAAA400D1D866 /* PlayerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EDC282FAAA400D1D866 /* PlayerUIView.swift */; };
+		226C6EE52832546800D1D866 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EE42832546800D1D866 /* UserAvatarView.swift */; };
+		226C6EE72834EF4400D1D866 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EE62834EF4400D1D866 /* MapManager.swift */; };
+		2283359E28509FDF0095E9D1 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283359D28509FDF0095E9D1 /* LaunchView.swift */; };
+		228335A32852058B0095E9D1 /* thumbnailLooper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228335A22852058B0095E9D1 /* thumbnailLooper.swift */; };
+		228335A5285B2C9A0095E9D1 /* VideoUploaderUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228335A4285B2C9A0095E9D1 /* VideoUploaderUserView.swift */; };
+		228335A7285B397B0095E9D1 /* TimeStampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228335A6285B397B0095E9D1 /* TimeStampView.swift */; };
+		228335AF285DE22F0095E9D1 /* ExperimentalCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228335AE285DE22F0095E9D1 /* ExperimentalCode.swift */; };
+		22D3ABF628267BA600428135 /* ShotSnap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3ABF528267BA600428135 /* ShotSnap.swift */; };
+		22D3ABF82827B93600428135 /* ShotLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3ABF72827B93600428135 /* ShotLoader.swift */; };
+		22D3ABFC282A58A100428135 /* ShotInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3ABFB282A58A100428135 /* ShotInfo.swift */; };
+		22D3AC01282A5BBD00428135 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3AC00282A5BBD00428135 /* MockData.swift */; };
+		22D3AC04282A5D4200428135 /* ClubCircleNameText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3AC03282A5D4200428135 /* ClubCircleNameText.swift */; };
+		22D3AC07282A5E6100428135 /* ClubImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3AC06282A5E6100428135 /* ClubImage.swift */; };
+		22D3AC10282BB25900428135 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3AC0F282BB25900428135 /* MapView.swift */; };
+		22D3AC16282BB39100428135 /* ClubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3AC15282BB39100428135 /* ClubView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2203E60D283F757A0043ACD2 /* ClubChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubChatMessage.swift; sourceTree = "<group>"; };
+		2203E611283F860B0043ACD2 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		2203E6192840D0CD0043ACD2 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		2203E61B2840D2350043ACD2 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		2203E61E284383270043ACD2 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		2203E62028438C540043ACD2 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		2203E622284390060043ACD2 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
+		2203E624284391850043ACD2 /* SelfieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieView.swift; sourceTree = "<group>"; };
+		22112FFE2864745B00247D53 /* UserNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameView.swift; sourceTree = "<group>"; };
+		221130002865BB7600247D53 /* DirectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsView.swift; sourceTree = "<group>"; };
+		221CC83A28227A2200AFC176 /* Nitelive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nitelive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		221CC83D28227A2200AFC176 /* NiteliveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiteliveApp.swift; sourceTree = "<group>"; };
+		221CC84128227A2300AFC176 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		221CC84428227A2300AFC176 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		221CC85828227E4800AFC176 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		221CC85B28227EB300AFC176 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		221CC85E28227F1200AFC176 /* FirebaseContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseContants.swift; sourceTree = "<group>"; };
+		221CC860282281E600AFC176 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		221CC86A282284B300AFC176 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		221CC86E2822856500AFC176 /* Shot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shot.swift; sourceTree = "<group>"; };
+		221CC871282285B600AFC176 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		221CC8732822884800AFC176 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
+		221CC8772823C51300AFC176 /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
+		221CC8802823CB8700AFC176 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
+		221CC8842823CC9100AFC176 /* ShotPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotPlayer.swift; sourceTree = "<group>"; };
+		221CC8862823CD0C00AFC176 /* PlayerControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControls.swift; sourceTree = "<group>"; };
+		222EEFFE28379C2300695CBC /* PostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostButton.swift; sourceTree = "<group>"; };
+		224F6E302844DD1A001F9AC6 /* LoginCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCameraView.swift; sourceTree = "<group>"; };
+		224F6E4E28476EAD001F9AC6 /* VerticalPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalPager.swift; sourceTree = "<group>"; };
+		224F6E5028476EDC001F9AC6 /* ShotViewHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotViewHostingController.swift; sourceTree = "<group>"; };
+		224F6E5228476F10001F9AC6 /* ShotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotView.swift; sourceTree = "<group>"; };
+		224F6E58284A1366001F9AC6 /* ClubVerticalPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubVerticalPager.swift; sourceTree = "<group>"; };
+		224F6E5A284A13CF001F9AC6 /* ClubShotViewHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubShotViewHostingController.swift; sourceTree = "<group>"; };
+		224F6E5C284A1414001F9AC6 /* ClubShotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubShotView.swift; sourceTree = "<group>"; };
+		224F6E61284CE04A001F9AC6 /* ClubsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsMapView.swift; sourceTree = "<group>"; };
+		224F6E64284CE084001F9AC6 /* ClubsMapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsMapManager.swift; sourceTree = "<group>"; };
+		224F6E67284CE994001F9AC6 /* MapBalloon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBalloon.swift; sourceTree = "<group>"; };
+		224F6E69284CEA29001F9AC6 /* ClubMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubMarker.swift; sourceTree = "<group>"; };
+		224F6E6B284DF595001F9AC6 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		224F6E6D284E095F001F9AC6 /* RecordingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTimer.swift; sourceTree = "<group>"; };
+		226C6EC2282D012200D1D866 /* RecorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderButton.swift; sourceTree = "<group>"; };
+		226C6EC5282D0EA500D1D866 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		226C6EC7282D0F2D00D1D866 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
+		226C6ECA282FA3FC00D1D866 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		226C6ECC282FA43D00D1D866 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		226C6ECE282FA48100D1D866 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		226C6ED0282FA8EE00D1D866 /* RecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderView.swift; sourceTree = "<group>"; };
+		226C6ED4282FA9BA00D1D866 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		226C6ED6282FAA0E00D1D866 /* VideoCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCameraView.swift; sourceTree = "<group>"; };
+		226C6ED8282FAA3800D1D866 /* VideoCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCameraController.swift; sourceTree = "<group>"; };
+		226C6EDA282FAA7700D1D866 /* VideoPlayback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayback.swift; sourceTree = "<group>"; };
+		226C6EDC282FAAA400D1D866 /* PlayerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUIView.swift; sourceTree = "<group>"; };
+		226C6EE42832546800D1D866 /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
+		226C6EE62834EF4400D1D866 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
+		2283359D28509FDF0095E9D1 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		228335A22852058B0095E9D1 /* thumbnailLooper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thumbnailLooper.swift; sourceTree = "<group>"; };
+		228335A4285B2C9A0095E9D1 /* VideoUploaderUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploaderUserView.swift; sourceTree = "<group>"; };
+		228335A6285B397B0095E9D1 /* TimeStampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampView.swift; sourceTree = "<group>"; };
+		228335AE285DE22F0095E9D1 /* ExperimentalCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentalCode.swift; sourceTree = "<group>"; };
+		22D3ABF528267BA600428135 /* ShotSnap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotSnap.swift; sourceTree = "<group>"; };
+		22D3ABF72827B93600428135 /* ShotLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotLoader.swift; sourceTree = "<group>"; };
+		22D3ABFB282A58A100428135 /* ShotInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotInfo.swift; sourceTree = "<group>"; };
+		22D3AC00282A5BBD00428135 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		22D3AC03282A5D4200428135 /* ClubCircleNameText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubCircleNameText.swift; sourceTree = "<group>"; };
+		22D3AC06282A5E6100428135 /* ClubImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubImage.swift; sourceTree = "<group>"; };
+		22D3AC0F282BB25900428135 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		22D3AC15282BB39100428135 /* ClubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		221CC83728227A2200AFC176 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				221CC85128227ABC00AFC176 /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				221CC85328227ABC00AFC176 /* FirebaseStorage in Frameworks */,
+				221CC84D28227ABC00AFC176 /* FirebaseAuth in Frameworks */,
+				221CC84F28227ABC00AFC176 /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2203E6162840D0060043ACD2 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				2203E61B2840D2350043ACD2 /* ListView.swift */,
+				2203E6192840D0CD0043ACD2 /* CellView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		2203E61D28437EC70043ACD2 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				2203E624284391850043ACD2 /* SelfieView.swift */,
+				2203E622284390060043ACD2 /* CustomCameraView.swift */,
+				2203E61E284383270043ACD2 /* CameraService.swift */,
+				2203E62028438C540043ACD2 /* CameraView.swift */,
+				224F6E302844DD1A001F9AC6 /* LoginCameraView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		221CC83128227A2200AFC176 = {
+			isa = PBXGroup;
+			children = (
+				228335AD285DE1FE0095E9D1 /* Experimental Code */,
+				221CC83C28227A2200AFC176 /* Nitelive */,
+				221CC83B28227A2200AFC176 /* Products */,
+				2253A37B28A4F5B200764B33 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		221CC83B28227A2200AFC176 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				221CC83A28227A2200AFC176 /* Nitelive.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		221CC83C28227A2200AFC176 /* Nitelive */ = {
+			isa = PBXGroup;
+			children = (
+				221CC83D28227A2200AFC176 /* NiteliveApp.swift */,
+				2283359D28509FDF0095E9D1 /* LaunchView.swift */,
+				22D3ABFF282A5BAC00428135 /* MockData */,
+				221CC8702822859300AFC176 /* Extensions */,
+				221CC85D28227EE300AFC176 /* Constants */,
+				221CC85A28227E8200AFC176 /* Models */,
+				221CC85728227E2600AFC176 /* Utilities */,
+				221CC8652822839000AFC176 /* Servicers */,
+				221CC8682822840500AFC176 /* Core */,
+				221CC860282281E600AFC176 /* GoogleService-Info.plist */,
+				221CC84128227A2300AFC176 /* Assets.xcassets */,
+				221CC84328227A2300AFC176 /* Preview Content */,
+			);
+			path = Nitelive;
+			sourceTree = "<group>";
+		};
+		221CC84328227A2300AFC176 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				221CC84428227A2300AFC176 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		221CC85728227E2600AFC176 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				221CC85828227E4800AFC176 /* FirebaseManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		221CC85A28227E8200AFC176 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				221CC85B28227EB300AFC176 /* User.swift */,
+				221CC8772823C51300AFC176 /* Club.swift */,
+				221CC86E2822856500AFC176 /* Shot.swift */,
+				22D3ABF528267BA600428135 /* ShotSnap.swift */,
+				2203E60D283F757A0043ACD2 /* ClubChatMessage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		221CC85D28227EE300AFC176 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				221CC85E28227F1200AFC176 /* FirebaseContants.swift */,
+				226C6EC7282D0F2D00D1D866 /* AlertItem.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		221CC8652822839000AFC176 /* Servicers */ = {
+			isa = PBXGroup;
+			children = (
+				226C6EC5282D0EA500D1D866 /* UserManager.swift */,
+				221CC8732822884800AFC176 /* FirebaseData.swift */,
+			);
+			path = Servicers;
+			sourceTree = "<group>";
+		};
+		221CC8682822840500AFC176 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				221CC87B2823CB0200AFC176 /* Loader */,
+				221CC8692822842B00AFC176 /* Home */,
+				22D3AC0D282BB20B00428135 /* Detail Views */,
+				226C6EC4282D0A8F00D1D866 /* Recorder */,
+				226C6EC9282FA33200D1D866 /* Login */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		221CC8692822842B00AFC176 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				221CC86A282284B300AFC176 /* MainView.swift */,
+				222EF00028379D8C00695CBC /* Record button */,
+				221CC8792823CADF00AFC176 /* Components */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		221CC8702822859300AFC176 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				221CC871282285B600AFC176 /* Extensions.swift */,
+				221CC8802823CB8700AFC176 /* PreferenceKeys.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		221CC8792823CADF00AFC176 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				22D3ABFA282A57BF00428135 /* Shot Info */,
+				221CC8882823CD3800AFC176 /* Shot Player */,
+				22D3AC09282BB0D300428135 /* Nav Buttons */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		221CC87B2823CB0200AFC176 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				22D3ABF72827B93600428135 /* ShotLoader.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		221CC8882823CD3800AFC176 /* Shot Player */ = {
+			isa = PBXGroup;
+			children = (
+				221CC8842823CC9100AFC176 /* ShotPlayer.swift */,
+				221CC8862823CD0C00AFC176 /* PlayerControls.swift */,
+				224F6E4E28476EAD001F9AC6 /* VerticalPager.swift */,
+				224F6E5028476EDC001F9AC6 /* ShotViewHostingController.swift */,
+				224F6E5228476F10001F9AC6 /* ShotView.swift */,
+			);
+			path = "Shot Player";
+			sourceTree = "<group>";
+		};
+		222EF00028379D8C00695CBC /* Record button */ = {
+			isa = PBXGroup;
+			children = (
+				222EEFFE28379C2300695CBC /* PostButton.swift */,
+				226C6EC2282D012200D1D866 /* RecorderButton.swift */,
+			);
+			path = "Record button";
+			sourceTree = "<group>";
+		};
+		224F6E54284A048B001F9AC6 /* Club */ = {
+			isa = PBXGroup;
+			children = (
+				22D3AC15282BB39100428135 /* ClubView.swift */,
+			);
+			path = Club;
+			sourceTree = "<group>";
+		};
+		224F6E57284A12EB001F9AC6 /* Club Vertical Pager */ = {
+			isa = PBXGroup;
+			children = (
+				224F6E58284A1366001F9AC6 /* ClubVerticalPager.swift */,
+				224F6E5A284A13CF001F9AC6 /* ClubShotViewHostingController.swift */,
+				224F6E5C284A1414001F9AC6 /* ClubShotView.swift */,
+			);
+			path = "Club Vertical Pager";
+			sourceTree = "<group>";
+		};
+		224F6E60284CDF35001F9AC6 /* Clubs Maps */ = {
+			isa = PBXGroup;
+			children = (
+				224F6E64284CE084001F9AC6 /* ClubsMapManager.swift */,
+				224F6E61284CE04A001F9AC6 /* ClubsMapView.swift */,
+				224F6E66284CE969001F9AC6 /* Marker */,
+			);
+			path = "Clubs Maps";
+			sourceTree = "<group>";
+		};
+		224F6E66284CE969001F9AC6 /* Marker */ = {
+			isa = PBXGroup;
+			children = (
+				224F6E67284CE994001F9AC6 /* MapBalloon.swift */,
+				224F6E69284CEA29001F9AC6 /* ClubMarker.swift */,
+				228335A22852058B0095E9D1 /* thumbnailLooper.swift */,
+			);
+			path = Marker;
+			sourceTree = "<group>";
+		};
+		2253A37B28A4F5B200764B33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		226C6EC4282D0A8F00D1D866 /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				226C6ED0282FA8EE00D1D866 /* RecorderView.swift */,
+				224F6E6D284E095F001F9AC6 /* RecordingTimer.swift */,
+				226C6EDE282FABC000D1D866 /* Components */,
+			);
+			path = Recorder;
+			sourceTree = "<group>";
+		};
+		226C6EC9282FA33200D1D866 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				228335A4285B2C9A0095E9D1 /* VideoUploaderUserView.swift */,
+				226C6EE42832546800D1D866 /* UserAvatarView.swift */,
+				226C6ECA282FA3FC00D1D866 /* ProfileView.swift */,
+				226C6ECC282FA43D00D1D866 /* LoginView.swift */,
+				226C6ECE282FA48100D1D866 /* ImagePicker.swift */,
+				2203E61D28437EC70043ACD2 /* Camera */,
+				224F6E6B284DF595001F9AC6 /* ProfileImageView.swift */,
+				22112FFE2864745B00247D53 /* UserNameView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		226C6EDE282FABC000D1D866 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				226C6ED4282FA9BA00D1D866 /* Player.swift */,
+				226C6ED6282FAA0E00D1D866 /* VideoCameraView.swift */,
+				226C6ED8282FAA3800D1D866 /* VideoCameraController.swift */,
+				226C6EDA282FAA7700D1D866 /* VideoPlayback.swift */,
+				226C6EDC282FAAA400D1D866 /* PlayerUIView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		228335AD285DE1FE0095E9D1 /* Experimental Code */ = {
+			isa = PBXGroup;
+			children = (
+				228335AE285DE22F0095E9D1 /* ExperimentalCode.swift */,
+			);
+			path = "Experimental Code";
+			sourceTree = "<group>";
+		};
+		22D3ABFA282A57BF00428135 /* Shot Info */ = {
+			isa = PBXGroup;
+			children = (
+				22D3ABFB282A58A100428135 /* ShotInfo.swift */,
+				22D3AC08282A5E9100428135 /* Components */,
+				228335A6285B397B0095E9D1 /* TimeStampView.swift */,
+			);
+			path = "Shot Info";
+			sourceTree = "<group>";
+		};
+		22D3ABFF282A5BAC00428135 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				22D3AC00282A5BBD00428135 /* MockData.swift */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		22D3AC08282A5E9100428135 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				22D3AC03282A5D4200428135 /* ClubCircleNameText.swift */,
+				22D3AC06282A5E6100428135 /* ClubImage.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		22D3AC09282BB0D300428135 /* Nav Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				2203E611283F860B0043ACD2 /* LazyView.swift */,
+			);
+			path = "Nav Buttons";
+			sourceTree = "<group>";
+		};
+		22D3AC0D282BB20B00428135 /* Detail Views */ = {
+			isa = PBXGroup;
+			children = (
+				224F6E54284A048B001F9AC6 /* Club */,
+				2203E6162840D0060043ACD2 /* List */,
+				22D3AC0E282BB23500428135 /* Map */,
+				224F6E57284A12EB001F9AC6 /* Club Vertical Pager */,
+			);
+			path = "Detail Views";
+			sourceTree = "<group>";
+		};
+		22D3AC0E282BB23500428135 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				226C6EE62834EF4400D1D866 /* MapManager.swift */,
+				22D3AC0F282BB25900428135 /* MapView.swift */,
+				221130002865BB7600247D53 /* DirectionsView.swift */,
+				224F6E60284CDF35001F9AC6 /* Clubs Maps */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		221CC83928227A2200AFC176 /* Nitelive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 221CC84828227A2300AFC176 /* Build configuration list for PBXNativeTarget "Nitelive" */;
+			buildPhases = (
+				221CC83628227A2200AFC176 /* Sources */,
+				221CC83728227A2200AFC176 /* Frameworks */,
+				221CC83828227A2200AFC176 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nitelive;
+			packageProductDependencies = (
+				221CC84C28227ABC00AFC176 /* FirebaseAuth */,
+				221CC84E28227ABC00AFC176 /* FirebaseFirestore */,
+				221CC85028227ABC00AFC176 /* FirebaseFirestoreSwift-Beta */,
+				221CC85228227ABC00AFC176 /* FirebaseStorage */,
+			);
+			productName = Nitelive;
+			productReference = 221CC83A28227A2200AFC176 /* Nitelive.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		221CC83228227A2200AFC176 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					221CC83928227A2200AFC176 = {
+						CreatedOnToolsVersion = 13.3;
+					};
+				};
+			};
+			buildConfigurationList = 221CC83528227A2200AFC176 /* Build configuration list for PBXProject "Nitelive" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 221CC83128227A2200AFC176;
+			packageReferences = (
+				221CC84B28227ABC00AFC176 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 221CC83B28227A2200AFC176 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				221CC83928227A2200AFC176 /* Nitelive */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		221CC83828227A2200AFC176 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				221CC861282281E600AFC176 /* GoogleService-Info.plist in Resources */,
+				221CC84528227A2300AFC176 /* Preview Assets.xcassets in Resources */,
+				221CC84228227A2300AFC176 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		221CC83628227A2200AFC176 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22D3ABF82827B93600428135 /* ShotLoader.swift in Sources */,
+				226C6ECB282FA3FC00D1D866 /* ProfileView.swift in Sources */,
+				228335AF285DE22F0095E9D1 /* ExperimentalCode.swift in Sources */,
+				221CC8812823CB8700AFC176 /* PreferenceKeys.swift in Sources */,
+				221CC8742822884800AFC176 /* FirebaseData.swift in Sources */,
+				2283359E28509FDF0095E9D1 /* LaunchView.swift in Sources */,
+				22D3AC07282A5E6100428135 /* ClubImage.swift in Sources */,
+				224F6E5D284A1414001F9AC6 /* ClubShotView.swift in Sources */,
+				224F6E68284CE994001F9AC6 /* MapBalloon.swift in Sources */,
+				221CC8872823CD0C00AFC176 /* PlayerControls.swift in Sources */,
+				226C6ED1282FA8EE00D1D866 /* RecorderView.swift in Sources */,
+				221CC8782823C51300AFC176 /* Club.swift in Sources */,
+				2203E61F284383270043ACD2 /* CameraService.swift in Sources */,
+				224F6E312844DD1A001F9AC6 /* LoginCameraView.swift in Sources */,
+				221CC85C28227EB300AFC176 /* User.swift in Sources */,
+				224F6E65284CE084001F9AC6 /* ClubsMapManager.swift in Sources */,
+				221130012865BB7600247D53 /* DirectionsView.swift in Sources */,
+				224F6E5B284A13CF001F9AC6 /* ClubShotViewHostingController.swift in Sources */,
+				22D3AC10282BB25900428135 /* MapView.swift in Sources */,
+				2203E61C2840D2350043ACD2 /* ListView.swift in Sources */,
+				224F6E6C284DF595001F9AC6 /* ProfileImageView.swift in Sources */,
+				224F6E6A284CEA29001F9AC6 /* ClubMarker.swift in Sources */,
+				226C6ED7282FAA0E00D1D866 /* VideoCameraView.swift in Sources */,
+				222EEFFF28379C2300695CBC /* PostButton.swift in Sources */,
+				2203E625284391850043ACD2 /* SelfieView.swift in Sources */,
+				226C6ED5282FA9BA00D1D866 /* Player.swift in Sources */,
+				226C6EC8282D0F2D00D1D866 /* AlertItem.swift in Sources */,
+				226C6EE72834EF4400D1D866 /* MapManager.swift in Sources */,
+				2203E62128438C540043ACD2 /* CameraView.swift in Sources */,
+				221CC86B282284B300AFC176 /* MainView.swift in Sources */,
+				224F6E5328476F10001F9AC6 /* ShotView.swift in Sources */,
+				22D3AC04282A5D4200428135 /* ClubCircleNameText.swift in Sources */,
+				221CC85928227E4800AFC176 /* FirebaseManager.swift in Sources */,
+				22D3ABF628267BA600428135 /* ShotSnap.swift in Sources */,
+				226C6ECF282FA48100D1D866 /* ImagePicker.swift in Sources */,
+				2203E61A2840D0CD0043ACD2 /* CellView.swift in Sources */,
+				226C6EDD282FAAA400D1D866 /* PlayerUIView.swift in Sources */,
+				228335A5285B2C9A0095E9D1 /* VideoUploaderUserView.swift in Sources */,
+				224F6E4F28476EAD001F9AC6 /* VerticalPager.swift in Sources */,
+				221CC86F2822856500AFC176 /* Shot.swift in Sources */,
+				228335A7285B397B0095E9D1 /* TimeStampView.swift in Sources */,
+				22112FFF2864745B00247D53 /* UserNameView.swift in Sources */,
+				2203E623284390060043ACD2 /* CustomCameraView.swift in Sources */,
+				224F6E62284CE04A001F9AC6 /* ClubsMapView.swift in Sources */,
+				226C6ED9282FAA3800D1D866 /* VideoCameraController.swift in Sources */,
+				221CC85F28227F1200AFC176 /* FirebaseContants.swift in Sources */,
+				228335A32852058B0095E9D1 /* thumbnailLooper.swift in Sources */,
+				226C6EC3282D012200D1D866 /* RecorderButton.swift in Sources */,
+				226C6EC6282D0EA500D1D866 /* UserManager.swift in Sources */,
+				226C6EDB282FAA7700D1D866 /* VideoPlayback.swift in Sources */,
+				22D3AC16282BB39100428135 /* ClubView.swift in Sources */,
+				224F6E6E284E095F001F9AC6 /* RecordingTimer.swift in Sources */,
+				224F6E5128476EDC001F9AC6 /* ShotViewHostingController.swift in Sources */,
+				226C6ECD282FA43D00D1D866 /* LoginView.swift in Sources */,
+				224F6E59284A1366001F9AC6 /* ClubVerticalPager.swift in Sources */,
+				22D3AC01282A5BBD00428135 /* MockData.swift in Sources */,
+				226C6EE52832546800D1D866 /* UserAvatarView.swift in Sources */,
+				221CC83E28227A2200AFC176 /* NiteliveApp.swift in Sources */,
+				2203E612283F860B0043ACD2 /* LazyView.swift in Sources */,
+				221CC8852823CC9100AFC176 /* ShotPlayer.swift in Sources */,
+				22D3ABFC282A58A100428135 /* ShotInfo.swift in Sources */,
+				2203E60E283F757A0043ACD2 /* ClubChatMessage.swift in Sources */,
+				221CC872282285B600AFC176 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		221CC84628227A2300AFC176 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		221CC84728227A2300AFC176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		221CC84928227A2300AFC176 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
+				DEVELOPMENT_TEAM = 45MN72G8RH;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to Camera to record Club.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to know what club you can post in.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "To record club video";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NWC.NightLive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		221CC84A28227A2300AFC176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
+				DEVELOPMENT_TEAM = 45MN72G8RH;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to Camera to record Club.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to know what club you can post in.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "To record club video";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NWC.NightLive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore NWC.NightLive";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		221CC862282282AA00AFC176 /* Emulators */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-D EMULATORS";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Emulators;
+		};
+		221CC863282282AA00AFC176 /* Emulators */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
+				DEVELOPMENT_TEAM = 45MN72G8RH;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to Camera to record Club.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to know what club you can post in.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "To record club video";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NWC.NightLive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Emulators;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		221CC83528227A2200AFC176 /* Build configuration list for PBXProject "Nitelive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				221CC84628227A2300AFC176 /* Debug */,
+				221CC862282282AA00AFC176 /* Emulators */,
+				221CC84728227A2300AFC176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		221CC84828227A2300AFC176 /* Build configuration list for PBXNativeTarget "Nitelive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				221CC84928227A2300AFC176 /* Debug */,
+				221CC863282282AA00AFC176 /* Emulators */,
+				221CC84A28227A2300AFC176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		221CC84B28227ABC00AFC176 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		221CC84C28227ABC00AFC176 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 221CC84B28227ABC00AFC176 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		221CC84E28227ABC00AFC176 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 221CC84B28227ABC00AFC176 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		221CC85028227ABC00AFC176 /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 221CC84B28227ABC00AFC176 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
+		221CC85228227ABC00AFC176 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 221CC84B28227ABC00AFC176 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 221CC83228227A2200AFC176 /* Project object */;
+}

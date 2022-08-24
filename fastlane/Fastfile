@@ -1,0 +1,57 @@
+before_all do 
+ Dotenv.load ".env.secret"
+end
+
+desc "create app on developer portal App Store connect"
+lane :create_app do
+    create_app_online #produce
+end
+
+platform :ios do
+
+  before_all do 
+    Dotenv.load ".env.ios"
+  end
+
+  desc "sync signing"
+  lane :signing do
+    match
+     mapping = Actions.lane_context[
+      SharedValues::MATCH_PROVISIONING_PROFILE_MAPPING
+    ]
+    update_code_signing_settings(profile_name: mapping[ENV['MATCH_APP_IDENTIFIER']])
+  end
+
+  desc "build binary"
+  lane :build do
+     increment_build_number
+     signing
+     build_ios_app
+  end
+
+  desc "Release"
+  lane :release do
+      build
+      deliver(force: true)
+  end
+
+end
+
+
+platform :mac do
+  desc "sync signing"
+  lane :signing do
+
+  end
+
+  desc "build binary"
+  lane :build do
+
+  end
+
+  desc "Release"
+  lane :release do
+
+  end
+ 
+end
