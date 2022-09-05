@@ -16,9 +16,9 @@ struct ListView: View {
     
     @State private var searchText = ""
     
-    init(){
-        print("Initializing listview")
-    }
+//    init(){
+//        print("Initializing listview")
+//    }
     
     var body: some View {
  

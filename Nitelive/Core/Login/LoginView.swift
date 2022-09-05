@@ -166,7 +166,17 @@ struct LoginView: View {
     private func persistImageToStorage() {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         let ref = FirebaseManager.shared.storage.reference(withPath: "\(FirebaseConstants.profileImages)/\(uid)/\(uid)")
+        let thumbNailRef = FirebaseManager.shared.storage.reference(withPath: "\(FirebaseConstants.profileImages)/\(uid)/\(uid).thumbnail")
         guard let imageData = self.image?.jpegData(compressionQuality: 0.1) else { return }
+        
+        self.image?.prepareThumbnail(of: CGSize(width: 455, height: 230), completionHandler: { thumbnailImage in
+            if let thumbnailImage = thumbnailImage {
+                guard let thumbnailData = thumbnailImage.jpegData(compressionQuality: 0.1) else {return}
+                thumbNailRef.putData(thumbnailData)
+            }
+        })
+        
+        
         ref.putData(imageData, metadata: nil) { metadata, err in
             if let err = err {
                 self.loginStatusMessage = "Failed to push image to Storage: \(err)"
@@ -186,6 +196,7 @@ struct LoginView: View {
                 self.storeUserInformation(imageProfileUrl: url)
             }
         }
+        
     }
     
     private func storeUserInformation(imageProfileUrl: URL) {

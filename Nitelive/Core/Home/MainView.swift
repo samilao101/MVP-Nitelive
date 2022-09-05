@@ -17,6 +17,7 @@ struct MainView: View {
     @State var showRecorder = false
     @State var isGone = false
     @StateObject var clubData: FirebaseData
+    @State var showEmailView = false
     
     
     init(dataService: FirebaseData) {
@@ -28,20 +29,42 @@ struct MainView: View {
     
     var body: some View {
       
-      
-        VerticalPager(userManager: userManager, clubData: clubData, loader: loader, isGone: $isGone)
-            .ignoresSafeArea()
-            .navigationBarHidden(true)
-            .onDisappear{
-               isGone = true
-            }
-            .onAppear {
-                isGone = false
-            }
+        ZStack {
+            VerticalPager(userManager: userManager, clubData: clubData, loader: loader, isGone: $isGone)
+                .ignoresSafeArea()
+                .navigationBarHidden(true)
+                .onDisappear{
+                   isGone = true
+                }
+                .onAppear {
+                    isGone = false
+                }
             
-      
-        
-           
+            
+            
+            VStack{
+                HStack{
+                    Spacer()
+                    Button {
+                        showEmailView.toggle()
+                    } label: {
+                        Label {
+                            Text("New Club Request")
+                        } icon: {
+                            Image(systemName: "paperplane.fill")
+                        }
+                        .font(.system(size: 16))
+                        .foregroundColor(.white)
+
+                    }
+
+                    Spacer()
+                }.padding(.top, 40)
+                Spacer()
+            }.sheet(isPresented: $showEmailView) {
+                EmailSupportView(supportInfo: RequestToAddClub(latitude: userManager.location?.latitude.description ?? "Not known", longitude: userManager.location?.longitude.description ?? "Not known"))
+            }
+        }
     }
     
    

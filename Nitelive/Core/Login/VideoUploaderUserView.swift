@@ -68,13 +68,15 @@ class VideoUploaderUserViewModel: ObservableObject {
     func downloadProfileImage(imageId: String, handler: @escaping(Result<UIImage, Error>)->Void) {
 
      
-        let logoStorage = FirebaseManager.shared.storage.reference().child("\(FirebaseConstants.profileImages)/\(imageId)/\(imageId)")
+        let logoStorage = FirebaseManager.shared.storage.reference().child("\(FirebaseConstants.profileImages)/\(imageId)/\(imageId).thumbnail")
 
     
         logoStorage.getData(maxSize: 1 * 1024 * 1024) { data, error in
         
           if let error = error {
             print(error.localizedDescription)
+              
+              
          
           } else {
         

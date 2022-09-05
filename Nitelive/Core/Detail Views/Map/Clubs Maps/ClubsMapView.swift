@@ -15,6 +15,9 @@ struct ClubsMapView: View {
     @EnvironmentObject var userManager: UserManager
     @EnvironmentObject var  listOfClubs : FirebaseData
     
+    @State var loadedShotThumbnails: Bool = false
+
+    
     init(clubs: [Club]) {
         _mapManager = StateObject(wrappedValue: ClubsMapManager(clubs: clubs))
     }
@@ -36,14 +39,34 @@ struct ClubsMapView: View {
                             .environmentObject(listOfClubs)
                         
                     } label: {
-                        ClubMarker(club: location, thumbnailURLs: listOfClubs.getClubVideosThumbnailsUrls(club: location))
+                        ClubMarker(club: location, thumbnailURLs: listOfClubs.getClubVideosThumbnailsUrls(club: location), loadedShotThumbnails: $loadedShotThumbnails)
                     }
 
                     
                 }
+                
+               
+                
             }
             .ignoresSafeArea()
             .accentColor(Color(.systemPink))
+            
+            VStack {
+                HStack{
+                    Spacer()
+                    if loadedShotThumbnails == false && listOfClubs.shots.count > 0 {
+                        HStack{
+                            Text("Loading")
+                                .bold()
+                            ProgressView()
+                        }
+                        .padding()
+                    }
+                }
+                Spacer()
+                
+                
+            }
 
         }
            

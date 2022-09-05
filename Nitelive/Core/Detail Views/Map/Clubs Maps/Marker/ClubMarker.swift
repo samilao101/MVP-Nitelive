@@ -10,12 +10,90 @@ import SwiftUI
 import AVFoundation
 
 
+class ThumbnailLoader: ObservableObject {
+    
+    
+    var thumbnailURLs: [URL]?
+    
+    
+    func getClubVideosThumbnails() async -> [UIImage]? {
+        
+
+   
+            if thumbnailURLs != nil {
+                
+                do {
+                    
+                    return try await withThrowingTaskGroup(of: UIImage?.self) { group in
+
+                        
+                        var thumbnails = [UIImage]()
+
+                        thumbnails.reserveCapacity(thumbnailURLs!.count)
+                        
+                        for urlString in thumbnailURLs! {
+                            group.addTask {
+                                await self.getThumbnailImage(forUrl: urlString)
+                            }
+                        }
+                        
+                        for try await image in group {
+                            if let image = image {
+                                thumbnails.append(image)
+                            }
+                        }
+                        
+                       return thumbnails
+                        
+
+                   
+                        
+                      
+                    }
+                    
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
+                
+            } else {
+                return nil
+            }
+        
+      
+        return nil
+      
+        
+        
+    }
+    
+    func getThumbnailImage(forUrl url: URL) async -> UIImage? {
+        let asset: AVAsset = AVAsset(url: url)
+        let imageGenerator = AVAssetImageGenerator(asset: asset)
+
+        do {
+            let thumbnailImage = try imageGenerator.copyCGImage(at: CMTimeMake(value: 1, timescale: 60), actualTime: nil)
+            return UIImage(cgImage: thumbnailImage)
+        } catch let error {
+            print(error)
+        }
+
+        return nil
+    }
+    
+}
+
+
 
 struct ClubMarker: View {
     
     var club: Club
-    @State var clubShotImages: [UIImage]?
     var thumbnailURLs: [URL]?
+    
+    @Binding var loadedShotThumbnails: Bool
+    
+    @StateObject private var thumbnailLoader = ThumbnailLoader()
+    @State var clubShotImages: [UIImage]? = nil
 
     
     var body: some View {
@@ -29,14 +107,14 @@ struct ClubMarker: View {
                 MapBalloon()
                     .frame(width: 90, height: 60)
                     .foregroundColor(.black)
-//                if clubShotImages == nil {
+                if clubShotImages == nil {
                     ClubImage(clubId: club.id, shape: .circle, imageUrl: club.clubImageUrl)
                         .frame(width: 35, height: 35)
                         .clipShape(Circle())
                         .offset(y: -11)
-//                } else {
-//                    thumbnailLooper(images: clubShotImages!)
-//                }
+                } else {
+                    thumbnailLooper(images: clubShotImages!)
+                }
                 
                 if club.checkedIN ?? 0 > 0 {
                     Text("\(min(club.checkedIN ?? 0, 99))")
@@ -54,51 +132,18 @@ struct ClubMarker: View {
                 .font(.caption)
                 .fontWeight(.semibold)
                 .foregroundColor(.green)
-        }.onAppear{
-//            clubShotImages = self.getClubVideosThumbnails()
-        }
-        
-    }
-    
-    func getClubVideosThumbnails() -> [UIImage]? {
-        
-        var thumbnails = [UIImage]()
-
-   
+        }.task {
             if thumbnailURLs != nil {
-                thumbnailURLs?.forEach({ url in
-                    if let thumbnail = self.getThumbnailImage(forUrl: url) {
-                        thumbnails.append(thumbnail)
-                    }
-                })
+                thumbnailLoader.thumbnailURLs = thumbnailURLs
+                print(1)
+               clubShotImages = await thumbnailLoader.getClubVideosThumbnails()
+                print(2)
+                loadedShotThumbnails = true
             }
-        
-      
-        
-        if thumbnails.isEmpty {
-            return nil
-        } else {
-            print(thumbnails.count)
-
-            return thumbnails
         }
         
-        
     }
-    
-    func getThumbnailImage(forUrl url: URL) -> UIImage? {
-        let asset: AVAsset = AVAsset(url: url)
-        let imageGenerator = AVAssetImageGenerator(asset: asset)
 
-        do {
-            let thumbnailImage = try imageGenerator.copyCGImage(at: CMTimeMake(value: 1, timescale: 60), actualTime: nil)
-            return UIImage(cgImage: thumbnailImage)
-        } catch let error {
-            print(error)
-        }
-
-        return nil
-    }
 }
 
 //struct DDGAnnotation_Previews: PreviewProvider {

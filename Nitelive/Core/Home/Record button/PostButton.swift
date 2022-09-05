@@ -27,6 +27,8 @@ class PostButtonManager: ObservableObject {
     
     func checkIfNearAnyClub() {
         
+        
+        
         if let userLocation = userLocation {
             clubs.forEach { club in
                 let userLoc = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
@@ -45,6 +47,8 @@ class PostButtonManager: ObservableObject {
             if userManager.currentClub != nil {
                 userManager.checkOutCurrentClub()
             }
+            
+            print("not near any club")
         }
     }
     
@@ -73,16 +77,11 @@ struct PostButton<Content: View>: View {
     
     var body: some View {
         ZStack {
-            
             content
             
-            
             VStack{
-                
                 HStack {
-            
                     Spacer()
-                        
                     LazyView {
                         NavigationLink(destination:
                                         
@@ -98,62 +97,51 @@ struct PostButton<Content: View>: View {
                             .padding(.top)
                         }
                     }
-                
-                    
                 }
-                
                 Spacer()
-                
-                HStack {
-                    Spacer()
-                    Spacer()
-                    
-                    if manager.nearClub {
-                        
-                        RecorderButton(club: manager.clubThatIsNear ?? MockData.clubs.club1, image: Image(systemName: "building")) {
-                            
-                            userManager.currentClub = manager.clubThatIsNear
-                            
-                            if userManager.currentUser == nil {
-                                showLogin = true
-                            } else {
-                                showCamera = true
-                            }
-                            
-                            
-                        }
-                    } else {
-                        Image(systemName: "circle.circle.fill")
-                            .foregroundColor(.red)
-                            .font(.system(size: 55))
-                            .opacity(0.5)
-                            .onTapGesture {
-                                showAlert.toggle()
-                            }
-                    }
-                    Spacer()
-                    
-                    NavigationLink {
-                        ProfileView().environmentObject(userManager)
-                    } label: {
-                        if userManager.isUserCurrentlyLoggedOut {
-                            Image(systemName: "person")
-                                .foregroundColor(.white)
-                                .font(.system(size: 45))
-                                .padding()
-                                .padding(.trailing)
-                        } else {
-                            UserNameView(name: userManager.currentUser?.username ?? "username")
-                                .padding(.trailing)
-                                .padding(.bottom)
-                        }
-
-                    }
-
-                }
-                
+        
             }
             
+            BottomBarView(align: .center) {
+                if manager.nearClub {
+                    RecorderButton(club: manager.clubThatIsNear ?? MockData.clubs.club1, image: Image(systemName: "building")) {
+                        userManager.currentClub = manager.clubThatIsNear
+                        if userManager.currentUser == nil {
+                            showLogin = true
+                        } else {
+                            showCamera = true
+                        }
+                    }
+                } else {
+                    Image(systemName: "circle.circle.fill")
+                        .foregroundColor(.red)
+                        .font(.system(size: 55))
+                        .opacity(0.5)
+                        .onTapGesture {
+                            showAlert.toggle()
+                        }
+                }
+             
+            }
+            
+            
+            BottomBarView(align: .trailing) {
+                NavigationLink {
+                                     ProfileView().environmentObject(userManager)
+                                 } label: {
+                                     if userManager.isUserCurrentlyLoggedOut {
+                                         Image(systemName: "person.circle")
+                                             .foregroundColor(.white)
+                                             .font(.system(size: 35))
+                                        
+                                     } else {
+                                         UserNameView(name: userManager.currentUser?.username ?? "username")
+                                           
+                                     }
+                            }
+            }
+            
+
         }
         .alert("To upload a video for a club you must be on location and your GPS settings on.", isPresented: $showAlert, actions: {
             Button("Ok", role: .cancel, action: {})

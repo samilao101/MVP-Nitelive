@@ -26,8 +26,9 @@ struct RecorderView: View {
                     Player(player: AVPlayer(url: videoURL!))
                          .ignoresSafeArea()
                     if uploadingVideo {
-                        ProgressView()
+                        ProgressView("Uploading")
                             .frame(width: 100, height: 100, alignment: .center)
+                            .scaleEffect(4)
                         
                     }
                     VStack {

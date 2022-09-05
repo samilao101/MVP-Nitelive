@@ -12,6 +12,7 @@ struct ShotView: View{
     var shot: Shot
     var club: Club
     var player: AVPlayer
+    @State var playStatus : AVPlayer.Status = .unknown
     
     @StateObject var userManager: UserManager
     @StateObject var clubData: FirebaseData
@@ -23,7 +24,9 @@ struct ShotView: View{
         self._userManager = StateObject(wrappedValue: userManager)
         self._clubData = StateObject(wrappedValue: clubData)
         self.player = player
-
+        self.playStatus = player.status
+        
+      
     }
  
     var body: some View{
@@ -32,11 +35,10 @@ struct ShotView: View{
         ShotInfo(club: club, userManager: userManager, clubData: clubData, uploaderUID: shot.fromId, timeStamp: shot.timeStamp) {
             
             ShotPlayer(player: player)
-            
-            
+                .ignoresSafeArea()
             
         }
-        .ignoresSafeArea()
+        
         .navigationBarHidden(true)
         .navigationTitle("")
     }

@@ -22,6 +22,8 @@ struct Club: Identifiable {
     var location: CLLocation {CLLocation(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon))}
     
     
+    
+    
     init(id: String, data: [String: Any]) {
        
         self.id = id

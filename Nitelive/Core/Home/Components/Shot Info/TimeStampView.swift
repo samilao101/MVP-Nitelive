@@ -22,17 +22,16 @@ struct TimeStampView: View {
     }
     
     var body: some View {
-        HStack {
-            
-            Text(dateFormatter.string(from: date))
-                .font(.headline)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 4).stroke(lineWidth: 1)
-                        
-                )
-            
-            
-        }
+  
+        Text(dateFormatter.string(from: date))
+            .font(.headline)
+            .foregroundColor(.white)
+            .overlay(
+                RoundedRectangle(cornerRadius: 4).stroke(lineWidth: 1)
+                    .foregroundColor(.white)
+                    
+            )
+
     }
 }
 

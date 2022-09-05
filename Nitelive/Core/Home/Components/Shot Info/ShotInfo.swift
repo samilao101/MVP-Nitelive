@@ -36,9 +36,8 @@ struct ShotInfo<Content: View>: View {
             content
             
             VStack {
-                
                 HStack{
-                    
+    
                     VStack{
                             LazyView {
                                 NavigationLink {
@@ -65,8 +64,7 @@ struct ShotInfo<Content: View>: View {
                             }
                         VideoUploaderUserView(fromUID: uploaderUID)
                         Spacer()
-                        TimeStampView(date: timeStamp)
-                            .padding(.bottom, 50)
+            
                     }
                     Spacer()
                 }
@@ -74,10 +72,18 @@ struct ShotInfo<Content: View>: View {
                 
                 Spacer()
                 
+              
+                
             }
+           
+            BottomBarView(align: .leading) {
+                TimeStampView(date: timeStamp)
+                  
+           }
             
         }
         .navigationBarHidden(true)
+        .navigationTitle("")
         
     }
 }

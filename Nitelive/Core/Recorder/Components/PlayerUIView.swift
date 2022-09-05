@@ -51,4 +51,10 @@ class PlayerUIView: UIView {
         super.layoutSubviews()
         playerLayer.frame = bounds
     }
+    
+    
+
+    
+    
+
 }

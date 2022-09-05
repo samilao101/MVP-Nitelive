@@ -25,7 +25,6 @@ class FirebaseManager: NSObject {
 
     
     override init() {
-        FirebaseApp.configure()
 
      
                 

@@ -14,6 +14,7 @@ struct MapView: View {
     
     @EnvironmentObject var userManager: UserManager
 
+    @State var loadedShotThumbnails: Bool = false
     
     
     init(club: Club) {
@@ -27,7 +28,7 @@ struct MapView: View {
                 MapAnnotation(coordinate: location.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.75)) {
                     
                    
-                       ClubMarker(club: location)
+                    ClubMarker(club: location, loadedShotThumbnails: $loadedShotThumbnails)
                     
 
                     

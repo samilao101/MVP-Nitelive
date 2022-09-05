@@ -22,12 +22,20 @@ class FirebaseData: ObservableObject {
     }
     
     @Published var state: State = .idle
+    
+
 
     
     //Stores all the clubs videos and club information.
     @Published var shots = [Shot]()
     
     @Published var clubs = [Club]()
+    
+    @Published var showNotificiationShot = false
+    
+    @Published var notificationShot: Shot?
+    
+    @Published var noShotsUploaded = true
     
     static let instance = FirebaseData()
     
@@ -106,6 +114,12 @@ class FirebaseData: ObservableObject {
                 }
 
             })
+            
+            if self.shots.count > 0 {
+                self.noShotsUploaded = false
+            }
+            
+            
             
             print("loaded all documents")
             
@@ -201,6 +215,26 @@ class FirebaseData: ObservableObject {
             return nil
         } else {
             return thumbnailsURLs
+        }
+        
+        
+    }
+    
+    func getNotificationShot(id: String){
+        
+        FirebaseManager.shared.firestore.collection(FirebaseConstants.locationVideos).document(id).getDocument { snapshot, error in
+            if let error = error {
+                print("error getting shot from notification:\(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = snapshot?.data() else {return}
+            
+            self.notificationShot = Shot(data: data as [String: Any])
+            
+            self.showNotificiationShot = true
+            
+            
         }
         
         

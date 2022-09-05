@@ -13,9 +13,12 @@ struct ClubShotView: View{
     @State var showProfile: Bool = false
     var player: AVPlayer
     
+    @State var isANotification: Bool = false
+    
     init(shot: Shot, player: AVPlayer) {
         self.shot = shot
         self.player = player
+        self.isANotification = isANotification
         
     }
     
@@ -35,10 +38,10 @@ struct ClubShotView: View{
             }
             
         }
-            
-        
         .ignoresSafeArea()
         .navigationBarHidden(true)
         .navigationTitle("")
     }
 }
+
+

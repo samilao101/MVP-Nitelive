@@ -17,6 +17,8 @@
 		2203E625284391850043ACD2 /* SelfieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203E624284391850043ACD2 /* SelfieView.swift */; };
 		22112FFF2864745B00247D53 /* UserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22112FFE2864745B00247D53 /* UserNameView.swift */; };
 		221130012865BB7600247D53 /* DirectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221130002865BB7600247D53 /* DirectionsView.swift */; };
+		221B7C5528C35E6500AEB9C3 /* NotificationShotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221B7C5428C35E6500AEB9C3 /* NotificationShotView.swift */; };
+		221B7C5828C4B4CE00AEB9C3 /* EmailSupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221B7C5728C4B4CE00AEB9C3 /* EmailSupportView.swift */; };
 		221CC83E28227A2200AFC176 /* NiteliveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC83D28227A2200AFC176 /* NiteliveApp.swift */; };
 		221CC84228227A2300AFC176 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221CC84128227A2300AFC176 /* Assets.xcassets */; };
 		221CC84528227A2300AFC176 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221CC84428227A2300AFC176 /* Preview Assets.xcassets */; };
@@ -36,7 +38,10 @@
 		221CC8812823CB8700AFC176 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC8802823CB8700AFC176 /* PreferenceKeys.swift */; };
 		221CC8852823CC9100AFC176 /* ShotPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC8842823CC9100AFC176 /* ShotPlayer.swift */; };
 		221CC8872823CD0C00AFC176 /* PlayerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC8862823CD0C00AFC176 /* PlayerControls.swift */; };
+		2222E5B328BF48F400B107EB /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222E5B228BF48F400B107EB /* NotificationManager.swift */; };
 		222EEFFF28379C2300695CBC /* PostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222EEFFE28379C2300695CBC /* PostButton.swift */; };
+		2246DDFA28C0A65800337FBA /* MyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246DDF928C0A65800337FBA /* MyAppDelegate.swift */; };
+		2246DDFC28C0A8C200337FBA /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 2246DDFB28C0A8C200337FBA /* FirebaseMessaging */; };
 		224F6E312844DD1A001F9AC6 /* LoginCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E302844DD1A001F9AC6 /* LoginCameraView.swift */; };
 		224F6E4F28476EAD001F9AC6 /* VerticalPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E4E28476EAD001F9AC6 /* VerticalPager.swift */; };
 		224F6E5128476EDC001F9AC6 /* ShotViewHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E5028476EDC001F9AC6 /* ShotViewHostingController.swift */; };
@@ -50,6 +55,7 @@
 		224F6E6A284CEA29001F9AC6 /* ClubMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E69284CEA29001F9AC6 /* ClubMarker.swift */; };
 		224F6E6C284DF595001F9AC6 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E6B284DF595001F9AC6 /* ProfileImageView.swift */; };
 		224F6E6E284E095F001F9AC6 /* RecordingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E6D284E095F001F9AC6 /* RecordingTimer.swift */; };
+		225350BB28C60555008DAA8D /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225350BA28C60555008DAA8D /* BottomBarView.swift */; };
 		226C6EC3282D012200D1D866 /* RecorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EC2282D012200D1D866 /* RecorderButton.swift */; };
 		226C6EC6282D0EA500D1D866 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EC5282D0EA500D1D866 /* UserManager.swift */; };
 		226C6EC8282D0F2D00D1D866 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EC7282D0F2D00D1D866 /* AlertItem.swift */; };
@@ -90,6 +96,8 @@
 		2203E624284391850043ACD2 /* SelfieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieView.swift; sourceTree = "<group>"; };
 		22112FFE2864745B00247D53 /* UserNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameView.swift; sourceTree = "<group>"; };
 		221130002865BB7600247D53 /* DirectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsView.swift; sourceTree = "<group>"; };
+		221B7C5428C35E6500AEB9C3 /* NotificationShotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationShotView.swift; sourceTree = "<group>"; };
+		221B7C5728C4B4CE00AEB9C3 /* EmailSupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSupportView.swift; sourceTree = "<group>"; };
 		221CC83A28227A2200AFC176 /* Nitelive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nitelive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		221CC83D28227A2200AFC176 /* NiteliveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiteliveApp.swift; sourceTree = "<group>"; };
 		221CC84128227A2300AFC176 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,7 +114,11 @@
 		221CC8802823CB8700AFC176 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		221CC8842823CC9100AFC176 /* ShotPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotPlayer.swift; sourceTree = "<group>"; };
 		221CC8862823CD0C00AFC176 /* PlayerControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControls.swift; sourceTree = "<group>"; };
+		2222E5B228BF48F400B107EB /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		222EEFFE28379C2300695CBC /* PostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostButton.swift; sourceTree = "<group>"; };
+		223F9E7928C0BB85008881B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2246DDF928C0A65800337FBA /* MyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppDelegate.swift; sourceTree = "<group>"; };
+		2246DDFD28C0AA3A00337FBA /* Nitelive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nitelive.entitlements; sourceTree = "<group>"; };
 		224F6E302844DD1A001F9AC6 /* LoginCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCameraView.swift; sourceTree = "<group>"; };
 		224F6E4E28476EAD001F9AC6 /* VerticalPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalPager.swift; sourceTree = "<group>"; };
 		224F6E5028476EDC001F9AC6 /* ShotViewHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotViewHostingController.swift; sourceTree = "<group>"; };
@@ -120,6 +132,7 @@
 		224F6E69284CEA29001F9AC6 /* ClubMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubMarker.swift; sourceTree = "<group>"; };
 		224F6E6B284DF595001F9AC6 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		224F6E6D284E095F001F9AC6 /* RecordingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTimer.swift; sourceTree = "<group>"; };
+		225350BA28C60555008DAA8D /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
 		226C6EC2282D012200D1D866 /* RecorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderButton.swift; sourceTree = "<group>"; };
 		226C6EC5282D0EA500D1D866 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		226C6EC7282D0F2D00D1D866 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
@@ -156,6 +169,7 @@
 			files = (
 				221CC85128227ABC00AFC176 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				221CC85328227ABC00AFC176 /* FirebaseStorage in Frameworks */,
+				2246DDFC28C0A8C200337FBA /* FirebaseMessaging in Frameworks */,
 				221CC84D28227ABC00AFC176 /* FirebaseAuth in Frameworks */,
 				221CC84F28227ABC00AFC176 /* FirebaseFirestore in Frameworks */,
 			);
@@ -185,6 +199,22 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		221B7C5328C35E2200AEB9C3 /* Notification Views */ = {
+			isa = PBXGroup;
+			children = (
+				221B7C5428C35E6500AEB9C3 /* NotificationShotView.swift */,
+			);
+			path = "Notification Views";
+			sourceTree = "<group>";
+		};
+		221B7C5628C4B20F00AEB9C3 /* EmailSupportView */ = {
+			isa = PBXGroup;
+			children = (
+				221B7C5728C4B4CE00AEB9C3 /* EmailSupportView.swift */,
+			);
+			path = EmailSupportView;
+			sourceTree = "<group>";
+		};
 		221CC83128227A2200AFC176 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +236,9 @@
 		221CC83C28227A2200AFC176 /* Nitelive */ = {
 			isa = PBXGroup;
 			children = (
+				223F9E7928C0BB85008881B6 /* Info.plist */,
+				2246DDFD28C0AA3A00337FBA /* Nitelive.entitlements */,
+				2246DDF928C0A65800337FBA /* MyAppDelegate.swift */,
 				221CC83D28227A2200AFC176 /* NiteliveApp.swift */,
 				2283359D28509FDF0095E9D1 /* LaunchView.swift */,
 				22D3ABFF282A5BAC00428135 /* MockData */,
@@ -234,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				221CC85828227E4800AFC176 /* FirebaseManager.swift */,
+				2222E5B228BF48F400B107EB /* NotificationManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -376,6 +410,14 @@
 			path = Marker;
 			sourceTree = "<group>";
 		};
+		225350B928C6050F008DAA8D /* BottomBarView */ = {
+			isa = PBXGroup;
+			children = (
+				225350BA28C60555008DAA8D /* BottomBarView.swift */,
+			);
+			path = BottomBarView;
+			sourceTree = "<group>";
+		};
 		2253A37B28A4F5B200764B33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +512,9 @@
 				2203E6162840D0060043ACD2 /* List */,
 				22D3AC0E282BB23500428135 /* Map */,
 				224F6E57284A12EB001F9AC6 /* Club Vertical Pager */,
+				221B7C5328C35E2200AEB9C3 /* Notification Views */,
+				221B7C5628C4B20F00AEB9C3 /* EmailSupportView */,
+				225350B928C6050F008DAA8D /* BottomBarView */,
 			);
 			path = "Detail Views";
 			sourceTree = "<group>";
@@ -506,6 +551,7 @@
 				221CC84E28227ABC00AFC176 /* FirebaseFirestore */,
 				221CC85028227ABC00AFC176 /* FirebaseFirestoreSwift-Beta */,
 				221CC85228227ABC00AFC176 /* FirebaseStorage */,
+				2246DDFB28C0A8C200337FBA /* FirebaseMessaging */,
 			);
 			productName = Nitelive;
 			productReference = 221CC83A28227A2200AFC176 /* Nitelive.app */;
@@ -587,8 +633,10 @@
 				2203E61C2840D2350043ACD2 /* ListView.swift in Sources */,
 				224F6E6C284DF595001F9AC6 /* ProfileImageView.swift in Sources */,
 				224F6E6A284CEA29001F9AC6 /* ClubMarker.swift in Sources */,
+				2222E5B328BF48F400B107EB /* NotificationManager.swift in Sources */,
 				226C6ED7282FAA0E00D1D866 /* VideoCameraView.swift in Sources */,
 				222EEFFF28379C2300695CBC /* PostButton.swift in Sources */,
+				221B7C5528C35E6500AEB9C3 /* NotificationShotView.swift in Sources */,
 				2203E625284391850043ACD2 /* SelfieView.swift in Sources */,
 				226C6ED5282FA9BA00D1D866 /* Player.swift in Sources */,
 				226C6EC8282D0F2D00D1D866 /* AlertItem.swift in Sources */,
@@ -598,6 +646,7 @@
 				224F6E5328476F10001F9AC6 /* ShotView.swift in Sources */,
 				22D3AC04282A5D4200428135 /* ClubCircleNameText.swift in Sources */,
 				221CC85928227E4800AFC176 /* FirebaseManager.swift in Sources */,
+				225350BB28C60555008DAA8D /* BottomBarView.swift in Sources */,
 				22D3ABF628267BA600428135 /* ShotSnap.swift in Sources */,
 				226C6ECF282FA48100D1D866 /* ImagePicker.swift in Sources */,
 				2203E61A2840D0CD0043ACD2 /* CellView.swift in Sources */,
@@ -616,10 +665,12 @@
 				226C6EC6282D0EA500D1D866 /* UserManager.swift in Sources */,
 				226C6EDB282FAA7700D1D866 /* VideoPlayback.swift in Sources */,
 				22D3AC16282BB39100428135 /* ClubView.swift in Sources */,
+				2246DDFA28C0A65800337FBA /* MyAppDelegate.swift in Sources */,
 				224F6E6E284E095F001F9AC6 /* RecordingTimer.swift in Sources */,
 				224F6E5128476EDC001F9AC6 /* ShotViewHostingController.swift in Sources */,
 				226C6ECD282FA43D00D1D866 /* LoginView.swift in Sources */,
 				224F6E59284A1366001F9AC6 /* ClubVerticalPager.swift in Sources */,
+				221B7C5828C4B4CE00AEB9C3 /* EmailSupportView.swift in Sources */,
 				22D3AC01282A5BBD00428135 /* MockData.swift in Sources */,
 				226C6EE52832546800D1D866 /* UserAvatarView.swift in Sources */,
 				221CC83E28227A2200AFC176 /* NiteliveApp.swift in Sources */,
@@ -754,12 +805,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Nitelive/Nitelive.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
 				DEVELOPMENT_TEAM = 45MN72G8RH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Nitelive/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to Camera to record Club.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to know what club you can post in.";
@@ -778,6 +832,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = NWC.NightLive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -792,13 +847,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 11;
+				CODE_SIGN_ENTITLEMENTS = Nitelive/Nitelive.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
 				DEVELOPMENT_TEAM = 45MN72G8RH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Nitelive/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to Camera to record Club.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to know what club you can post in.";
@@ -817,7 +874,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = NWC.NightLive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore NWC.NightLive";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -894,12 +951,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Nitelive/Nitelive.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
 				DEVELOPMENT_TEAM = 45MN72G8RH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Nitelive/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to Camera to record Club.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to know what club you can post in.";
@@ -918,6 +978,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = NWC.NightLive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -983,6 +1044,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 221CC84B28227ABC00AFC176 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		2246DDFB28C0A8C200337FBA /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 221CC84B28227ABC00AFC176 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

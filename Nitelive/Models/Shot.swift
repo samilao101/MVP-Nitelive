@@ -28,6 +28,7 @@ struct Shot: Identifiable {
         self.fromId = data[FirebaseConstants.fromId] as? String ?? ""
         self.profileImageUrl = data[FirebaseConstants.profileImageUrl] as? String ?? ""
         self.videoUrl = URL(string: data[FirebaseConstants.videoUrl] as? String ?? "")!
+//        self.videoUrl = URL(string: "www.fakewebsite123samil.com")!
         self.clubId = data[FirebaseConstants.clubId] as? String ?? ""
         let timeStampString = data[FirebaseConstants.timestamp] as? String ?? ""
         self.timeStamp = Date().shotDateFromString(dateString: timeStampString)

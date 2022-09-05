@@ -20,7 +20,7 @@ struct UserNameView: View {
                     .foregroundColor(.white)
                     
             )
-            .padding(.bottom, 50)
+      
 
     }
 }

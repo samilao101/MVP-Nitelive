@@ -28,7 +28,7 @@ struct FirebaseConstants {
     static let checkedIn = "CheckedIn"
     static let checkedInClub = "checkedInClub"
     static let profileImages = "profileImages"
-    static let checkedIN = "checkedIN"
+    static let checkedIN = "CheckedIN"
     static let currentClubId = "currentClubId"
     static let toClub = "toClub"
     static let latestMessage = "latestMessage"

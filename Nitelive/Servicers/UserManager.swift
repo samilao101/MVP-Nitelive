@@ -11,10 +11,19 @@ import MapKit
 class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
 
+    static let instance = UserManager()
+    
     @Published var isUserCurrentlyLoggedOut = false
     @Published var errorMessage = ""
     @Published var currentUser: User?
-    @Published var currentClub: Club? 
+    @Published var currentClub: Club? {
+        didSet {
+            if let currentClub = currentClub {
+                print("about to create notification")
+                self.createNotificationForNextEntryToClub(clubId: currentClub.id, clubLocation: currentClub.location)
+            }
+        }
+    }
     @Published var alertItem: AlertItem?
     @Published var profileImage: UIImage? = nil
     
@@ -34,10 +43,11 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
         
         fetchCurrentUser()
-        
-        fetchCurrentClub()
-        
+                
         fetchUserLocation()
+        
+        
+        
         
     }
 
@@ -127,10 +137,15 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
       
        
         guard let uid = currentUser?.uid else {return}
-       
+        
+      
         if currentClub != nil {
+            
+        
             if currentClub!.id != club.id {
                 
+               
+             
                 alertItem = AlertContext.checkedOutOfOtherClub
                 
                 self.checkOutCurrentClub()
@@ -141,7 +156,7 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                         if let err = err {
                             print(err)
                            
-
+                            print("Error setting user data when checking in")
                             return
 
                         }
@@ -157,19 +172,27 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                         if let err = err {
                             print(err)
                           
-
+                            print("error setting club data in user when checking in")
                             return
                         }
                       
                     
                     }
-                
-                
-                FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(club.id).updateData([FirebaseConstants.checkedIN : FieldValue.increment(Int64(1))])
+   
+                FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(club.id).updateData([FirebaseConstants.checkedIN : FieldValue.increment(Int64(1))]) { err in
+                    if let err = err {
+                        print(err)
+                      
+                        print("error when incrementing club number")
+                        return
+                    }
+                }
             }
                
             
         } else {
+           
+            
             FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(club.id).collection(FirebaseConstants.checkedInUsers)
                 .document(uid).setData(currentUser!.asDictionary) { err in
 
@@ -215,8 +238,11 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     /// ```
     
     func checkOutCurrentClub() {
-        
+        print("Checking out....")
+        print(currentClub)
+        print(currentUser)
         FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(currentClub!.id).collection(FirebaseConstants.checkedInUsers).document(currentUser!.uid).delete()
+        
         
         FirebaseManager.shared.firestore.collection(FirebaseConstants.users).document(currentUser!.uid).collection(FirebaseConstants.checkedIn).document(FirebaseConstants.checkedInClub).delete()
         
@@ -234,6 +260,7 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         guard let clubId = currentClub?.id else { return }
         guard let videoURL = videoUrl else {return}
+        guard let clubName = currentClub?.name else {return}
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
@@ -266,7 +293,10 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                                       FirebaseConstants.fromId: self.currentUser!.uid,
                                       FirebaseConstants.email: self.currentUser!.email,
                                       FirebaseConstants.profileImageUrl: self.currentUser!.profileImageUrl,
-                                      FirebaseConstants.id: videoId, FirebaseConstants.clubId: clubId])
+                                      FirebaseConstants.id: videoId,
+                                      FirebaseConstants.clubId: clubId,
+                                      FirebaseConstants.clubName: clubName
+                                     ])
               
               handler(.success(true))
               
@@ -284,6 +314,11 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         
     }
     
+   
+    
+    func createNotificationForNextEntryToClub(clubId: String, clubLocation: CLLocation) {
+        NotificationManager.instance.scheduleLocationNotification(clubId: clubId, clubLocation: clubLocation)
+    }
     
     
     func checkIfLocationServicesIsEnabled() {
