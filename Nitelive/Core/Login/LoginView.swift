@@ -20,6 +20,8 @@ struct LoginView: View {
     @State private var password = ""
     @State var loginStatusMessage = ""
     @State var image: UIImage?
+    @Environment(\.presentationMode) var presentationMode
+
     
 
     
@@ -28,8 +30,24 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                
+              
+                HStack{
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Text("< back")
+                            .bold()
+                            .padding(.leading)
+                            
+                    }
+                    Spacer()
+                }
+
                 VStack(spacing: 16) {
+                    
+                    Text(isLoginMode ? "Log In" : "Create Account")
+                        .font(.system(size: 30))
+                        .bold()
 
                     Picker(selection: $isLoginMode, label: Text("Picker here")) {
                         Text("Login")
@@ -51,7 +69,7 @@ struct LoginView: View {
                                         .frame(width: 128, height: 128)
                                         .cornerRadius(64)
                                 } else {
-                                    Image(systemName: "person.fill")
+                                    Image(systemName: "camera.fill")
                                         .font(.system(size: 64))
                                         .padding()
                                         .foregroundColor(Color(.label))
@@ -97,17 +115,18 @@ struct LoginView: View {
                         .foregroundColor(.red)
                 }
                 .preferredColorScheme(.light)
-                
+                .navigationBarHidden(true)
                
                 .padding()
                 
             }
-            .navigationTitle(isLoginMode ? "Log In" : "Create Account")
             .background(Color(.init(white: 0, alpha: 0.05))
                             .ignoresSafeArea())
         }
         .preferredColorScheme(.light)
         .navigationViewStyle(StackNavigationViewStyle())
+        .navigationTitle("")
+        .navigationBarHidden(true)
         .fullScreenCover(isPresented: $shouldShowImagePicker, onDismiss: nil) {
             SelfieView(capturedImaged: $image)
                 .ignoresSafeArea()
