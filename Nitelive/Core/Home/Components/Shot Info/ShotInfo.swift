@@ -68,7 +68,7 @@ struct ShotInfo<Content: View>: View {
                     }
                     Spacer()
                 }
-                .padding(.top, 40)
+               
                 
                 Spacer()
                 

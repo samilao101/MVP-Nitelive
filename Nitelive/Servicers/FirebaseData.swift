@@ -11,9 +11,7 @@ import SwiftUI
 import AVFoundation
 
 class FirebaseData: ObservableObject {
-    
-    //Describes the state of the data retrieval. This determines if any information will be shown to the user.
-    
+      
     enum State {
         case idle
         case loading
@@ -23,18 +21,10 @@ class FirebaseData: ObservableObject {
     
     @Published var state: State = .idle
     
-
-
-    
-    //Stores all the clubs videos and club information.
     @Published var shots = [Shot]()
-    
     @Published var clubs = [Club]()
-    
     @Published var showNotificiationShot = false
-    
     @Published var notificationShot: Shot?
-    
     @Published var noShotsUploaded = true
     
     static let instance = FirebaseData()
@@ -49,22 +39,7 @@ class FirebaseData: ObservableObject {
     
     init(state: State){
         self.state = state
-        runTests()
     }
-    
-    func runTests() {
-        
-        let testShots = [Shot(data: MockData.shotsData.data)]
-        self.shots = testShots
-        let testClubs = [Club(id: "123", data: MockData.clubs.data)]
-        self.clubs = testClubs
-    }
-    
-    
-    /// Downloads the clubs videos
-    /// ```
-    /// Converts the video meta data into a 'Shot' model and stores in FirebaseData.
-    /// ```
     
     private func getShots() {
         
@@ -77,62 +52,27 @@ class FirebaseData: ObservableObject {
                 self.state = .failed(error)
                 return
             }
-        
-            
+    
             query?.documentChanges.forEach({ change in
 
                 switch change.type {
-
                 case .added:
-                    let data = change.document.data()
-                    let tempShot = Shot(data: data)
-
-                    self.shots.append(tempShot)
-
-
+                    self.addShot(change)
                 case .modified:
-                    let data = change.document.data()
-                    let tempShot = Shot(data: data)
-
-                    let id = data[FirebaseConstants.id] as? String ?? ""
-                    if let index = self.shots.firstIndex(where: { shot in
-                        shot.id == id
-                    }) {
-                        self.shots[index] = tempShot
-                    }
-
-
+                    self.updateShot(change)
                 case .removed:
-                    let data = change.document.data()
-                    let id = data[FirebaseConstants.id] as? String ?? ""
-
-                    if let index = self.shots.firstIndex(where: { shot in
-                        shot.id == id
-                    }) {
-                        self.shots.remove(at: index)
-                    }
+                    self.removeShot(change)
                 }
-
             })
             
             if self.shots.count > 0 {
                 self.noShotsUploaded = false
             }
             
-            
-            
-            print("loaded all documents")
-            
             self.state = .loaded
-            
             
         }
     }
-    
-    /// Downloads the clubs data.
-    /// ```
-    /// Gets all the clubs information as found in Firebase and stores it in 'FirebaseData'.
-    /// ```
     
     private func getClubs() {
         
@@ -142,49 +82,18 @@ class FirebaseData: ObservableObject {
                 return
             }
             
-            
             query?.documentChanges.forEach({ change in
                
                 switch change.type {
-                    
                 case .added:
-                    let data = change.document.data()
-                    let id = change.document.documentID
-                    
-                    let tempClub = Club(id: id, data: data)
-                    self.clubs.append(tempClub)
-                    
+                    self.addClub(change)
                 case .modified:
-                    let data = change.document.data()
-                    let id = change.document.documentID
-                    let tempClub = Club(id: id, data: data)
-                    
-                    if let index = self.clubs.firstIndex(where: { club in
-                        club.id == id
-                    }) {
-                        self.clubs[index] = tempClub
-                    }
-                    
+                    self.updateClub(change)
                 case .removed:
-                    let id = change.document.documentID
-                    
-                    if let index = self.clubs.firstIndex(where: { club in
-                        club.id == id
-                    }) {
-                        self.clubs.remove(at: index)
-                    }
+                    self.removeClub(change)
                 }
-                
-                
-                
             })
-            
-            
-            
-            
         }
-        
-        
     }
     
     func getClubVideos(club: Club) -> [Shot] {
@@ -192,9 +101,7 @@ class FirebaseData: ObservableObject {
         let filteredShots = shots.filter { shot in
             shot.clubId == club.id
         }
-        
         return  filteredShots
-        
     }
     
     func getClubVideosThumbnailsUrls(club: Club) -> [URL]? {
@@ -204,20 +111,14 @@ class FirebaseData: ObservableObject {
         let filteredShots = shots.filter { shot in
             shot.clubId == club.id
         }
-        
             filteredShots.forEach { shot in
                 thumbnailsURLs.append(shot.videoUrl)
             }
-        
-      
-        
         if thumbnailsURLs.isEmpty {
             return nil
         } else {
             return thumbnailsURLs
         }
-        
-        
     }
     
     func getNotificationShot(id: String){
@@ -229,17 +130,71 @@ class FirebaseData: ObservableObject {
             }
             
             guard let data = snapshot?.data() else {return}
-            
             self.notificationShot = Shot(data: data as [String: Any])
-            
             self.showNotificiationShot = true
-            
-            
+        
         }
-        
-        
     }
     
- 
+    
+    fileprivate func addShot(_ change: DocumentChange) {
+        let data = change.document.data()
+        let tempShot = Shot(data: data)
+        
+        self.shots.append(tempShot)
+    }
+    
+    fileprivate func updateShot(_ change: DocumentChange) {
+        let data = change.document.data()
+        let tempShot = Shot(data: data)
+        
+        let id = data[FirebaseConstants.id] as? String ?? ""
+        if let index = self.shots.firstIndex(where: { shot in
+            shot.id == id
+        }) {
+            self.shots[index] = tempShot
+        }
+    }
+    
+    fileprivate func removeShot(_ change: DocumentChange) {
+        let data = change.document.data()
+        let id = data[FirebaseConstants.id] as? String ?? ""
+        
+        if let index = self.shots.firstIndex(where: { shot in
+            shot.id == id
+        }) {
+            self.shots.remove(at: index)
+        }
+    }
+    
+    fileprivate func addClub(_ change: DocumentChange) {
+        let data = change.document.data()
+        let id = change.document.documentID
+        
+        let tempClub = Club(id: id, data: data)
+        self.clubs.append(tempClub)
+    }
+    
+    fileprivate func updateClub(_ change: DocumentChange) {
+        let data = change.document.data()
+        let id = change.document.documentID
+        let tempClub = Club(id: id, data: data)
+        
+        if let index = self.clubs.firstIndex(where: { club in
+            club.id == id
+        }) {
+            self.clubs[index] = tempClub
+        }
+    }
+    
+    fileprivate func removeClub(_ change: DocumentChange) {
+        let id = change.document.documentID
+        
+        if let index = self.clubs.firstIndex(where: { club in
+            club.id == id
+        }) {
+            self.clubs.remove(at: index)
+        }
+    }
     
 }

@@ -10,13 +10,21 @@ import UIKit
 import AVFoundation
 
 class VideoCameraViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
+    
+    enum CameraType {
+        case Front
+        case Back
+    }
+    
+    var cameraCheck = CameraType.Back
+
 
     weak var camPreview: UIView!
     
 
-    let captureSession = AVCaptureSession()
-
-    let movieOutput = AVCaptureMovieFileOutput()
+    var captureSession = AVCaptureSession()
+    
+    var movieOutput = AVCaptureMovieFileOutput()
 
     var previewLayer: AVCaptureVideoPreviewLayer!
 
@@ -34,12 +42,6 @@ class VideoCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
             startSession()
         }
     
-      
-    
-    
-   
-    
-
     
     }
 
@@ -50,6 +52,71 @@ class VideoCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
 //        camPreview.layer.addSublayer(previewLayer)
         self.view.layer.addSublayer(previewLayer)
+    }
+    
+    func updateCameraPosition(flipCamera: Bool) {
+        
+        stopSession { [self] in
+            
+            self.captureSession = AVCaptureSession()
+            self.movieOutput = AVCaptureMovieFileOutput()
+
+            captureSession.sessionPreset = AVCaptureSession.Preset.high
+            
+
+            if flipCamera {
+                
+                print("trying in the front")
+                let camera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front)!
+            
+                do {
+                
+                    let input = try AVCaptureDeviceInput(device: camera)
+                
+                    if self.captureSession.canAddInput(input) {
+                        print("adding front input")
+                        self.captureSession.addInput(input)
+                        self.activeInput = input
+                    }
+                } catch {
+                    print("Error setting device video input: \(error)")
+                  
+                }
+                
+                
+            } else {
+                print("trying in the back")
+                let camera = AVCaptureDevice.default(for: AVMediaType.video)!
+            
+                do {
+                
+                    let input = try AVCaptureDeviceInput(device: camera)
+                
+                    if self.captureSession.canAddInput(input) {
+                        print("Adding back input")
+                        self.captureSession.addInput(input)
+                        self.activeInput = input
+                    }
+                } catch {
+                    print("Error setting device video input: \(error)")
+                    
+                }
+            }
+            
+            print("setting up session")
+            if self.captureSession.canAddOutput(self.movieOutput) {
+                print("session can add output")
+                self.captureSession.addOutput(movieOutput)
+            }
+            
+            print("setting up preview and session")
+            self.setupPreview()
+            self.startSession()
+        }
+        
+        
+        
+        
     }
 
     //MARK:- Setup Camera
@@ -111,10 +178,12 @@ class VideoCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
         }
     }
 
-    func stopSession() {
+    func stopSession(completion: @escaping () -> ()) {
         if captureSession.isRunning {
             videoQueue().async {
                 self.captureSession.stopRunning()
+                print("stopping session")
+                completion()
             }
         }
     }

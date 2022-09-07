@@ -13,6 +13,9 @@ struct VideoCameraView: UIViewControllerRepresentable {
     
     @Binding var videoURL: URL?
     @Binding var startStop: Bool
+    @Binding var flipCamera: Bool
+    @State var isCameraFlipping: Bool = false
+    @State var isItRecording: Bool = false
     
     func makeUIViewController(context: Context) -> VideoCameraViewController {
         
@@ -60,10 +63,20 @@ struct VideoCameraView: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: VideoCameraViewController, context: Context) {
         
-        if startStop {
+        if isCameraFlipping != flipCamera {
+            uiViewController.updateCameraPosition(flipCamera: flipCamera)
+            DispatchQueue.main.async {
+                isCameraFlipping = flipCamera
+            }
+        }
+        
+      
+        
+        if isItRecording != startStop {
             uiViewController.startRecording()
-        } else {
-            uiViewController.startRecording()
+            DispatchQueue.main.async {
+                isItRecording = startStop
+            }
         }
     }
     

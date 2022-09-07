@@ -25,7 +25,7 @@ class MyAppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserN
         application.registerForRemoteNotifications()
         
         Messaging.messaging().subscribe(toTopic: "Videos") { error in
-          print("Subscribed to total topic")
+          print("Subscribed to Videos topic")
         }
         
         return true 
@@ -52,8 +52,6 @@ class MyAppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserN
         Messaging.messaging().apnsToken = deviceToken
     }
     
- 
-    
     func application(
         _ application: UIApplication,
         didReceiveRemoteNotification userInfo: [AnyHashable : Any],
@@ -61,10 +59,7 @@ class MyAppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserN
         
         
     ) {
-        print("RECEIVED NOTIFICATION")
-        
-        
-        
+        print("RECEIVED NOTIFICATION")   
     }
 
     

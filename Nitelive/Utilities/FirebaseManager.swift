@@ -26,7 +26,6 @@ class FirebaseManager: NSObject {
     
     override init() {
 
-     
                 
 ////        Auth.auth().useEmulator(withHost: "10.0.0.96", port: 9099)
 ////        Storage.storage().useEmulator(withHost: "10.0.0.96", port: 9199)
@@ -45,6 +44,7 @@ class FirebaseManager: NSObject {
         settings.isPersistenceEnabled = false
 //
 //
+        
         
     }
     

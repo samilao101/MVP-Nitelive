@@ -24,7 +24,7 @@ struct AlertContext {
     
     //MARK: - MapView Errors
     static let checkedOutOfOtherClub             = AlertItem(title: Text("Checked Out Of Previous Clubs"),
-                                                            message: Text("You are checked Out of prrevious club"),
-                                                            dismissButton: .default(Text("Ok")))
+                                                        message: Text("You are checked Out of prrevious club"),
+                                                        dismissButton: .default(Text("Ok")))
     
 }

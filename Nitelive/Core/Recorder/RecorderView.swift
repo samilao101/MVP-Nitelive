@@ -17,6 +17,7 @@ struct RecorderView: View {
     @Binding var showRecorder: Bool
     @EnvironmentObject var vm : UserManager
     @State var uploadingVideo = false
+    @State var flipCamera: Bool = false
 
     
     var body: some View {
@@ -31,6 +32,7 @@ struct RecorderView: View {
                             .scaleEffect(4)
                         
                     }
+                    
                     VStack {
                         HStack{
                             VStack{
@@ -84,7 +86,7 @@ struct RecorderView: View {
             
             } else {
                 ZStack{
-                VideoCameraView(videoURL: $videoURL, startStop: $startStop)
+                    VideoCameraView(videoURL: $videoURL, startStop: $startStop, flipCamera: $flipCamera)
                         .ignoresSafeArea()
                 VStack {
                     HStack{
@@ -103,6 +105,25 @@ struct RecorderView: View {
                                 .foregroundColor(.white)
                         }.padding(24)
                     Spacer()
+                        
+                        if !startStop {
+                            VStack{
+                                Button {
+                                    
+                                    flipCamera.toggle()
+                             
+                                } label: {
+                                    Image(systemName: "arrow.triangle.2.circlepath.camera")
+                                        .font(.system(size: 24))
+                                        .foregroundColor(.white)
+                                }
+                                Text("Flip")
+                                    .font(.system(size: 24))
+                                    .foregroundColor(.white)
+                                
+                            }.padding(24)
+                        }
+                        
                     }
                     Spacer()
                     Button {

@@ -25,7 +25,6 @@ struct LaunchView: View {
                 .scaledToFill()
                 .blur(radius: 8)
 
-            
             ZStack {
                 if showLoadingText {
                     HStack(spacing: 0) {

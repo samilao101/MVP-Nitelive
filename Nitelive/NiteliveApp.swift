@@ -35,55 +35,36 @@ struct NiteliveApp: App {
             ZStack {
                 switch firebaseData.state {
                 case .idle:
-                    Text("Idle...")
+                    IdleView()
                 case .loading:
                     LaunchView()
                         .ignoresSafeArea()
-                     
                 case .failed(let error):
-                    Text("\(error.localizedDescription)")
+                    ErrorView(errorTextInfo: error.localizedDescription)
                 case .loaded:
-                    
                     NavigationView{
-                        PostButton(clubs: firebaseData.clubs, userLocation: userManager.location, userManager: userManager ) {
+                        MainView(clubs: firebaseData.clubs, userLocation: userManager.location, userManager: userManager ) {
                             
                             if firebaseData.noShotsUploaded {
-                                Text("""
-                                          NO VIDEOS YET TONIGHT.
-                                          
-                                          Be the first to upload:
-                                              1. Accept location permission.
-                                              2. Create an account.
-                                              2. Go to a club listed.
-                                              3. Wait until the app recognizes you are in.
-                                              3. Click on the record button (bottom).
-                                          """)
-                                .navigationBarHidden(true)
+                               NoVideosDataView()
+
                             } else {
-                                MainView(dataService: firebaseData)
-                                    .ignoresSafeArea()
+                              ShotDataVideoView(dataService: firebaseData)
                             }
-                               
                         }
                         .environmentObject(userManager)
-                        .environmentObject(firebaseData)
+                        .environmentObject(firebaseData)}
+                        .preferredColorScheme(.dark)
                         .background(
                             NavigationLink(
                                 destination: LazyView(view: {
                                     NotificationShotView(shot: firebaseData.notificationShot!, player: AVPlayer(url: firebaseData.notificationShot!.videoUrl))
                                 }),
                                 isActive: $firebaseData.showNotificiationShot,
-                                label: { EmptyView() }))}
-                        .preferredColorScheme(.dark)
-                        .onAppear{
-                            UserDefaults.standard.setValue("false", forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
-                        }.navigationViewStyle(StackNavigationViewStyle())
-                      
+                                label: { EmptyView() }))
                         
                 }
-                   
             }
         }
-        
     }
 }

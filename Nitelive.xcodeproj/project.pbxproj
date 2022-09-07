@@ -30,7 +30,7 @@
 		221CC85C28227EB300AFC176 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC85B28227EB300AFC176 /* User.swift */; };
 		221CC85F28227F1200AFC176 /* FirebaseContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC85E28227F1200AFC176 /* FirebaseContants.swift */; };
 		221CC861282281E600AFC176 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 221CC860282281E600AFC176 /* GoogleService-Info.plist */; };
-		221CC86B282284B300AFC176 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC86A282284B300AFC176 /* MainView.swift */; };
+		221CC86B282284B300AFC176 /* ShotDataVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC86A282284B300AFC176 /* ShotDataVideoView.swift */; };
 		221CC86F2822856500AFC176 /* Shot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC86E2822856500AFC176 /* Shot.swift */; };
 		221CC872282285B600AFC176 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC871282285B600AFC176 /* Extensions.swift */; };
 		221CC8742822884800AFC176 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC8732822884800AFC176 /* FirebaseData.swift */; };
@@ -39,7 +39,7 @@
 		221CC8852823CC9100AFC176 /* ShotPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC8842823CC9100AFC176 /* ShotPlayer.swift */; };
 		221CC8872823CD0C00AFC176 /* PlayerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC8862823CD0C00AFC176 /* PlayerControls.swift */; };
 		2222E5B328BF48F400B107EB /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222E5B228BF48F400B107EB /* NotificationManager.swift */; };
-		222EEFFF28379C2300695CBC /* PostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222EEFFE28379C2300695CBC /* PostButton.swift */; };
+		222EEFFF28379C2300695CBC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222EEFFE28379C2300695CBC /* MainView.swift */; };
 		2246DDFA28C0A65800337FBA /* MyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246DDF928C0A65800337FBA /* MyAppDelegate.swift */; };
 		2246DDFC28C0A8C200337FBA /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 2246DDFB28C0A8C200337FBA /* FirebaseMessaging */; };
 		224F6E312844DD1A001F9AC6 /* LoginCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E302844DD1A001F9AC6 /* LoginCameraView.swift */; };
@@ -56,6 +56,11 @@
 		224F6E6C284DF595001F9AC6 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E6B284DF595001F9AC6 /* ProfileImageView.swift */; };
 		224F6E6E284E095F001F9AC6 /* RecordingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E6D284E095F001F9AC6 /* RecordingTimer.swift */; };
 		225350BB28C60555008DAA8D /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225350BA28C60555008DAA8D /* BottomBarView.swift */; };
+		225350BD28C74476008DAA8D /* NoVideosDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225350BC28C74476008DAA8D /* NoVideosDataView.swift */; };
+		225350C028C74701008DAA8D /* IdleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225350BF28C74701008DAA8D /* IdleView.swift */; };
+		225350C228C74726008DAA8D /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225350C128C74726008DAA8D /* ErrorView.swift */; };
+		225350C428C751E4008DAA8D /* EmailSupportViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225350C328C751E4008DAA8D /* EmailSupportViewButton.swift */; };
+		225350C728C75331008DAA8D /* MainViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225350C628C75331008DAA8D /* MainViewManager.swift */; };
 		226C6EC3282D012200D1D866 /* RecorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EC2282D012200D1D866 /* RecorderButton.swift */; };
 		226C6EC6282D0EA500D1D866 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EC5282D0EA500D1D866 /* UserManager.swift */; };
 		226C6EC8282D0F2D00D1D866 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EC7282D0F2D00D1D866 /* AlertItem.swift */; };
@@ -106,7 +111,7 @@
 		221CC85B28227EB300AFC176 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		221CC85E28227F1200AFC176 /* FirebaseContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseContants.swift; sourceTree = "<group>"; };
 		221CC860282281E600AFC176 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		221CC86A282284B300AFC176 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		221CC86A282284B300AFC176 /* ShotDataVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDataVideoView.swift; sourceTree = "<group>"; };
 		221CC86E2822856500AFC176 /* Shot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shot.swift; sourceTree = "<group>"; };
 		221CC871282285B600AFC176 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		221CC8732822884800AFC176 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
@@ -115,7 +120,7 @@
 		221CC8842823CC9100AFC176 /* ShotPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotPlayer.swift; sourceTree = "<group>"; };
 		221CC8862823CD0C00AFC176 /* PlayerControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControls.swift; sourceTree = "<group>"; };
 		2222E5B228BF48F400B107EB /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		222EEFFE28379C2300695CBC /* PostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostButton.swift; sourceTree = "<group>"; };
+		222EEFFE28379C2300695CBC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		223F9E7928C0BB85008881B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2246DDF928C0A65800337FBA /* MyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppDelegate.swift; sourceTree = "<group>"; };
 		2246DDFD28C0AA3A00337FBA /* Nitelive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nitelive.entitlements; sourceTree = "<group>"; };
@@ -133,6 +138,11 @@
 		224F6E6B284DF595001F9AC6 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		224F6E6D284E095F001F9AC6 /* RecordingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTimer.swift; sourceTree = "<group>"; };
 		225350BA28C60555008DAA8D /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
+		225350BC28C74476008DAA8D /* NoVideosDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoVideosDataView.swift; sourceTree = "<group>"; };
+		225350BF28C74701008DAA8D /* IdleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleView.swift; sourceTree = "<group>"; };
+		225350C128C74726008DAA8D /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		225350C328C751E4008DAA8D /* EmailSupportViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSupportViewButton.swift; sourceTree = "<group>"; };
+		225350C628C75331008DAA8D /* MainViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewManager.swift; sourceTree = "<group>"; };
 		226C6EC2282D012200D1D866 /* RecorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderButton.swift; sourceTree = "<group>"; };
 		226C6EC5282D0EA500D1D866 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		226C6EC7282D0F2D00D1D866 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
@@ -211,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				221B7C5728C4B4CE00AEB9C3 /* EmailSupportView.swift */,
+				225350C328C751E4008DAA8D /* EmailSupportViewButton.swift */,
 			);
 			path = EmailSupportView;
 			sourceTree = "<group>";
@@ -218,6 +229,7 @@
 		221CC83128227A2200AFC176 = {
 			isa = PBXGroup;
 			children = (
+				22D3ABFF282A5BAC00428135 /* MockData */,
 				228335AD285DE1FE0095E9D1 /* Experimental Code */,
 				221CC83C28227A2200AFC176 /* Nitelive */,
 				221CC83B28227A2200AFC176 /* Products */,
@@ -241,7 +253,6 @@
 				2246DDF928C0A65800337FBA /* MyAppDelegate.swift */,
 				221CC83D28227A2200AFC176 /* NiteliveApp.swift */,
 				2283359D28509FDF0095E9D1 /* LaunchView.swift */,
-				22D3ABFF282A5BAC00428135 /* MockData */,
 				221CC8702822859300AFC176 /* Extensions */,
 				221CC85D28227EE300AFC176 /* Constants */,
 				221CC85A28227E8200AFC176 /* Models */,
@@ -317,7 +328,8 @@
 		221CC8692822842B00AFC176 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				221CC86A282284B300AFC176 /* MainView.swift */,
+				225350C828C75364008DAA8D /* Main View */,
+				225350C528C75286008DAA8D /* Shot Viewer */,
 				222EF00028379D8C00695CBC /* Record button */,
 				221CC8792823CADF00AFC176 /* Components */,
 			);
@@ -339,6 +351,7 @@
 				22D3ABFA282A57BF00428135 /* Shot Info */,
 				221CC8882823CD3800AFC176 /* Shot Player */,
 				22D3AC09282BB0D300428135 /* Nav Buttons */,
+				225350BE28C746CE008DAA8D /* Static Views */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -366,7 +379,6 @@
 		222EF00028379D8C00695CBC /* Record button */ = {
 			isa = PBXGroup;
 			children = (
-				222EEFFE28379C2300695CBC /* PostButton.swift */,
 				226C6EC2282D012200D1D866 /* RecorderButton.swift */,
 			);
 			path = "Record button";
@@ -416,6 +428,33 @@
 				225350BA28C60555008DAA8D /* BottomBarView.swift */,
 			);
 			path = BottomBarView;
+			sourceTree = "<group>";
+		};
+		225350BE28C746CE008DAA8D /* Static Views */ = {
+			isa = PBXGroup;
+			children = (
+				225350BC28C74476008DAA8D /* NoVideosDataView.swift */,
+				225350BF28C74701008DAA8D /* IdleView.swift */,
+				225350C128C74726008DAA8D /* ErrorView.swift */,
+			);
+			path = "Static Views";
+			sourceTree = "<group>";
+		};
+		225350C528C75286008DAA8D /* Shot Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				221CC86A282284B300AFC176 /* ShotDataVideoView.swift */,
+			);
+			path = "Shot Viewer";
+			sourceTree = "<group>";
+		};
+		225350C828C75364008DAA8D /* Main View */ = {
+			isa = PBXGroup;
+			children = (
+				222EEFFE28379C2300695CBC /* MainView.swift */,
+				225350C628C75331008DAA8D /* MainViewManager.swift */,
+			);
+			path = "Main View";
 			sourceTree = "<group>";
 		};
 		2253A37B28A4F5B200764B33 /* Frameworks */ = {
@@ -620,6 +659,7 @@
 				22D3AC07282A5E6100428135 /* ClubImage.swift in Sources */,
 				224F6E5D284A1414001F9AC6 /* ClubShotView.swift in Sources */,
 				224F6E68284CE994001F9AC6 /* MapBalloon.swift in Sources */,
+				225350C728C75331008DAA8D /* MainViewManager.swift in Sources */,
 				221CC8872823CD0C00AFC176 /* PlayerControls.swift in Sources */,
 				226C6ED1282FA8EE00D1D866 /* RecorderView.swift in Sources */,
 				221CC8782823C51300AFC176 /* Club.swift in Sources */,
@@ -635,20 +675,24 @@
 				224F6E6A284CEA29001F9AC6 /* ClubMarker.swift in Sources */,
 				2222E5B328BF48F400B107EB /* NotificationManager.swift in Sources */,
 				226C6ED7282FAA0E00D1D866 /* VideoCameraView.swift in Sources */,
-				222EEFFF28379C2300695CBC /* PostButton.swift in Sources */,
+				225350C028C74701008DAA8D /* IdleView.swift in Sources */,
+				222EEFFF28379C2300695CBC /* MainView.swift in Sources */,
 				221B7C5528C35E6500AEB9C3 /* NotificationShotView.swift in Sources */,
+				225350C428C751E4008DAA8D /* EmailSupportViewButton.swift in Sources */,
 				2203E625284391850043ACD2 /* SelfieView.swift in Sources */,
 				226C6ED5282FA9BA00D1D866 /* Player.swift in Sources */,
 				226C6EC8282D0F2D00D1D866 /* AlertItem.swift in Sources */,
 				226C6EE72834EF4400D1D866 /* MapManager.swift in Sources */,
+				225350BD28C74476008DAA8D /* NoVideosDataView.swift in Sources */,
 				2203E62128438C540043ACD2 /* CameraView.swift in Sources */,
-				221CC86B282284B300AFC176 /* MainView.swift in Sources */,
+				221CC86B282284B300AFC176 /* ShotDataVideoView.swift in Sources */,
 				224F6E5328476F10001F9AC6 /* ShotView.swift in Sources */,
 				22D3AC04282A5D4200428135 /* ClubCircleNameText.swift in Sources */,
 				221CC85928227E4800AFC176 /* FirebaseManager.swift in Sources */,
 				225350BB28C60555008DAA8D /* BottomBarView.swift in Sources */,
 				22D3ABF628267BA600428135 /* ShotSnap.swift in Sources */,
 				226C6ECF282FA48100D1D866 /* ImagePicker.swift in Sources */,
+				225350C228C74726008DAA8D /* ErrorView.swift in Sources */,
 				2203E61A2840D0CD0043ACD2 /* CellView.swift in Sources */,
 				226C6EDD282FAAA400D1D866 /* PlayerUIView.swift in Sources */,
 				228335A5285B2C9A0095E9D1 /* VideoUploaderUserView.swift in Sources */,
