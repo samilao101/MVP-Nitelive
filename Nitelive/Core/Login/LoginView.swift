@@ -7,6 +7,9 @@
 
 import SwiftUI
 import Firebase
+import GoogleSignIn
+import GoogleSignInSwift
+
 
 struct LoginView: View {
     
@@ -21,8 +24,6 @@ struct LoginView: View {
     @State var loginStatusMessage = ""
     @State var image: UIImage?
     @Environment(\.presentationMode) var presentationMode
-
-    
 
     
     @State private var shouldShowImagePicker = false
@@ -111,6 +112,8 @@ struct LoginView: View {
                         
                     }
                     
+//                    GoogleSignInButton(action: handleSignInButton)
+                    
                     Text(self.loginStatusMessage)
                         .foregroundColor(.red)
                 }
@@ -131,8 +134,52 @@ struct LoginView: View {
             SelfieView(capturedImaged: $image)
                 .ignoresSafeArea()
         }
+        
+        
     }
-    
+//    func handleSignInButton() {
+//
+//        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+//        guard let rootViewController = windowScene.windows.first?.rootViewController else { return }
+//
+//        GIDSignIn.sharedInstance.signIn(
+//          with: FirebaseManager.shared.signInConfig,
+//          presenting: rootViewController) { user, error in
+//            guard let signInUser = user else {
+//
+//
+//                return
+//            }
+//
+//              authenticateUser(for: signInUser, with: error)
+//
+//            // If sign in succeeded, display the app's main content View.
+//          }
+//
+//
+//    }
+//
+//    private func authenticateUser(for user: GIDGoogleUser?, with error: Error?) {
+//      // 1
+//      if let error = error {
+//        print(error.localizedDescription)
+//        return
+//      }
+//
+//      // 2
+//      guard let authentication = user?.authentication, let idToken = authentication.idToken else { return }
+//
+//      let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: authentication.accessToken)
+//
+//      // 3
+//      Auth.auth().signIn(with: credential) { (_, error) in
+//        if let error = error {
+//          print(error.localizedDescription)
+//        } else {
+//            self.didCompleteLoginProcess()
+//        }
+//      }
+//    }
 
     private func handleAction() {
         if isLoginMode {

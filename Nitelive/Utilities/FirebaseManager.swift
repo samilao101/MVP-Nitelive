@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import FirebaseStorage
+import GoogleSignIn
 
 class FirebaseManager: NSObject {
     
@@ -22,6 +23,9 @@ class FirebaseManager: NSObject {
     
     let homeIP: String = "10.0.0.96"
     let coffeeShopIp: String = "10.1.182.196"
+    
+    let signInConfig = GIDConfiguration(clientID: "87869933192-3i3c08728tlvrjqrt6n4onep55ulj6qu.apps.googleusercontent.com")
+
 
     
     override init() {

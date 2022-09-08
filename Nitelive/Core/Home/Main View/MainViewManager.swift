@@ -31,7 +31,7 @@ class MainViewManager: ObservableObject {
             clubs.forEach { club in
                 let userLoc = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
                 let distance = userLoc.distance(from: club.location)
-                if distance < 1609*102  //  1609/10 {
+                if distance <  1609/10 //1609*102  
                 {
                     clubThatIsNear = club
                     nearClub = true

@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 import UIKit
 import AVKit
+import GoogleSignIn
 
 
 @main
@@ -62,7 +63,13 @@ struct NiteliveApp: App {
                                 }),
                                 isActive: $firebaseData.showNotificiationShot,
                                 label: { EmptyView() }))
-                        
+//                        .onOpenURL { url in
+//                          GIDSignIn.sharedInstance.handle(url)
+//                        }
+//                        .onAppear{
+//                            GIDSignIn.sharedInstance.signOut()
+//
+//                        }
                 }
             }
         }

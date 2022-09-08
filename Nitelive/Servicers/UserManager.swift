@@ -7,11 +7,14 @@
 import Foundation
 import Firebase
 import MapKit
+import GoogleSignIn
 
 class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
 
     static let instance = UserManager()
+    
+
     
     @Published var isUserCurrentlyLoggedOut = false
     @Published var errorMessage = ""
