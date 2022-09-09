@@ -457,8 +457,8 @@
 		225350C828C75364008DAA8D /* Main View */ = {
 			isa = PBXGroup;
 			children = (
-				222EEFFE28379C2300695CBC /* MainView.swift */,
 				225350C628C75331008DAA8D /* MainViewManager.swift */,
+				222EEFFE28379C2300695CBC /* MainView.swift */,
 			);
 			path = "Main View";
 			sourceTree = "<group>";
@@ -863,7 +863,7 @@
 				CODE_SIGN_ENTITLEMENTS = Nitelive/Nitelive.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
 				DEVELOPMENT_TEAM = 45MN72G8RH;
 				ENABLE_PREVIEWS = YES;
@@ -905,7 +905,7 @@
 				CODE_SIGN_ENTITLEMENTS = Nitelive/Nitelive.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
 				DEVELOPMENT_TEAM = 45MN72G8RH;
 				ENABLE_PREVIEWS = YES;
@@ -1009,7 +1009,7 @@
 				CODE_SIGN_ENTITLEMENTS = Nitelive/Nitelive.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
 				DEVELOPMENT_TEAM = 45MN72G8RH;
 				ENABLE_PREVIEWS = YES;

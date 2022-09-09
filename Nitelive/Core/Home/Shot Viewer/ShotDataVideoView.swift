@@ -17,7 +17,6 @@ struct ShotDataVideoView: View {
     @State var showRecorder = false
     @State var isGone = false
     @StateObject var clubData: FirebaseData
-    @State var showEmailView = false
     
     
     init(dataService: FirebaseData) {
@@ -40,14 +39,6 @@ struct ShotDataVideoView: View {
                     isGone = false
                 }
             
-            VStack{
-                EmailSupportViewButton(showEmailView: $showEmailView)
-                    .padding(.top, 40)
-                Spacer()
-            }
-            .sheet(isPresented: $showEmailView) {
-                EmailSupportView(supportInfo: RequestToAddClub(latitude: userManager.location?.latitude.description ?? "Not known", longitude: userManager.location?.longitude.description ?? "Not known"))
-            }
         }
         .ignoresSafeArea()
     }

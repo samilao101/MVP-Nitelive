@@ -20,6 +20,8 @@ struct MainView<Content: View>: View {
     @State var showLogin = false
     @State var showCamera = false
     @State var showAlert = false
+    @State var showEmailView = false
+
     
     @State var count: Int = 0
     
@@ -41,9 +43,14 @@ struct MainView<Content: View>: View {
             profileButtonView
             
         }
-        .alert("To upload a video for a club you must be on location and your GPS settings on.", isPresented: $showAlert, actions: {
-            Button("Ok", role: .cancel, action: {})
-        })
+        .alert("To upload a video you must be on club location. If you are in location to a club not available in our list of clubs , you can request to add it as new club.", isPresented: $showAlert) {
+            Button("Request New Club", role: .none, action: {
+                showEmailView.toggle()
+            })
+            Button("Cancel", role: .cancel, action: {})
+
+
+        }
         .fullScreenCover(isPresented: $showCamera, content: {
             RecorderView(showRecorder: $showCamera).environmentObject(userManager)
         })
@@ -55,6 +62,10 @@ struct MainView<Content: View>: View {
                 showCamera = true
             }.preferredColorScheme(.dark)
         })
+        
+        .sheet(isPresented: $showEmailView) {
+            EmailSupportView(supportInfo: RequestToAddClub(latitude: userManager.location?.latitude.description ?? "Not known", longitude: userManager.location?.longitude.description ?? "Not known"))
+        }
       
         .onReceive(timer) { _ in
             count += 1
