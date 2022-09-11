@@ -33,20 +33,31 @@ class MainViewManager: ObservableObject {
                 let distance = userLoc.distance(from: club.location)
                 if distance <  1609/10 //1609*102  
                 {
+                    print("checked in")
                     clubThatIsNear = club
                     nearClub = true
                     userManager.checkInCurrentClub(club: club)
-                    print("checked in")
                 }
             }
+            
+            if !nearClub {
+                   print("Not near any club")
+                   clubThatIsNear = nil
+                   nearClub = false
+                   if userManager.currentClub != nil {
+                       userManager.checkOutCurrentClub()
+                    }
+            }
+            
         } else {
+            print("no location services")
             clubThatIsNear = nil
             nearClub = false
             if userManager.currentClub != nil {
                 userManager.checkOutCurrentClub()
             }
             
-            print("not near any club")
+           
         }
     }
     

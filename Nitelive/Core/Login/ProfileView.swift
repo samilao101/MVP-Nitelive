@@ -13,6 +13,8 @@ struct ProfileView: View {
     @State var loginStatusMessage = ""
     @State var image: UIImage?
     @State private var shouldShowImagePicker = false
+    @Environment(\.presentationMode) var presentationMode
+
 
     
     var body: some View {
@@ -24,6 +26,7 @@ struct ProfileView: View {
                 LoginView( didCompleteLoginProcess: {
                         self.userManager.isUserCurrentlyLoggedOut = false
                         self.userManager.fetchCurrentUser()
+                        presentationMode.wrappedValue.dismiss()
 
                 })
                

@@ -84,35 +84,42 @@ struct LoginView: View {
                     }
                     
                     Group {
-                        TextField("Email", text: $email)
-                            .keyboardType(.emailAddress)
-                            .autocapitalization(.none)
+//                        TextField("Email", text: $email)
+//                            .keyboardType(.emailAddress)
+//                            .autocapitalization(.none)
                         if !isLoginMode {
                             TextField("Username", text: $userName)
                                 .keyboardType(.default)
                                 .autocapitalization(.none)
                         }
                         
-                        SecureField("Password", text: $password)
+//                        SecureField("Password", text: $password)
                     }
 
                     .padding(12)
                     
-                    Button {
-                        handleAction()
-                    } label: {
-                        HStack {
-                            Spacer()
-                            Text(isLoginMode ? "Log In" : "Create Account")
-                                .foregroundColor(.white)
-                                .padding(.vertical, 10)
-                                .font(.system(size: 14, weight: .semibold))
-                            Spacer()
-                        }.background(Color.blue)
-                        
-                    }
+//                    Button {
+//                        handleAction()
+//                    } label: {
+//                        HStack {
+//                            Spacer()
+//                            Text(isLoginMode ? "Log In" : "Create Account")
+//                                .foregroundColor(.white)
+//                                .padding(.vertical, 10)
+//                                .font(.system(size: 14, weight: .semibold))
+//                            Spacer()
+//                        }.background(Color.blue)
+//
+//                    }
                     
 //                    GoogleSignInButton(action: handleSignInButton)
+                    
+                    ActivityIndicatorView(isPresented: $activityIndicatorInfo.isPresented, message: activityIndicatorInfo.message) {
+                        SignInWithAppleView(activityIndicatorInfo: $activityIndicatorInfo, alertInfo: $alertInfo, completedLogin: startLogin)
+                            .frame(width: 300, height: 50)
+                            
+                    }
+                 
                     
                     Text(self.loginStatusMessage)
                         .foregroundColor(.red)
@@ -136,7 +143,14 @@ struct LoginView: View {
         }
         
         
+        
+        
     }
+    
+    private func startLogin(data: [String: Any])  {
+        handleAction(data: data)
+    }
+    
 //    func handleSignInButton() {
 //
 //        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
@@ -181,13 +195,13 @@ struct LoginView: View {
 //      }
 //    }
 
-    private func handleAction() {
+    private func handleAction(data: [String: Any]) {
         if isLoginMode {
 //            print("Should log into Firebase with existing credentials")
-            loginUser()
+//            loginUser()
         } else {
-            createNewAccount()
-//            print("Register a new account inside of Firebase Auth and then store image in Storage somehow....")
+            persistImageToStorage(data: data)
+            //            print("Register a new account inside of Firebase Auth and then store image in Storage somehow....")
         }
     }
     
@@ -207,29 +221,29 @@ struct LoginView: View {
         }
     }
     
+//
+//    private func createNewAccount(data: [String: Any]) {
+//        if self.image == nil {
+//            self.loginStatusMessage = "You must select an avatar image"
+//            return
+//        }
+//
+//        FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, err in
+//            if let err = err {
+//                print("Failed to create user:", err)
+//                self.loginStatusMessage = "Failed to create user: \(err)"
+//                return
+//            }
+//
+//            print("Successfully created user: \(result?.user.uid ?? "")")
+//
+//            self.loginStatusMessage = "Successfully created user: \(result?.user.uid ?? "")"
+//
+//            self.persistImageToStorage()
+//        }
+//    }
     
-    private func createNewAccount() {
-        if self.image == nil {
-            self.loginStatusMessage = "You must select an avatar image"
-            return
-        }
-        
-        FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, err in
-            if let err = err {
-                print("Failed to create user:", err)
-                self.loginStatusMessage = "Failed to create user: \(err)"
-                return
-            }
-            
-            print("Successfully created user: \(result?.user.uid ?? "")")
-            
-            self.loginStatusMessage = "Successfully created user: \(result?.user.uid ?? "")"
-            
-            self.persistImageToStorage()
-        }
-    }
-    
-    private func persistImageToStorage() {
+    private func persistImageToStorage(data: [String: Any]) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         let ref = FirebaseManager.shared.storage.reference(withPath: "\(FirebaseConstants.profileImages)/\(uid)/\(uid)")
         let thumbNailRef = FirebaseManager.shared.storage.reference(withPath: "\(FirebaseConstants.profileImages)/\(uid)/\(uid).thumbnail")
@@ -259,22 +273,20 @@ struct LoginView: View {
                 print(url?.absoluteString ?? "")
                 
                 guard let url = url else { return }
-                self.storeUserInformation(imageProfileUrl: url)
+                var userData = data
+                userData[FirebaseConstants.profileImageUrl] =  url.absoluteString
+                userData[FirebaseConstants.username] = userName
+                self.storeUserInformation(data: userData)
             }
         }
         
     }
     
-    private func storeUserInformation(imageProfileUrl: URL) {
+    private func storeUserInformation(data: [String: Any]) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
-        let userData = [
-            FirebaseConstants.email: self.email,
-            FirebaseConstants.uid: uid,
-            FirebaseConstants.profileImageUrl: imageProfileUrl.absoluteString,
-            FirebaseConstants.username: userName
-        ]
+        
         FirebaseManager.shared.firestore.collection(FirebaseConstants.users)
-            .document(uid).setData(userData) { err in
+            .document(uid).setData(data) { err in
                 if let err = err {
                     print(err)
                     self.loginStatusMessage = "\(err)"
@@ -286,4 +298,46 @@ struct LoginView: View {
                 self.didCompleteLoginProcess()
             }
     }
+
+
+
+    
+    // MARK: - Activity Indicator
+    @State private var activityIndicatorInfo = SparkUIDefault.activityIndicatorInfo
+
+    func startActivityIndicator(message: String) {
+        activityIndicatorInfo.message = message
+        activityIndicatorInfo.isPresented = true
+    }
+
+    func stopActivityIndicator() {
+        activityIndicatorInfo.isPresented = false
+    }
+
+    func updateActivityIndicator(message: String) {
+        stopActivityIndicator()
+        startActivityIndicator(message: message)
+    }
+    
+    // MARK: - Alert
+    @State private var alertInfo = SparkUIDefault.alertInfo
+    
+    func presentAlert(title: String, message: String, actionText: String = "Ok", actionTag: Int = 0) {
+        alertInfo.title = title
+        alertInfo.message = message
+        alertInfo.actionText = actionText
+        alertInfo.actionTag = actionTag
+        alertInfo.isPresented = true
+    }
+    
+    func executeAlertAction() {
+        switch alertInfo.actionTag {
+        case 0:
+            print("No action alert action")
+            
+        default:
+            print("Default alert action")
+        }
+    }
+
 }

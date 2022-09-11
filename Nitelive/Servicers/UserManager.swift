@@ -14,11 +14,18 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     static let instance = UserManager()
     
-
+    private var storedUID: String?
     
     @Published var isUserCurrentlyLoggedOut = false
     @Published var errorMessage = ""
-    @Published var currentUser: User?
+    @Published var currentUser: User? {
+        didSet {
+            
+            guard let tempUID = currentUser?.uid else {return}
+            storedUID = tempUID
+        }
+    }
+    
     @Published var currentClub: Club? {
         didSet {
             if let currentClub = currentClub {
@@ -95,6 +102,7 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func handleSignOut() {
         isUserCurrentlyLoggedOut.toggle()
         try? FirebaseManager.shared.auth.signOut()
+        currentUser = nil
         checkOutCurrentClub()
     }
     
@@ -182,17 +190,16 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func checkOutCurrentClub() {
         print("Checking out....")
 
-        if currentUser != nil {
+        if storedUID != nil {
            
-            FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(currentClub!.id).collection(FirebaseConstants.checkedInUsers).document(currentUser!.uid).delete()
+            FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(storedUID!).collection(FirebaseConstants.checkedInUsers).document(currentUser!.uid).delete()
             
             
-            FirebaseManager.shared.firestore.collection(FirebaseConstants.users).document(currentUser!.uid).collection(FirebaseConstants.checkedIn).document(FirebaseConstants.checkedInClub).delete()
+            FirebaseManager.shared.firestore.collection(FirebaseConstants.users).document(storedUID!).collection(FirebaseConstants.checkedIn).document(FirebaseConstants.checkedInClub).delete()
             
-            FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(currentClub!.id).updateData([FirebaseConstants.checkedIN : FieldValue.increment(Int64(-1))])
+            FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(storedUID!).updateData([FirebaseConstants.checkedIN : FieldValue.increment(Int64(-1))])
             
             self.currentClub = nil
-            self.currentUser = nil
 
             
         }

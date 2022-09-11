@@ -66,10 +66,12 @@ struct NiteliveApp: App {
 //                        .onOpenURL { url in
 //                          GIDSignIn.sharedInstance.handle(url)
 //                        }
-//                        .onAppear{
+                        .onAppear{
 //                            GIDSignIn.sharedInstance.signOut()
-//
-//                        }
+                            SparkAuth.logout { result in
+                                
+                            }
+                        }
                 }
             }
         }

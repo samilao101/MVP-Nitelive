@@ -55,12 +55,15 @@ struct MainView<Content: View>: View {
             RecorderView(showRecorder: $showCamera).environmentObject(userManager)
         })
         .sheet(isPresented: $showLogin, content: {
-            LoginView {
-                userManager.isUserCurrentlyLoggedOut = false
-                userManager.fetchCurrentUser()
-                showLogin = false
-                showCamera = true
-            }.preferredColorScheme(.dark)
+       
+            HalfSheet {
+                LoginView {
+                    userManager.isUserCurrentlyLoggedOut = false
+                    userManager.fetchCurrentUser()
+                    showLogin = false
+                    showCamera = true
+                }.preferredColorScheme(.dark)
+            }
         })
         
         .sheet(isPresented: $showEmailView) {

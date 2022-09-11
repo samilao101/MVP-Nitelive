@@ -15,6 +15,19 @@
 		2203E62128438C540043ACD2 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203E62028438C540043ACD2 /* CameraView.swift */; };
 		2203E623284390060043ACD2 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203E622284390060043ACD2 /* CustomCameraView.swift */; };
 		2203E625284391850043ACD2 /* SelfieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203E624284391850043ACD2 /* SelfieView.swift */; };
+		220CD92728CB4639008E346D /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD92628CB4639008E346D /* SignInWithAppleView.swift */; };
+		220CD92F28CB46C2008E346D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD92E28CB46C2008E346D /* ActivityIndicator.swift */; };
+		220CD93028CB46C2008E346D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD92D28CB46C2008E346D /* Profile.swift */; };
+		220CD93128CB46C2008E346D /* SparkKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD92A28CB46C2008E346D /* SparkKeys.swift */; };
+		220CD93228CB46C2008E346D /* DocumentSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD92C28CB46C2008E346D /* DocumentSerializable.swift */; };
+		220CD93328CB46C2008E346D /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD92928CB46C2008E346D /* ActivityIndicatorView.swift */; };
+		220CD93428CB46C2008E346D /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD92B28CB46C2008E346D /* Typealiases.swift */; };
+		220CD93A28CB46D9008E346D /* SparkUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD93528CB46D8008E346D /* SparkUI.swift */; };
+		220CD93B28CB46D9008E346D /* SparkAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD93728CB46D8008E346D /* SparkAuth.swift */; };
+		220CD93C28CB46D9008E346D /* SparkFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD93928CB46D9008E346D /* SparkFirestore.swift */; };
+		220CD93D28CB46D9008E346D /* SparkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD93628CB46D8008E346D /* SparkError.swift */; };
+		220CD93E28CB46D9008E346D /* Spark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD93828CB46D9008E346D /* Spark.swift */; };
+		220CD94028CB46E0008E346D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD93F28CB46E0008E346D /* SignInView.swift */; };
 		22112FFF2864745B00247D53 /* UserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22112FFE2864745B00247D53 /* UserNameView.swift */; };
 		221130012865BB7600247D53 /* DirectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221130002865BB7600247D53 /* DirectionsView.swift */; };
 		221B7C5528C35E6500AEB9C3 /* NotificationShotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221B7C5428C35E6500AEB9C3 /* NotificationShotView.swift */; };
@@ -56,6 +69,7 @@
 		225350C428C751E4008DAA8D /* EmailSupportViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225350C328C751E4008DAA8D /* EmailSupportViewButton.swift */; };
 		225350C728C75331008DAA8D /* MainViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225350C628C75331008DAA8D /* MainViewManager.swift */; };
 		225350CF28C9520F008DAA8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 225350CE28C9520F008DAA8D /* GoogleService-Info.plist */; };
+		225B0E5928CDE20200BB7415 /* HalfModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B0E5828CDE20200BB7415 /* HalfModal.swift */; };
 		226C6EC3282D012200D1D866 /* RecorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EC2282D012200D1D866 /* RecorderButton.swift */; };
 		226C6EC6282D0EA500D1D866 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EC5282D0EA500D1D866 /* UserManager.swift */; };
 		226C6EC8282D0F2D00D1D866 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EC7282D0F2D00D1D866 /* AlertItem.swift */; };
@@ -102,6 +116,19 @@
 		2203E62028438C540043ACD2 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		2203E622284390060043ACD2 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
 		2203E624284391850043ACD2 /* SelfieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieView.swift; sourceTree = "<group>"; };
+		220CD92628CB4639008E346D /* SignInWithAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleView.swift; sourceTree = "<group>"; };
+		220CD92928CB46C2008E346D /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		220CD92A28CB46C2008E346D /* SparkKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkKeys.swift; sourceTree = "<group>"; };
+		220CD92B28CB46C2008E346D /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		220CD92C28CB46C2008E346D /* DocumentSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSerializable.swift; sourceTree = "<group>"; };
+		220CD92D28CB46C2008E346D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		220CD92E28CB46C2008E346D /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		220CD93528CB46D8008E346D /* SparkUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkUI.swift; sourceTree = "<group>"; };
+		220CD93628CB46D8008E346D /* SparkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkError.swift; sourceTree = "<group>"; };
+		220CD93728CB46D8008E346D /* SparkAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkAuth.swift; sourceTree = "<group>"; };
+		220CD93828CB46D9008E346D /* Spark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spark.swift; sourceTree = "<group>"; };
+		220CD93928CB46D9008E346D /* SparkFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkFirestore.swift; sourceTree = "<group>"; };
+		220CD93F28CB46E0008E346D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		22112FFE2864745B00247D53 /* UserNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameView.swift; sourceTree = "<group>"; };
 		221130002865BB7600247D53 /* DirectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsView.swift; sourceTree = "<group>"; };
 		221B7C5428C35E6500AEB9C3 /* NotificationShotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationShotView.swift; sourceTree = "<group>"; };
@@ -146,6 +173,7 @@
 		225350C328C751E4008DAA8D /* EmailSupportViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSupportViewButton.swift; sourceTree = "<group>"; };
 		225350C628C75331008DAA8D /* MainViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewManager.swift; sourceTree = "<group>"; };
 		225350CE28C9520F008DAA8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		225B0E5828CDE20200BB7415 /* HalfModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModal.swift; sourceTree = "<group>"; };
 		226C6EC2282D012200D1D866 /* RecorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderButton.swift; sourceTree = "<group>"; };
 		226C6EC5282D0EA500D1D866 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		226C6EC7282D0F2D00D1D866 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
@@ -213,6 +241,26 @@
 				224F6E302844DD1A001F9AC6 /* LoginCameraView.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		220CD92828CB4667008E346D /* Spark Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				220CD92E28CB46C2008E346D /* ActivityIndicator.swift */,
+				220CD92928CB46C2008E346D /* ActivityIndicatorView.swift */,
+				220CD92C28CB46C2008E346D /* DocumentSerializable.swift */,
+				220CD92D28CB46C2008E346D /* Profile.swift */,
+				220CD92A28CB46C2008E346D /* SparkKeys.swift */,
+				220CD92B28CB46C2008E346D /* Typealiases.swift */,
+				220CD92628CB4639008E346D /* SignInWithAppleView.swift */,
+				220CD93828CB46D9008E346D /* Spark.swift */,
+				220CD93728CB46D8008E346D /* SparkAuth.swift */,
+				220CD93628CB46D8008E346D /* SparkError.swift */,
+				220CD93928CB46D9008E346D /* SparkFirestore.swift */,
+				220CD93528CB46D8008E346D /* SparkUI.swift */,
+				220CD93F28CB46E0008E346D /* SignInView.swift */,
+			);
+			path = "Spark Stuff";
 			sourceTree = "<group>";
 		};
 		221B7C5328C35E2200AEB9C3 /* Notification Views */ = {
@@ -488,10 +536,12 @@
 				226C6ECA282FA3FC00D1D866 /* ProfileView.swift */,
 				226C6ECC282FA43D00D1D866 /* LoginView.swift */,
 				226C6ECE282FA48100D1D866 /* ImagePicker.swift */,
+				220CD92828CB4667008E346D /* Spark Stuff */,
 				2203E61D28437EC70043ACD2 /* Camera */,
 				224F6E6B284DF595001F9AC6 /* ProfileImageView.swift */,
 				22112FFE2864745B00247D53 /* UserNameView.swift */,
 				22C6A22F28C9638100CFEFCF /* GoogleSignInViewControler.swift */,
+				225B0E5828CDE20200BB7415 /* HalfModal.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -661,6 +711,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				22D3ABF82827B93600428135 /* ShotLoader.swift in Sources */,
+				220CD93A28CB46D9008E346D /* SparkUI.swift in Sources */,
+				225B0E5928CDE20200BB7415 /* HalfModal.swift in Sources */,
 				226C6ECB282FA3FC00D1D866 /* ProfileView.swift in Sources */,
 				228335AF285DE22F0095E9D1 /* ExperimentalCode.swift in Sources */,
 				221CC8812823CB8700AFC176 /* PreferenceKeys.swift in Sources */,
@@ -671,16 +723,20 @@
 				224F6E68284CE994001F9AC6 /* MapBalloon.swift in Sources */,
 				225350C728C75331008DAA8D /* MainViewManager.swift in Sources */,
 				221CC8872823CD0C00AFC176 /* PlayerControls.swift in Sources */,
+				220CD93328CB46C2008E346D /* ActivityIndicatorView.swift in Sources */,
 				226C6ED1282FA8EE00D1D866 /* RecorderView.swift in Sources */,
 				221CC8782823C51300AFC176 /* Club.swift in Sources */,
+				220CD93C28CB46D9008E346D /* SparkFirestore.swift in Sources */,
 				2203E61F284383270043ACD2 /* CameraService.swift in Sources */,
 				224F6E312844DD1A001F9AC6 /* LoginCameraView.swift in Sources */,
 				221CC85C28227EB300AFC176 /* User.swift in Sources */,
 				224F6E65284CE084001F9AC6 /* ClubsMapManager.swift in Sources */,
+				220CD93128CB46C2008E346D /* SparkKeys.swift in Sources */,
 				221130012865BB7600247D53 /* DirectionsView.swift in Sources */,
 				224F6E5B284A13CF001F9AC6 /* ClubShotViewHostingController.swift in Sources */,
 				22D3AC10282BB25900428135 /* MapView.swift in Sources */,
 				2203E61C2840D2350043ACD2 /* ListView.swift in Sources */,
+				220CD93428CB46C2008E346D /* Typealiases.swift in Sources */,
 				224F6E6C284DF595001F9AC6 /* ProfileImageView.swift in Sources */,
 				224F6E6A284CEA29001F9AC6 /* ClubMarker.swift in Sources */,
 				2222E5B328BF48F400B107EB /* NotificationManager.swift in Sources */,
@@ -700,20 +756,28 @@
 				224F6E5328476F10001F9AC6 /* ShotView.swift in Sources */,
 				22D3AC04282A5D4200428135 /* ClubCircleNameText.swift in Sources */,
 				221CC85928227E4800AFC176 /* FirebaseManager.swift in Sources */,
+				220CD92F28CB46C2008E346D /* ActivityIndicator.swift in Sources */,
 				225350BB28C60555008DAA8D /* BottomBarView.swift in Sources */,
+				220CD92728CB4639008E346D /* SignInWithAppleView.swift in Sources */,
 				22D3ABF628267BA600428135 /* ShotSnap.swift in Sources */,
 				226C6ECF282FA48100D1D866 /* ImagePicker.swift in Sources */,
 				225350C228C74726008DAA8D /* ErrorView.swift in Sources */,
+				220CD93E28CB46D9008E346D /* Spark.swift in Sources */,
+				220CD93D28CB46D9008E346D /* SparkError.swift in Sources */,
 				2203E61A2840D0CD0043ACD2 /* CellView.swift in Sources */,
 				226C6EDD282FAAA400D1D866 /* PlayerUIView.swift in Sources */,
 				228335A5285B2C9A0095E9D1 /* VideoUploaderUserView.swift in Sources */,
+				220CD93228CB46C2008E346D /* DocumentSerializable.swift in Sources */,
 				224F6E4F28476EAD001F9AC6 /* VerticalPager.swift in Sources */,
 				221CC86F2822856500AFC176 /* Shot.swift in Sources */,
 				228335A7285B397B0095E9D1 /* TimeStampView.swift in Sources */,
+				220CD93028CB46C2008E346D /* Profile.swift in Sources */,
 				22112FFF2864745B00247D53 /* UserNameView.swift in Sources */,
 				2203E623284390060043ACD2 /* CustomCameraView.swift in Sources */,
 				224F6E62284CE04A001F9AC6 /* ClubsMapView.swift in Sources */,
+				220CD93B28CB46D9008E346D /* SparkAuth.swift in Sources */,
 				226C6ED9282FAA3800D1D866 /* VideoCameraController.swift in Sources */,
+				220CD94028CB46E0008E346D /* SignInView.swift in Sources */,
 				221CC85F28227F1200AFC176 /* FirebaseContants.swift in Sources */,
 				228335A32852058B0095E9D1 /* thumbnailLooper.swift in Sources */,
 				226C6EC3282D012200D1D866 /* RecorderButton.swift in Sources */,
