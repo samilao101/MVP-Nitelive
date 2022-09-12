@@ -28,8 +28,8 @@ struct ActivityIndicatorView<Content>: View where Content: View {
                 }
                 .frame(width: geometry.size.width * 0.7,
                        height: geometry.size.height * 0.16)
-                .background(Color.primary.colorInvert().opacity(1.0))
-                .foregroundColor(Color.primary)
+                .background(Color.clear)
+                .foregroundColor(Color.black)
                 .cornerRadius(8)
                 .shadow(color: Color.primary.opacity(0.2), radius: 4, x: 2, y: 2)
                 .opacity(self.isPresented ? 1 : 0)

@@ -137,10 +137,10 @@ struct LoginView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationTitle("")
         .navigationBarHidden(true)
-        .fullScreenCover(isPresented: $shouldShowImagePicker, onDismiss: nil) {
-            SelfieView(capturedImaged: $image)
-                .ignoresSafeArea()
-        }
+//        .fullScreenCover(isPresented: $shouldShowImagePicker, onDismiss: nil) {
+//            SelfieView(capturedImaged: $image)
+//                .ignoresSafeArea()
+//        }
         
         
         

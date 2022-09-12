@@ -8,6 +8,11 @@
 import SwiftUI
 import MapKit
 
+enum Show {
+    case showProfile
+    case showRecorder
+}
+
 
 struct MainView<Content: View>: View {
     
@@ -21,6 +26,11 @@ struct MainView<Content: View>: View {
     @State var showCamera = false
     @State var showAlert = false
     @State var showEmailView = false
+    @State var showLoginCamera = false
+    @State var sheetModal: SheetMode = .none
+    @State var fullSheet: SheetMode = .none
+    @State var show : Show = .showProfile
+    
 
     
     @State var count: Int = 0
@@ -41,8 +51,29 @@ struct MainView<Content: View>: View {
             clubRecorderButtonView
             
             profileButtonView
+        
+            AnimatedLoginView(sheetModal: $sheetModal) {
+                sheetModal = .none
+                switch show {
+                    
+                case .showProfile:
+                    break
+                case .showRecorder:
+                    self.showCamera.toggle()
+                }
+            }
+      
             
         }
+        .background(
+            NavigationLink(
+                destination: LazyView(view: {
+                    ProfileImageView(image: userManager.profileImage!, userName: userManager.currentUser!.username)
+                        .environmentObject(userManager)
+                }),
+                isActive: $userManager.showLogin,
+                label: { EmptyView() })
+        )
         .alert("To upload a video you must be on club location. If you are in location to a club not available in our list of clubs , you can request to add it as new club.", isPresented: $showAlert) {
             Button("Request New Club", role: .none, action: {
                 showEmailView.toggle()
@@ -54,17 +85,7 @@ struct MainView<Content: View>: View {
         .fullScreenCover(isPresented: $showCamera, content: {
             RecorderView(showRecorder: $showCamera).environmentObject(userManager)
         })
-        .sheet(isPresented: $showLogin, content: {
-       
-            HalfSheet {
-                LoginView {
-                    userManager.isUserCurrentlyLoggedOut = false
-                    userManager.fetchCurrentUser()
-                    showLogin = false
-                    showCamera = true
-                }.preferredColorScheme(.dark)
-            }
-        })
+      
         
         .sheet(isPresented: $showEmailView) {
             EmailSupportView(supportInfo: RequestToAddClub(latitude: userManager.location?.latitude.description ?? "Not known", longitude: userManager.location?.longitude.description ?? "Not known"))
@@ -109,7 +130,9 @@ struct MainView<Content: View>: View {
                 RecorderButton(club: manager.clubThatIsNear ?? MockData.clubs.club1, image: Image(systemName: "building")) {
                     userManager.currentClub = manager.clubThatIsNear
                     if userManager.currentUser == nil {
-                        showLogin = true
+                        self.show = .showRecorder
+                        self.sheetModal = .quarter
+                        self.fullSheet = .full
                     } else {
                         showCamera = true
                     }
@@ -129,20 +152,69 @@ struct MainView<Content: View>: View {
     
     private var profileButtonView: some View {
         BottomBarView(align: .trailing) {
-            NavigationLink {
-                ProfileView().environmentObject(userManager)
+            Button {
+                self.show = .showProfile
+                self.sheetModal = .quarter
+                self.fullSheet = .full
             } label: {
-                if userManager.isUserCurrentlyLoggedOut {
+                if userManager.currentUser == nil {
                     Image(systemName: "person.circle")
                         .foregroundColor(.white)
                         .font(.system(size: 35))
                 } else {
                     UserNameView(name: userManager.currentUser?.username ?? "username")
+                        .onTapGesture {
+                            userManager.showLogin.toggle()
+                        }
                     
                 }
             }
+
         }
     }
+    
+    // MARK: - Activity Indicator
+    @State private var activityIndicatorInfo = SparkUIDefault.activityIndicatorInfo
+
+    func startActivityIndicator(message: String) {
+        activityIndicatorInfo.message = message
+        activityIndicatorInfo.isPresented = true
+    }
+
+    func stopActivityIndicator() {
+        activityIndicatorInfo.isPresented = false
+    }
+
+    func updateActivityIndicator(message: String) {
+        stopActivityIndicator()
+        startActivityIndicator(message: message)
+    }
+    
+    // MARK: - Alert
+    @State private var alertInfo = SparkUIDefault.alertInfo
+    
+    func presentAlert(title: String, message: String, actionText: String = "Ok", actionTag: Int = 0) {
+        alertInfo.title = title
+        alertInfo.message = message
+        alertInfo.actionText = actionText
+        alertInfo.actionTag = actionTag
+        alertInfo.isPresented = true
+    }
+    
+    func executeAlertAction() {
+        switch alertInfo.actionTag {
+        case 0:
+            print("No action alert action")
+            
+        default:
+            print("Default alert action")
+        }
+    }
+    
+    private func startLogin(data: [String: Any])  {
+    
+    }
+    
     
 }
 

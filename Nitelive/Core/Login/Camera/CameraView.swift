@@ -17,7 +17,7 @@ struct CameraView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
        
         print("Starting camera service")
-        cameraService.start(delegate: context.coordinator) { error in
+        cameraService.start(newDelegate: context.coordinator) { error in
             if let error = error {
                 didFinishProcessingPhoto(.failure(error))
                 print("error starting")
@@ -32,7 +32,9 @@ struct CameraView: UIViewControllerRepresentable {
         return viewController
     }
     
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        
+    }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self, didFinishProcessingPhoto: didFinishProcessingPhoto)

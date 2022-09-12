@@ -49,6 +49,10 @@
 		2222E5B328BF48F400B107EB /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222E5B228BF48F400B107EB /* NotificationManager.swift */; };
 		222EEFFF28379C2300695CBC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222EEFFE28379C2300695CBC /* MainView.swift */; };
 		2246DDFA28C0A65800337FBA /* MyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246DDF928C0A65800337FBA /* MyAppDelegate.swift */; };
+		224894D228CE3DB700D2FC9F /* AnimatedLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224894D128CE3DB700D2FC9F /* AnimatedLoginView.swift */; };
+		224894D428CE3FA200D2FC9F /* AnimatedLoginWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224894D328CE3FA200D2FC9F /* AnimatedLoginWithApple.swift */; };
+		224894D628CF2A1500D2FC9F /* RedoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224894D528CF2A1500D2FC9F /* RedoImageView.swift */; };
+		224894D828CF2CA300D2FC9F /* SelfieUserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224894D728CF2CA300D2FC9F /* SelfieUserNameView.swift */; };
 		224F6E312844DD1A001F9AC6 /* LoginCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E302844DD1A001F9AC6 /* LoginCameraView.swift */; };
 		224F6E4F28476EAD001F9AC6 /* VerticalPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E4E28476EAD001F9AC6 /* VerticalPager.swift */; };
 		224F6E5128476EDC001F9AC6 /* ShotViewHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E5028476EDC001F9AC6 /* ShotViewHostingController.swift */; };
@@ -153,6 +157,10 @@
 		223F9E7928C0BB85008881B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2246DDF928C0A65800337FBA /* MyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppDelegate.swift; sourceTree = "<group>"; };
 		2246DDFD28C0AA3A00337FBA /* Nitelive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nitelive.entitlements; sourceTree = "<group>"; };
+		224894D128CE3DB700D2FC9F /* AnimatedLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedLoginView.swift; sourceTree = "<group>"; };
+		224894D328CE3FA200D2FC9F /* AnimatedLoginWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedLoginWithApple.swift; sourceTree = "<group>"; };
+		224894D528CF2A1500D2FC9F /* RedoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedoImageView.swift; sourceTree = "<group>"; };
+		224894D728CF2CA300D2FC9F /* SelfieUserNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieUserNameView.swift; sourceTree = "<group>"; };
 		224F6E302844DD1A001F9AC6 /* LoginCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCameraView.swift; sourceTree = "<group>"; };
 		224F6E4E28476EAD001F9AC6 /* VerticalPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalPager.swift; sourceTree = "<group>"; };
 		224F6E5028476EDC001F9AC6 /* ShotViewHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotViewHostingController.swift; sourceTree = "<group>"; };
@@ -239,6 +247,8 @@
 				2203E61E284383270043ACD2 /* CameraService.swift */,
 				2203E62028438C540043ACD2 /* CameraView.swift */,
 				224F6E302844DD1A001F9AC6 /* LoginCameraView.swift */,
+				224894D528CF2A1500D2FC9F /* RedoImageView.swift */,
+				224894D728CF2CA300D2FC9F /* SelfieUserNameView.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -438,6 +448,15 @@
 			path = "Record button";
 			sourceTree = "<group>";
 		};
+		224894D028CE3DA400D2FC9F /* Sign In View */ = {
+			isa = PBXGroup;
+			children = (
+				224894D128CE3DB700D2FC9F /* AnimatedLoginView.swift */,
+				224894D328CE3FA200D2FC9F /* AnimatedLoginWithApple.swift */,
+			);
+			path = "Sign In View";
+			sourceTree = "<group>";
+		};
 		224F6E54284A048B001F9AC6 /* Club */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +550,7 @@
 		226C6EC9282FA33200D1D866 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				224894D028CE3DA400D2FC9F /* Sign In View */,
 				228335A4285B2C9A0095E9D1 /* VideoUploaderUserView.swift */,
 				226C6EE42832546800D1D866 /* UserAvatarView.swift */,
 				226C6ECA282FA3FC00D1D866 /* ProfileView.swift */,
@@ -726,6 +746,7 @@
 				220CD93328CB46C2008E346D /* ActivityIndicatorView.swift in Sources */,
 				226C6ED1282FA8EE00D1D866 /* RecorderView.swift in Sources */,
 				221CC8782823C51300AFC176 /* Club.swift in Sources */,
+				224894D228CE3DB700D2FC9F /* AnimatedLoginView.swift in Sources */,
 				220CD93C28CB46D9008E346D /* SparkFirestore.swift in Sources */,
 				2203E61F284383270043ACD2 /* CameraService.swift in Sources */,
 				224F6E312844DD1A001F9AC6 /* LoginCameraView.swift in Sources */,
@@ -742,6 +763,7 @@
 				2222E5B328BF48F400B107EB /* NotificationManager.swift in Sources */,
 				22C6A23028C9638100CFEFCF /* GoogleSignInViewControler.swift in Sources */,
 				226C6ED7282FAA0E00D1D866 /* VideoCameraView.swift in Sources */,
+				224894D428CE3FA200D2FC9F /* AnimatedLoginWithApple.swift in Sources */,
 				225350C028C74701008DAA8D /* IdleView.swift in Sources */,
 				222EEFFF28379C2300695CBC /* MainView.swift in Sources */,
 				221B7C5528C35E6500AEB9C3 /* NotificationShotView.swift in Sources */,
@@ -771,6 +793,7 @@
 				224F6E4F28476EAD001F9AC6 /* VerticalPager.swift in Sources */,
 				221CC86F2822856500AFC176 /* Shot.swift in Sources */,
 				228335A7285B397B0095E9D1 /* TimeStampView.swift in Sources */,
+				224894D628CF2A1500D2FC9F /* RedoImageView.swift in Sources */,
 				220CD93028CB46C2008E346D /* Profile.swift in Sources */,
 				22112FFF2864745B00247D53 /* UserNameView.swift in Sources */,
 				2203E623284390060043ACD2 /* CustomCameraView.swift in Sources */,
@@ -793,6 +816,7 @@
 				22D3AC01282A5BBD00428135 /* MockData.swift in Sources */,
 				226C6EE52832546800D1D866 /* UserAvatarView.swift in Sources */,
 				221CC83E28227A2200AFC176 /* NiteliveApp.swift in Sources */,
+				224894D828CF2CA300D2FC9F /* SelfieUserNameView.swift in Sources */,
 				2203E612283F860B0043ACD2 /* LazyView.swift in Sources */,
 				221CC8852823CC9100AFC176 /* ShotPlayer.swift in Sources */,
 				22D3ABFC282A58A100428135 /* ShotInfo.swift in Sources */,
@@ -957,7 +981,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -999,7 +1023,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1103,7 +1127,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Emulators;
 		};

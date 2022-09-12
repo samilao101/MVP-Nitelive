@@ -16,17 +16,18 @@ class CameraService {
     let output = AVCapturePhotoOutput()
     let previewLayer = AVCaptureVideoPreviewLayer()
     
-    func start(delegate: AVCapturePhotoCaptureDelegate, completion: @escaping(Error?) -> ()) {
+    func start(newDelegate: AVCapturePhotoCaptureDelegate, completion: @escaping(Error?) -> ()) {
         print("putting delegate")
         
-        self.delegate = delegate
-        print(delegate.description)
+        self.delegate = newDelegate
+        print(newDelegate.description)
         checkPermissions(completion: completion)
 
     }
 
     
     private func checkPermissions(completion: @escaping(Error?) -> ()){
+        print("Checking permission")
         switch AVCaptureDevice.authorizationStatus(for: .video) {
             
         case .notDetermined:
@@ -50,7 +51,7 @@ class CameraService {
     
     private func setupCamera(completion: @escaping(Error?) -> ()) {
         
-    
+        print("setting camera")
         let session = AVCaptureSession()
         
 
@@ -87,8 +88,8 @@ class CameraService {
     }
     
     func capturePhoto(with settings: AVCapturePhotoSettings = AVCapturePhotoSettings()) {
-        print(delegate?.description)
-        output.capturePhoto(with: settings, delegate: delegate!)
+        print(delegate)
+        output.capturePhoto(with: settings, delegate: self.delegate!)
     }
 }
 

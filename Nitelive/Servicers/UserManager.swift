@@ -39,6 +39,8 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var gotUserLocation: Bool = false
     @Published var location: CLLocationCoordinate2D?
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
+    @Published var showLogin = false
+
 
     var locationManager: CLLocationManager?
   
@@ -100,9 +102,10 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func handleSignOut() {
-        isUserCurrentlyLoggedOut.toggle()
+        isUserCurrentlyLoggedOut = true
         try? FirebaseManager.shared.auth.signOut()
         currentUser = nil
+        showLogin.toggle()
         checkOutCurrentClub()
     }
     
@@ -192,7 +195,7 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
         if storedUID != nil {
            
-            FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(storedUID!).collection(FirebaseConstants.checkedInUsers).document(currentUser!.uid).delete()
+            FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(storedUID!).collection(FirebaseConstants.checkedInUsers).document(storedUID!).delete()
             
             
             FirebaseManager.shared.firestore.collection(FirebaseConstants.users).document(storedUID!).collection(FirebaseConstants.checkedIn).document(FirebaseConstants.checkedInClub).delete()

@@ -27,12 +27,19 @@ struct NiteliveApp: App {
     }
     
    
-    
+//    @State var userName = ""
+//    @State var image: UIImage? = nil
+//    @State var showCam = true
+//    
     var body: some Scene {
         
        //Depending on whether app is able to download all the club videos and club information, the app starts by showing the club's videos on MainView. This is determined by the FirebaseData 'State':
         
         WindowGroup {
+//            Text("Hello")
+//                .fullScreenCover(isPresented: $showCam) {
+//                    SelfieUserNameView(showCam: $showCam, userName: $userName, capturedImaged: $image)
+//                }
             ZStack {
                 switch firebaseData.state {
                 case .idle:
@@ -45,7 +52,7 @@ struct NiteliveApp: App {
                 case .loaded:
                     NavigationView{
                         MainView(clubs: firebaseData.clubs, userLocation: userManager.location, userManager: userManager ) {
-                            
+
                             if firebaseData.noShotsUploaded {
                                NoVideosDataView()
 
@@ -66,14 +73,15 @@ struct NiteliveApp: App {
 //                        .onOpenURL { url in
 //                          GIDSignIn.sharedInstance.handle(url)
 //                        }
-                        .onAppear{
-//                            GIDSignIn.sharedInstance.signOut()
-                            SparkAuth.logout { result in
-                                
-                            }
-                        }
+//                        .onAppear{
+////                            GIDSignIn.sharedInstance.signOut()
+//                            SparkAuth.logout { result in
+//
+//                            }
+//                        }
                 }
             }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }

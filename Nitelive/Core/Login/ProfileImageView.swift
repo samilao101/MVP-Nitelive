@@ -13,6 +13,7 @@ struct ProfileImageView: View {
     let userName: String
     @EnvironmentObject var userManager: UserManager
     @State var newImage: UIImage?
+    @State var newUserName: String = ""
     @State private var shouldShowImagePicker = false
     @State var loginStatusMessage = ""
     
@@ -71,7 +72,7 @@ struct ProfileImageView: View {
             }
             
         }) {
-            SelfieView(capturedImaged: $newImage)
+            RedoImageView(capturedImaged: $newImage)
         }
     }
     
