@@ -13,6 +13,10 @@ import AVFoundation
 
 class PlayerControls: UIView {
     
+    private var playerStatusContext = 0
+    var delegate: PlayUpdateDelegate?
+
+    
     private let playerLayer = AVPlayerLayer()
     var player : AVPlayer
     
@@ -34,9 +38,11 @@ class PlayerControls: UIView {
         // Setup looping
         player.actionAtItemEnd = .none
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(playerItemDidReachEnd(notification:)),
+                                            selector: #selector(playerItemDidReachEnd(notification:)),
                                                name: .AVPlayerItemDidPlayToEndTime,
                                                object: player.currentItem)
+        
+        player.addObserver(self, forKeyPath: "status", options: [.new, .initial], context: &playerStatusContext)
 
         // Start the movie
         player.play()
@@ -52,5 +58,23 @@ class PlayerControls: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         playerLayer.frame = bounds
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?)
+    {
+        //  Check status
+        if keyPath == "status" && context == &playerStatusContext && change != nil
+        {
+            let status = change![.newKey] as! Int
+            //  Status is not unknown
+            print("buffering status")
+            delegate?.videoIsBuffering()
+            
+            if(status != AVPlayer.Status.unknown.rawValue)
+            {
+                print("playing status")
+                delegate?.videoIsPlaying()
+            }
+        }
     }
 }

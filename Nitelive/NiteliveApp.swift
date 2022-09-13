@@ -81,7 +81,7 @@ struct NiteliveApp: App {
 //                        }
                 }
             }
-            .navigationViewStyle(StackNavigationViewStyle())
+//            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }

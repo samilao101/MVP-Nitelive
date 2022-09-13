@@ -54,6 +54,8 @@ struct NotificationShotView: View{
     @State var showProfile: Bool = false
     var player: AVPlayer
     @StateObject var clubLoader = NotificationShotViewModel()
+    @State var isVideoPlaying: Bool = false
+
     
     @State var clubName = ""
     
@@ -66,7 +68,7 @@ struct NotificationShotView: View{
     
     var body: some View{
         ZStack{
-            ShotPlayer(player: player)
+            ShotPlayer(player: player, isVideoPlaying: $isVideoPlaying)
             TimeStampView(date: shot.timeStamp)
             VStack{
                 HStack{

@@ -13,7 +13,12 @@ struct ShotView: View{
     var club: Club
     var player: AVPlayer
     @State var playStatus : AVPlayer.Status = .unknown
-    
+    @State var isVideoPlaying: Bool = false {
+        didSet {
+            print("updated bool")
+        }
+    }
+
     @StateObject var userManager: UserManager
     @StateObject var clubData: FirebaseData
 
@@ -34,8 +39,14 @@ struct ShotView: View{
  
         ShotInfo(club: club, userManager: userManager, clubData: clubData, uploaderUID: shot.fromId, timeStamp: shot.timeStamp) {
             
-            ShotPlayer(player: player)
+            ZStack{
+            ShotPlayer(player: player, isVideoPlaying: $isVideoPlaying)
                 .ignoresSafeArea()
+                if !isVideoPlaying {
+                    ProgressView()
+                        .scaleEffect(2)
+                }
+            }
             
         }
         

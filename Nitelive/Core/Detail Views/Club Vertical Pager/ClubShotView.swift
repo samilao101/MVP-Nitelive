@@ -11,6 +11,7 @@ import AVFoundation
 struct ClubShotView: View{
     var shot: Shot
     @State var showProfile: Bool = false
+    @State var isVideoPlaying: Bool = false
     var player: AVPlayer
     
     @State var isANotification: Bool = false
@@ -24,7 +25,7 @@ struct ClubShotView: View{
     
     var body: some View{
         ZStack{
-            ShotPlayer(player: player)
+            ShotPlayer(player: player, isVideoPlaying: $isVideoPlaying)
             TimeStampView(date: shot.timeStamp)
             VStack{
                 HStack{
