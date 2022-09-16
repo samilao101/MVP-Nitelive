@@ -11,6 +11,11 @@ struct UserNameView: View {
     
     let name: String
     
+    init(name: String){
+        self.name = name
+        print("Initializing profile view")
+    }
+    
     var body: some View {
         Text(name)
             .font(.headline)

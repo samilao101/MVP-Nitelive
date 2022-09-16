@@ -22,6 +22,7 @@ class ImageLoader: ObservableObject {
             self.downloadImage(clubId: clubId) { result in
                 switch result {
                 case .success(let downloadedImage):
+                    print("Loaded Image")
                     self.image = downloadedImage
                 case .failure(let error):
                     print(clubId)

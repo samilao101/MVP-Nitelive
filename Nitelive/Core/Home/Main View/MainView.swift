@@ -16,10 +16,10 @@ enum Show {
 
 struct MainView<Content: View>: View {
     
-    let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+//    let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
     
     let content: Content
-    @StateObject var manager: MainViewManager
+    @ObservedObject var manager: MainViewManager
     @EnvironmentObject var userManager: UserManager
     @EnvironmentObject var firebaseData: FirebaseData
     @State var showLogin = false
@@ -35,9 +35,9 @@ struct MainView<Content: View>: View {
     
     @State var count: Int = 0
     
-    init(clubs: [Club], userLocation: CLLocationCoordinate2D?, userManager: UserManager, @ViewBuilder content: () -> Content){
+    init(manager: MainViewManager, @ViewBuilder content: () -> Content){
         
-        _manager = StateObject(wrappedValue: MainViewManager(clubs: clubs, userLocation: userLocation, userManager: userManager))
+        _manager = ObservedObject(wrappedValue: manager)
         self.content = content()
     }
     
@@ -91,13 +91,13 @@ struct MainView<Content: View>: View {
             EmailSupportView(supportInfo: RequestToAddClub(latitude: userManager.location?.latitude.description ?? "Not known", longitude: userManager.location?.longitude.description ?? "Not known"))
         }
       
-        .onReceive(timer) { _ in
-            count += 1
-            if count == 30 {
-                manager.checkIfNearAnyClub()
-                count = 0
-            }
-        }
+//        .onReceive(timer) { _ in
+//            count += 1
+//            if count == 30 {
+////                manager.checkIfNearAnyClub()
+//                count = 0
+//            }
+//        }
         
     }
     
@@ -105,10 +105,13 @@ struct MainView<Content: View>: View {
         VStack{
             HStack {
                 Spacer()
-                LazyView {
+               
                     NavigationLink(destination:
-                        ListView().environmentObject(firebaseData)
-                        .environmentObject(userManager)
+                        LazyView(view: {
+                        ListView()
+                            .environmentObject(userManager)
+                            .environmentObject(firebaseData)
+                    })
                     ) {
                         VStack {
                             Image(systemName: "magnifyingglass.circle")
@@ -118,7 +121,7 @@ struct MainView<Content: View>: View {
                         .padding()
                         .padding(.top)
                     }
-                }
+                
             }
             Spacer()
         }

@@ -15,14 +15,15 @@ class MainViewManager: ObservableObject {
     @Published var nearClub: Bool = false
     @Published var clubThatIsNear: Club?
     @ObservedObject var userManager: UserManager
-    
+    private var timer: Timer? = nil
+
     
     
     init(clubs: [Club], userLocation: CLLocationCoordinate2D?, userManager: UserManager) {
         self.clubs = clubs
         self.userLocation = userLocation
         _userManager = ObservedObject(wrappedValue: userManager)
-        
+        startTimer()
     }
     
     func checkIfNearAnyClub() {
@@ -59,6 +60,12 @@ class MainViewManager: ObservableObject {
             
            
         }
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true, block: { (timer) in
+            self.checkIfNearAnyClub()
+        })
     }
     
 }

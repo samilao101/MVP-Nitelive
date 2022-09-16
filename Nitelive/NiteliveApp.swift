@@ -51,8 +51,7 @@ struct NiteliveApp: App {
                     ErrorView(errorTextInfo: error.localizedDescription)
                 case .loaded:
                     NavigationView{
-                        MainView(clubs: firebaseData.clubs, userLocation: userManager.location, userManager: userManager ) {
-
+                        MainView(manager:  MainViewManager(clubs: firebaseData.clubs, userLocation: userManager.location, userManager: userManager)) {
                             if firebaseData.noShotsUploaded {
                                NoVideosDataView()
 
