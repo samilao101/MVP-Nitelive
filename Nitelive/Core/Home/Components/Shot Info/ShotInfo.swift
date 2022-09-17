@@ -41,7 +41,7 @@ struct ShotInfo<Content: View>: View {
                     VStack{
                             LazyView {
                                 NavigationLink {
-                                    ClubView(club: club)
+                                    ClubView(shots: clubData.getClubVideos(club: club), club: club)
                                         .environmentObject(user)
                                         .environmentObject(clubData)
                                 } label: {

@@ -11,15 +11,13 @@ import MapKit
 struct ClubView: View {
     
     @State private var isCheckedIn = false
-
+    
+    let shots: [Shot]
     let club: Club
-    @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var vm: UserManager
-    @EnvironmentObject var  clubData : FirebaseData
+    @StateObject var userManager: UserManager = UserManager.instance
 
     @State var showChat: Bool = false
     @State var isGone: Bool = false
-    
     @State var noShots : Bool = true
   
     var body: some View {
@@ -70,8 +68,8 @@ struct ClubView: View {
                             }
                             .frame(width: 350, height: 100)
                     
-                    if vm.location != nil {
-                        DirectionsView(userLocation: vm.location!, clubLocation: CLLocationCoordinate2D(latitude: club.lat, longitude: club.lon))
+                    if userManager.location != nil {
+                        DirectionsView(userLocation: userManager.location!, clubLocation: CLLocationCoordinate2D(latitude: club.lat, longitude: club.lon))
                         
                             .padding()
                             .cornerRadius(20)
@@ -87,7 +85,7 @@ struct ClubView: View {
                     NavigationLink {
                         
                         LazyView {
-                            ClubVerticalPager(isGone: $isGone, shots: clubData.getClubVideos(club: club))
+                            ClubVerticalPager(isGone: $isGone, shots: shots)
                                 .ignoresSafeArea()
                         }
                        
@@ -113,7 +111,7 @@ struct ClubView: View {
             }
         }.onAppear{
             isGone = false
-            if clubData.getClubVideos(club: club).count > 0 {
+            if shots.count > 0 {
                 self.noShots = false
             }
         }.onDisappear{

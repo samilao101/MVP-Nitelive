@@ -11,19 +11,19 @@ import MapKit
 struct ClubsMapView: View {
     
     @StateObject var mapManager : ClubsMapManager
-    
-    @EnvironmentObject var userManager: UserManager
-    @EnvironmentObject var  listOfClubs : FirebaseData
-    
+        
     @State var loadedShotThumbnails: Bool = false
 
+    @State private var shots: [Shot]
     
-    init(clubs: [Club]) {
+    init(clubs: [Club], shots: [Shot]) {
         _mapManager = StateObject(wrappedValue: ClubsMapManager(clubs: clubs))
+        self.shots = shots
     }
     
-    init(oneClub: Club) {
+    init(oneClub: Club, shots: [Shot]) {
         _mapManager = StateObject(wrappedValue: ClubsMapManager(clubs: [oneClub]))
+        self.shots = shots
     }
     
     var body: some View {
@@ -34,12 +34,10 @@ struct ClubsMapView: View {
                     
                     NavigationLink {
                         
-                        ClubView(club: location)
-                            .environmentObject(userManager)
-                            .environmentObject(listOfClubs)
+                        ClubView(shots: shots, club: location)
                         
                     } label: {
-                        ClubMarker(club: location, thumbnailURLs: listOfClubs.getClubVideosThumbnailsUrls(club: location), loadedShotThumbnails: $loadedShotThumbnails)
+                        ClubMarker(club: location, thumbnailURLs: getClubVideosThumbnailsUrls(club: location), loadedShotThumbnails: $loadedShotThumbnails)
                     }
 
                     
@@ -54,7 +52,7 @@ struct ClubsMapView: View {
             VStack {
                 HStack{
                     Spacer()
-                    if loadedShotThumbnails == false && listOfClubs.shots.count > 0 {
+                    if loadedShotThumbnails == false && shots.count > 0 {
                         HStack{
                             Text("Loading")
                                 .bold()
@@ -70,6 +68,23 @@ struct ClubsMapView: View {
 
         }
            
+    }
+    
+    private func getClubVideosThumbnailsUrls(club: Club) -> [URL]? {
+        
+        var thumbnailsURLs = [URL]()
+        
+        let filteredShots = shots.filter { shot in
+            shot.clubId == club.id
+        }
+            filteredShots.forEach { shot in
+                thumbnailsURLs.append(shot.videoUrl)
+            }
+        if thumbnailsURLs.isEmpty {
+            return nil
+        } else {
+            return thumbnailsURLs
+        }
     }
 }
 

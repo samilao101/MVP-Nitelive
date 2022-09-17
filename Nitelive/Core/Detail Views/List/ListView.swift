@@ -9,25 +9,24 @@
 import SwiftUI
 
 struct ListView: View {
+
+
+    @State  var clubs : [Club]
+    @State  var shots : [Shot]
+    @State  var searchText = ""
+    @Binding var showListView: Bool
     
-    @EnvironmentObject var  listOfClubsModel : FirebaseData
-    @EnvironmentObject var  userManager : UserManager
-    @State private var clubs = [Club]()
-    
-    @State private var searchText = ""
-    
-    init(){
-        print("Initializing listview")
-    }
+
     
     var body: some View {
  
             List {
-                ForEach( searchResults) { club in
+                ForEach(searchResults) { club in
                     NavigationLink {
-                        ClubView(club: club)
-                            .environmentObject(userManager)
-                            .environmentObject(listOfClubsModel)
+                        LazyView{
+                        ClubView(shots: getClubVideos(club: club), club: club)
+                        }
+
                     } label: {
                         CellView(club: club)
                     }
@@ -41,10 +40,10 @@ struct ListView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink {
-                    ClubsMapView(clubs: searchResults)
-                        .environmentObject(userManager)
-                        .environmentObject(listOfClubsModel)
+                    LazyView {
+                    ClubsMapView(clubs: searchResults, shots: shots)
                         .navigationTitle("")
+                    }
 
                 } label: {
                     Label("Clubs Map", systemImage: "map.circle")
@@ -54,6 +53,17 @@ struct ListView: View {
 
 
             }
+            
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    showListView.toggle()
+                } label: {
+                    Label("", systemImage: "arrow.backward")
+                        .foregroundColor(.white)
+                        .font(.title)
+                }
+
+            }
         }
      
    
@@ -61,15 +71,23 @@ struct ListView: View {
     
     var searchResults: [Club] {
             if searchText.isEmpty {
-                return listOfClubsModel.clubs
+                return clubs
             } else {
-               return listOfClubsModel.clubs.filter { $0.name.contains(searchText) }
+               return  clubs.filter { $0.name.contains(searchText) }
             }
         }
-}
-
-struct ClubListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListView().environmentObject(FirebaseData(state: .loaded))
+    
+    func getClubVideos(club: Club) -> [Shot] {
+        
+        let filteredShots = shots.filter { shot in
+            shot.clubId == club.id
+        }
+        return  filteredShots
     }
 }
+
+//struct ClubListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ListView().environmentObject(FirebaseData(state: .loaded))
+//    }
+//}

@@ -44,7 +44,7 @@ class ImageLoader: ObservableObject {
         logoStorage.getData(maxSize: 1 * 1024 * 1024) { data, error in
           if let error = error {
             print(error.localizedDescription)
-              return
+            return
           } else {
             let image = UIImage(data: data!)
             guard let newimage = image else { return }

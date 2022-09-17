@@ -30,6 +30,7 @@ struct MainView<Content: View>: View {
     @State var sheetModal: SheetMode = .none
     @State var fullSheet: SheetMode = .none
     @State var show : Show = .showProfile
+    @State var showListView = false
     
 
     
@@ -106,21 +107,21 @@ struct MainView<Content: View>: View {
             HStack {
                 Spacer()
                
-                    NavigationLink(destination:
-                        LazyView(view: {
-                        ListView()
-                            .environmentObject(userManager)
-                            .environmentObject(firebaseData)
-                    })
-                    ) {
-                        VStack {
-                            Image(systemName: "magnifyingglass.circle")
-                                .font(.system(size: 45))
-                                .foregroundColor(.white)
+                Button {
+                    showListView.toggle()
+                } label: {
+                    Image(systemName: "magnifyingglass.circle")
+                        .font(.system(size: 45))
+                        .foregroundColor(.white)
+                        .fullScreenCover(isPresented: $showListView) {
+                            NavigationView {
+                                ListView(clubs: firebaseData.clubs, shots: firebaseData.shots, showListView: $showListView)
+                                    .foregroundColor(.white)
+                            }
                         }
-                        .padding()
-                        .padding(.top)
-                    }
+                }.padding()
+                .padding(.top)
+
                 
             }
             Spacer()
