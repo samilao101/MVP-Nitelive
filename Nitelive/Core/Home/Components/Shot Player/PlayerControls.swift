@@ -42,10 +42,12 @@ class PlayerControls: UIView {
                                                name: .AVPlayerItemDidPlayToEndTime,
                                                object: player.currentItem)
         
+        
         player.addObserver(self, forKeyPath: "status", options: [.new, .initial], context: &playerStatusContext)
 
         // Start the movie
         player.play()
+        
     }
     
   

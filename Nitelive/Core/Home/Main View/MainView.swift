@@ -19,9 +19,12 @@ struct MainView<Content: View>: View {
 //    let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
     
     let content: Content
-    @ObservedObject var manager: MainViewManager
+    
+//    @StateObject var manager: MainViewManager
+    
     @EnvironmentObject var userManager: UserManager
     @EnvironmentObject var firebaseData: FirebaseData
+    
     @State var showLogin = false
     @State var showCamera = false
     @State var showAlert = false
@@ -31,14 +34,15 @@ struct MainView<Content: View>: View {
     @State var fullSheet: SheetMode = .none
     @State var show : Show = .showProfile
     @State var showListView = false
-    
+    @State var showListViewNav = false
+
 
     
     @State var count: Int = 0
     
-    init(manager: MainViewManager, @ViewBuilder content: () -> Content){
+    init( @ViewBuilder content: () -> Content){
         
-        _manager = ObservedObject(wrappedValue: manager)
+//        _manager = StateObject(wrappedValue: manager)
         self.content = content()
     }
     
@@ -56,7 +60,6 @@ struct MainView<Content: View>: View {
             AnimatedLoginView(sheetModal: $sheetModal) {
                 sheetModal = .none
                 switch show {
-                    
                 case .showProfile:
                     break
                 case .showRecorder:
@@ -66,6 +69,7 @@ struct MainView<Content: View>: View {
       
             
         }
+      
         .background(
             NavigationLink(
                 destination: LazyView(view: {
@@ -75,6 +79,18 @@ struct MainView<Content: View>: View {
                 isActive: $userManager.showLogin,
                 label: { EmptyView() })
         )
+        .background(
+            NavigationLink(
+                destination: LazyView(view: {
+                    ListView(clubs: firebaseData.clubs, shots: firebaseData.shots)
+                }),
+                isActive: $userManager.showListView,
+                label: { EmptyView() })
+        )
+        .background(
+            NavigationLink(destination: RecorderView(showRecorder: $showCamera).environmentObject(userManager).navigationBarHidden(true), isActive: $showCamera, label: { EmptyView() })
+        )
+        
         .alert("To upload a video you must be on club location. If you are in location to a club not available in our list of clubs , you can request to add it as new club.", isPresented: $showAlert) {
             Button("Request New Club", role: .none, action: {
                 showEmailView.toggle()
@@ -83,22 +99,11 @@ struct MainView<Content: View>: View {
 
 
         }
-        .fullScreenCover(isPresented: $showCamera, content: {
-            RecorderView(showRecorder: $showCamera).environmentObject(userManager)
-        })
-      
         
         .sheet(isPresented: $showEmailView) {
             EmailSupportView(supportInfo: RequestToAddClub(latitude: userManager.location?.latitude.description ?? "Not known", longitude: userManager.location?.longitude.description ?? "Not known"))
         }
-      
-//        .onReceive(timer) { _ in
-//            count += 1
-//            if count == 30 {
-////                manager.checkIfNearAnyClub()
-//                count = 0
-//            }
-//        }
+
         
     }
     
@@ -108,17 +113,12 @@ struct MainView<Content: View>: View {
                 Spacer()
                
                 Button {
-                    showListView.toggle()
+                    userManager.showListView.toggle()
                 } label: {
                     Image(systemName: "magnifyingglass.circle")
                         .font(.system(size: 45))
                         .foregroundColor(.white)
-                        .fullScreenCover(isPresented: $showListView) {
-                            NavigationView {
-                                ListView(clubs: firebaseData.clubs, shots: firebaseData.shots, showListView: $showListView)
-                                    .foregroundColor(.white)
-                            }
-                        }
+                     
                 }.padding()
                 .padding(.top)
 
@@ -130,9 +130,9 @@ struct MainView<Content: View>: View {
     
     private var clubRecorderButtonView: some View {
         BottomBarView(align: .center) {
-            if manager.nearClub {
-                RecorderButton(club: manager.clubThatIsNear ?? MockData.clubs.club1, image: Image(systemName: "building")) {
-                    userManager.currentClub = manager.clubThatIsNear
+            if userManager.nearClub {
+                RecorderButton(club: userManager.clubThatIsNear ?? MockData.clubs.club1, image: Image(systemName: "building")) {
+                    userManager.currentClub = userManager.clubThatIsNear
                     if userManager.currentUser == nil {
                         self.show = .showRecorder
                         self.sheetModal = .quarter

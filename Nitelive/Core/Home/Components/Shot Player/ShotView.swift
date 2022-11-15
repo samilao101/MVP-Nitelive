@@ -42,13 +42,16 @@ struct ShotView: View{
             ZStack{
             ShotPlayer(player: player, isVideoPlaying: $isVideoPlaying)
                 .ignoresSafeArea()
-                if !isVideoPlaying {
-                    ProgressView()
-                        .scaleEffect(2)
-                }
+            if !isVideoPlaying {
+                ProgressView()
+                    .scaleEffect(2)
+               }
             }
+          
             
         }
+        
+
         
         .navigationBarHidden(true)
         .navigationTitle("")

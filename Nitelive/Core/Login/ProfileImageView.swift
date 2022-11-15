@@ -16,6 +16,14 @@ struct ProfileImageView: View {
     @State var newUserName: String = ""
     @State private var shouldShowImagePicker = false
     @State var loginStatusMessage = ""
+    @Environment(\.presentationMode) var presentation
+
+    
+    init(image: UIImage, userName: String) {
+        self.image = image
+        self.userName = userName
+        print("Initializig profile image view")
+    }
     
     var body: some View {
         ZStack {
@@ -27,6 +35,22 @@ struct ProfileImageView: View {
             
           
             VStack {
+                HStack{
+                    Button(role: .destructive) {
+                        shouldShowImagePicker.toggle()
+                    } label: {
+                        Label("Retake", systemImage: "camera")
+                            .foregroundColor(.white)
+                    }
+                    Spacer()
+                    Button {
+                        userManager.handleSignOut()
+                    } label: {
+                        Text("Sign Out")
+                            .foregroundColor(.white)
+                    }
+
+                }.padding(.horizontal)
                 Spacer()
                 HStack{
                     Text(userName)
@@ -35,6 +59,20 @@ struct ProfileImageView: View {
                         .bold()
                         .padding()
                     Spacer()
+                    Button {
+                        FirebaseManager.shared.auth.currentUser?.delete()
+                        userManager.isUserCurrentlyLoggedOut = true
+                        presentation.wrappedValue.dismiss()
+                        
+                    } label: {
+                        Text("Delete")
+                            .frame(width: 75, height: 40)
+                            .background(Color.red)
+                            .cornerRadius(8)
+                            .foregroundColor(.white)
+                    }
+
+                    
                 }
                 
             }
@@ -42,29 +80,6 @@ struct ProfileImageView: View {
             .multilineTextAlignment(.center)
         }
         .ignoresSafeArea()
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    userManager.handleSignOut()
-                } label: {
-                    Text("Sign Out")
-                }
-
-            }
-            
-            ToolbarItem(placement: .bottomBar) {
-                HStack {
-                    Spacer()
-                    Button(role: .destructive) {
-                        shouldShowImagePicker.toggle()
-                    } label: {
-                        Label("Retake", systemImage: "camera")
-                            .foregroundColor(.white)
-                    }
-
-                }
-            }
-        }
         .fullScreenCover(isPresented: $shouldShowImagePicker, onDismiss: {
             if newImage != nil {
                 guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }

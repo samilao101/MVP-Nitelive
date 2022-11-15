@@ -9,13 +9,20 @@ import Firebase
 import MapKit
 import GoogleSignIn
 
-class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+class UserManager: ObservableObject {
     
+    
+    var clubs : [Club]?
+    var userLocation: CLLocationCoordinate2D?
+    @Published var nearClub: Bool = false
+    @Published var clubThatIsNear: Club?
+    private var timer: Timer? = nil
 
     static let instance = UserManager()
     
     private var storedUID: String?
     
+    private var locationManagerClass = LocationManger()
     @Published var isUserCurrentlyLoggedOut = false
     @Published var errorMessage = ""
     @Published var currentUser: User? {
@@ -40,19 +47,20 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var location: CLLocationCoordinate2D?
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
     @Published var showLogin = false
-
+    @Published var showListView = false
 
     var locationManager: CLLocationManager?
   
-    override init() {
-        super.init()
-        DispatchQueue.main.async {
-            self.isUserCurrentlyLoggedOut = FirebaseManager.shared.auth.currentUser?.uid == nil
-        }
+    init(){
+        
+        
         
         fetchCurrentUser()
-        fetchUserLocation()
+//        fetchUserLocation()
+        self.gotUserLocation = locationManagerClass.gotUserLocation
+        self.location = locationManagerClass.location
         listenToCheckCurrentUserIsSignedIn()
+        startTimer()
     }
 
     func fetchCurrentUser() {
@@ -115,6 +123,8 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         guard let uid = currentUser?.uid else {return}
       
         if currentClub != nil {
+            
+            
             if currentClub!.id != club.id {
                 
                 alertItem = AlertContext.checkedOutOfOtherClub
@@ -143,15 +153,7 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                             return
                         }
                     }
-   
-                FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(club.id).updateData([FirebaseConstants.checkedIN : FieldValue.increment(Int64(1))]) { err in
-                    if let err = err {
-                        print(err)
-                      
-                        print("error when incrementing club number")
-                        return
-                    }
-                }
+                
             }
             
         } else {
@@ -176,7 +178,6 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                     }
                 }
         
-            FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(club.id).updateData([FirebaseConstants.checkedIN : FieldValue.increment(Int64(1))])
         }
 
         
@@ -195,15 +196,31 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
         if storedUID != nil {
            
-            FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(storedUID!).collection(FirebaseConstants.checkedInUsers).document(storedUID!).delete()
+            print("Trying to check out with functions")
+    
+//            FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(storedUID!).collection(FirebaseConstants.checkedInUsers).document(storedUID!).delete()
+//
+//
+//            FirebaseManager.shared.firestore.collection(FirebaseConstants.users).document(storedUID!).collection(FirebaseConstants.checkedIn).document(FirebaseConstants.checkedInClub).delete()
+//
+//            FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(storedUID!).updateData([FirebaseConstants.checkedIN : FieldValue.increment(Int64(-1))])
+//
             
             
-            FirebaseManager.shared.firestore.collection(FirebaseConstants.users).document(storedUID!).collection(FirebaseConstants.checkedIn).document(FirebaseConstants.checkedInClub).delete()
+            let userId = storedUID!
+            let clubId = currentClub!.id
             
-            FirebaseManager.shared.firestore.collection(FirebaseConstants.locations).document(storedUID!).updateData([FirebaseConstants.checkedIN : FieldValue.increment(Int64(-1))])
+            let url = URL(string: "https://us-central1-tonight-2081c.cloudfunctions.net/logOutUser?userId=\(userId)&clubId=\(clubId)")!
+
+            print("starting task")
+            URLSession.shared.dataTask(with: url).resume()
+            
+          
+            
             
             self.currentClub = nil
 
+            
             
         }
         
@@ -257,24 +274,13 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         
     }
     
-    
-    func fetchUserLocation() {
-        checkIfLocationServicesIsEnabled()
-    }
+
    
     func createNotificationForNextEntryToClub(clubId: String, clubLocation: CLLocation) {
         NotificationManager.instance.scheduleLocationNotification(clubId: clubId, clubLocation: clubLocation)
     }
 
-    func checkIfLocationServicesIsEnabled() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            locationManager!.delegate = self
-            locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-        } else {
-            print("show alert asking them to turn it on")
-        }
-    }
+
     
     private func checkLocationAuthorization() {
         guard let locationManager = locationManager else {
@@ -284,6 +290,7 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         switch locationManager.authorizationStatus {
             
         case .notDetermined:
+            print("location services not determined")
             locationManager.requestWhenInUseAuthorization()
                 gotUserLocation = false
         case .restricted:
@@ -293,6 +300,7 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             print("you have denied this app location permission. go into authorizations to use it.")
                 gotUserLocation = false
         case .authorizedAlways, .authorizedWhenInUse:
+            print("Authorized to use location services")
             if locationManager.location != nil {
                 location = locationManager.location!.coordinate
                 region = MKCoordinateRegion(center: location!, span: MapDetails.defaultSpan)
@@ -353,5 +361,54 @@ class UserManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             
             
           }
+    }
+    
+    func checkIfNearAnyClub() {
+        if clubs != nil {
+            print("Checking if near club..")
+            location = locationManagerClass.location
+            gotUserLocation = locationManagerClass.gotUserLocation
+            
+            if let userLocation = location {
+                print("Checking per location")
+                clubs?.forEach { club in
+                    let userLoc = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
+                    let distance = userLoc.distance(from: club.location)
+                    if distance <  1609/160.9 //1609*102
+                    {
+                        print("checked in club")
+                        clubThatIsNear = club
+                        nearClub = true
+                       checkInCurrentClub(club: club)
+                    }
+                }
+                
+                if !nearClub {
+                       print("Not near any club")
+                       clubThatIsNear = nil
+                       nearClub = false
+                       if currentClub != nil {
+                           checkOutCurrentClub()
+                        }
+                }
+                
+            } else {
+                print("no location services")
+                clubThatIsNear = nil
+                nearClub = false
+                if currentClub != nil {
+                    checkOutCurrentClub()
+                }
+                
+               
+            }
+        }
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { (timer) in
+            print("Timer Fired")
+            self.checkIfNearAnyClub()
+        })
     }
 }

@@ -34,7 +34,7 @@ struct ClubsMapView: View {
                     
                     NavigationLink {
                         
-                        ClubView(shots: shots, club: location)
+                        ClubView(shots: getClubVideos(location: location), club: location)
                         
                     } label: {
                         ClubMarker(club: location, thumbnailURLs: getClubVideosThumbnailsUrls(club: location), loadedShotThumbnails: $loadedShotThumbnails)
@@ -85,6 +85,13 @@ struct ClubsMapView: View {
         } else {
             return thumbnailsURLs
         }
+    }
+    
+    private func getClubVideos(location: Club) -> [Shot] {
+        return shots.filter { shot in
+            shot.clubId == location.id
+        }
+        
     }
 }
 

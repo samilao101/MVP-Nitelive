@@ -14,8 +14,12 @@ struct ListView: View {
     @State  var clubs : [Club]
     @State  var shots : [Shot]
     @State  var searchText = ""
-    @Binding var showListView: Bool
     
+    init(clubs: [Club], shots: [Shot]){
+        self.clubs = clubs
+        self.shots = shots
+        print("Initializing list view")
+    }
 
     
     var body: some View {
@@ -54,16 +58,7 @@ struct ListView: View {
 
             }
             
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    showListView.toggle()
-                } label: {
-                    Label("", systemImage: "arrow.backward")
-                        .foregroundColor(.white)
-                        .font(.title)
-                }
 
-            }
         }
      
    

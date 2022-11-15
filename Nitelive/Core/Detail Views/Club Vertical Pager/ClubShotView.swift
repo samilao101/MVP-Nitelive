@@ -40,7 +40,6 @@ struct ClubShotView: View{
             
         }
         .ignoresSafeArea()
-        .navigationBarHidden(true)
         .navigationTitle("")
     }
 }

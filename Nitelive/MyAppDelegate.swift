@@ -14,6 +14,7 @@ import GoogleSignIn
 
 class MyAppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
     
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
@@ -29,15 +30,19 @@ class MyAppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserN
           print("Subscribed to Videos topic")
         }
         
+        NotificationCenter.default.addObserver(self, selector:#selector(MyAppDelegate.onAppWillTerminate(notification:)), name:UIApplication.willTerminateNotification, object: nil)
+        
         return true 
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         print("App is Terminating")
-        if UserManager.instance.currentClub != nil {
-            print("Checking out user out firebase")
-            UserManager.instance.checkOutCurrentClub()
-        }
+//        if UserManager.instance.currentClub != nil {
+//            print("Checking out user out firebase")
+//            UserManager.instance.checkOutCurrentClub()
+//        }
+        
+        
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
@@ -77,6 +82,14 @@ class MyAppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserN
 //      return false
 //    }
     
+    @objc func onAppWillTerminate(notification:NSNotification)
+    {
+      print("onAppWillTerminate")
+        if UserManager.instance.currentClub != nil {
+            print("Checking out user out firebase")
+            UserManager.instance.checkOutCurrentClub()
+        }
+    }
     
 }
 

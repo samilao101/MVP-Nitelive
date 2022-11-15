@@ -22,6 +22,7 @@ struct VerticalPager: UIViewControllerRepresentable{
     @StateObject var clubData: FirebaseData
     @ObservedObject var loader: ShotLoader
     @Binding var isGone: Bool
+    @State var currentShotId: String? = nil
     
     class Coordinator: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate{
         var parent: VerticalPager
@@ -33,6 +34,7 @@ struct VerticalPager: UIViewControllerRepresentable{
         
         func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
             parent.viewController(withOffset: 1, from: viewController)
+            
         }
         
         //creates next view
@@ -61,6 +63,7 @@ struct VerticalPager: UIViewControllerRepresentable{
                 if let controller = pendingController as? ShotViewHostingController {
                     controller.player.seek(to: .zero) { completed in
                         controller.player.play()
+                        self.parent.currentShotId = controller.shot.id
                     }
                 }
             }
@@ -183,12 +186,15 @@ struct VerticalPager: UIViewControllerRepresentable{
                 controller.player.pause()
             }
             }
-        } else {
+        }
+        else {
+            
             uiViewController.children.forEach { child in
             if let controller = child as? ShotViewHostingController {
-                controller.player.seek(to: .zero)
-                controller.player.play()
-            } 
+                if controller.shot.id == currentShotId {
+                    controller.player.play()
+                }
+            }
             }
         }
     }

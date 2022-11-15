@@ -53,6 +53,7 @@
 		224894D428CE3FA200D2FC9F /* AnimatedLoginWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224894D328CE3FA200D2FC9F /* AnimatedLoginWithApple.swift */; };
 		224894D628CF2A1500D2FC9F /* RedoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224894D528CF2A1500D2FC9F /* RedoImageView.swift */; };
 		224894D828CF2CA300D2FC9F /* SelfieUserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224894D728CF2CA300D2FC9F /* SelfieUserNameView.swift */; };
+		224D339728D8718400C570AC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D339628D8718400C570AC /* LocationManager.swift */; };
 		224F6E312844DD1A001F9AC6 /* LoginCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E302844DD1A001F9AC6 /* LoginCameraView.swift */; };
 		224F6E4F28476EAD001F9AC6 /* VerticalPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E4E28476EAD001F9AC6 /* VerticalPager.swift */; };
 		224F6E5128476EDC001F9AC6 /* ShotViewHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F6E5028476EDC001F9AC6 /* ShotViewHostingController.swift */; };
@@ -71,7 +72,6 @@
 		225350C028C74701008DAA8D /* IdleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225350BF28C74701008DAA8D /* IdleView.swift */; };
 		225350C228C74726008DAA8D /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225350C128C74726008DAA8D /* ErrorView.swift */; };
 		225350C428C751E4008DAA8D /* EmailSupportViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225350C328C751E4008DAA8D /* EmailSupportViewButton.swift */; };
-		225350C728C75331008DAA8D /* MainViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225350C628C75331008DAA8D /* MainViewManager.swift */; };
 		225350CF28C9520F008DAA8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 225350CE28C9520F008DAA8D /* GoogleService-Info.plist */; };
 		225B0E5928CDE20200BB7415 /* HalfModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B0E5828CDE20200BB7415 /* HalfModal.swift */; };
 		226C6EC3282D012200D1D866 /* RecorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C6EC2282D012200D1D866 /* RecorderButton.swift */; };
@@ -161,6 +161,7 @@
 		224894D328CE3FA200D2FC9F /* AnimatedLoginWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedLoginWithApple.swift; sourceTree = "<group>"; };
 		224894D528CF2A1500D2FC9F /* RedoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedoImageView.swift; sourceTree = "<group>"; };
 		224894D728CF2CA300D2FC9F /* SelfieUserNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieUserNameView.swift; sourceTree = "<group>"; };
+		224D339628D8718400C570AC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		224F6E302844DD1A001F9AC6 /* LoginCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCameraView.swift; sourceTree = "<group>"; };
 		224F6E4E28476EAD001F9AC6 /* VerticalPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalPager.swift; sourceTree = "<group>"; };
 		224F6E5028476EDC001F9AC6 /* ShotViewHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotViewHostingController.swift; sourceTree = "<group>"; };
@@ -179,7 +180,6 @@
 		225350BF28C74701008DAA8D /* IdleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleView.swift; sourceTree = "<group>"; };
 		225350C128C74726008DAA8D /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		225350C328C751E4008DAA8D /* EmailSupportViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSupportViewButton.swift; sourceTree = "<group>"; };
-		225350C628C75331008DAA8D /* MainViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewManager.swift; sourceTree = "<group>"; };
 		225350CE28C9520F008DAA8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		225B0E5828CDE20200BB7415 /* HalfModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModal.swift; sourceTree = "<group>"; };
 		226C6EC2282D012200D1D866 /* RecorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderButton.swift; sourceTree = "<group>"; };
@@ -373,6 +373,7 @@
 			children = (
 				226C6EC5282D0EA500D1D866 /* UserManager.swift */,
 				221CC8732822884800AFC176 /* FirebaseData.swift */,
+				224D339628D8718400C570AC /* LocationManager.swift */,
 			);
 			path = Servicers;
 			sourceTree = "<group>";
@@ -524,7 +525,6 @@
 		225350C828C75364008DAA8D /* Main View */ = {
 			isa = PBXGroup;
 			children = (
-				225350C628C75331008DAA8D /* MainViewManager.swift */,
 				222EEFFE28379C2300695CBC /* MainView.swift */,
 			);
 			path = "Main View";
@@ -741,7 +741,6 @@
 				22D3AC07282A5E6100428135 /* ClubImage.swift in Sources */,
 				224F6E5D284A1414001F9AC6 /* ClubShotView.swift in Sources */,
 				224F6E68284CE994001F9AC6 /* MapBalloon.swift in Sources */,
-				225350C728C75331008DAA8D /* MainViewManager.swift in Sources */,
 				221CC8872823CD0C00AFC176 /* PlayerControls.swift in Sources */,
 				220CD93328CB46C2008E346D /* ActivityIndicatorView.swift in Sources */,
 				226C6ED1282FA8EE00D1D866 /* RecorderView.swift in Sources */,
@@ -807,6 +806,7 @@
 				226C6EC6282D0EA500D1D866 /* UserManager.swift in Sources */,
 				226C6EDB282FAA7700D1D866 /* VideoPlayback.swift in Sources */,
 				22D3AC16282BB39100428135 /* ClubView.swift in Sources */,
+				224D339728D8718400C570AC /* LocationManager.swift in Sources */,
 				2246DDFA28C0A65800337FBA /* MyAppDelegate.swift in Sources */,
 				224F6E6E284E095F001F9AC6 /* RecordingTimer.swift in Sources */,
 				224F6E5128476EDC001F9AC6 /* ShotViewHostingController.swift in Sources */,
@@ -951,7 +951,7 @@
 				CODE_SIGN_ENTITLEMENTS = Nitelive/Nitelive.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
 				DEVELOPMENT_TEAM = 45MN72G8RH;
 				ENABLE_PREVIEWS = YES;
@@ -993,7 +993,7 @@
 				CODE_SIGN_ENTITLEMENTS = Nitelive/Nitelive.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
 				DEVELOPMENT_TEAM = 45MN72G8RH;
 				ENABLE_PREVIEWS = YES;
@@ -1097,7 +1097,7 @@
 				CODE_SIGN_ENTITLEMENTS = Nitelive/Nitelive.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
 				DEVELOPMENT_TEAM = 45MN72G8RH;
 				ENABLE_PREVIEWS = YES;

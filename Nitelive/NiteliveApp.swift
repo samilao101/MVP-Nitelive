@@ -51,7 +51,7 @@ struct NiteliveApp: App {
                     ErrorView(errorTextInfo: error.localizedDescription)
                 case .loaded:
                     NavigationView{
-                        MainView(manager:  MainViewManager(clubs: firebaseData.clubs, userLocation: userManager.location, userManager: userManager)) {
+                        MainView() {
                             if firebaseData.noShotsUploaded {
                                NoVideosDataView()
 
@@ -69,6 +69,10 @@ struct NiteliveApp: App {
                                 }),
                                 isActive: $firebaseData.showNotificiationShot,
                                 label: { EmptyView() }))
+                        .onAppear{
+                        
+                            userManager.clubs = firebaseData.clubs
+                        }
 //                        .onOpenURL { url in
 //                          GIDSignIn.sharedInstance.handle(url)
 //                        }
@@ -80,7 +84,8 @@ struct NiteliveApp: App {
 //                        }
                 }
             }
-//            .navigationViewStyle(StackNavigationViewStyle())
+            .navigationViewStyle(StackNavigationViewStyle())
+//            .navigationViewStyle(.stack)
         }
     }
 }
