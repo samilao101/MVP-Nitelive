@@ -38,7 +38,7 @@ class NotificationManager {
         
         let clubCoordinate = CLLocationCoordinate2D(latitude: clubLocation.coordinate.latitude, longitude: clubLocation.coordinate.longitude)
         
-        let region = CLCircularRegion(center: clubCoordinate, radius: 1609, identifier: clubId)
+        let region = CLCircularRegion(center: clubCoordinate, radius: 160.9, identifier: clubId)
    
         region.notifyOnExit = false
         region.notifyOnEntry = true

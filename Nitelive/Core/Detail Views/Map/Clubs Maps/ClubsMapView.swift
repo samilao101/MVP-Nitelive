@@ -51,6 +51,7 @@ struct ClubsMapView: View {
             
             VStack {
                 HStack{
+                   
                     Spacer()
                     if loadedShotThumbnails == false && shots.count > 0 {
                         HStack{
@@ -66,7 +67,7 @@ struct ClubsMapView: View {
                 
             }
 
-        }
+        }.navigationTitle("Bloomington")
            
     }
     
