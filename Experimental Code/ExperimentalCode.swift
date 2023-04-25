@@ -14,7 +14,7 @@ struct ExperimentalCode: View {
             VStack {
                 Text("Watermark")
                     .foregroundColor(.black)
-                    .background(.white.opacity(0.7))
+                    .background(Color.white.opacity(0.7))
                 Spacer()
             }
             .frame(width: 400, height: 300)

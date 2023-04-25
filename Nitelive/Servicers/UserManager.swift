@@ -48,6 +48,7 @@ class UserManager: ObservableObject {
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
     @Published var showLogin = false
     @Published var showListView = false
+    var uploadManager = UploadManager()
 
     var locationManager: CLLocationManager?
   
@@ -244,6 +245,7 @@ class UserManager: ObservableObject {
         let videoId = "\(UUID().uuidString)"
         
         let storageRef = FirebaseManager.shared.storage.reference(withPath: "\(FirebaseConstants.locationVideos)/\(clubId)/\(videoId)")
+                
         
         storageRef.putFile(from: videoURL, metadata: nil) { metadata, error in
             
@@ -251,12 +253,17 @@ class UserManager: ObservableObject {
                 handler(.failure(error))
             }
             
-          storageRef.downloadURL { (url, error) in
+            
+      
+            
+        storageRef.downloadURL { (url, error) in
             guard let downloadURL = url else {
                 handler(.failure(error!))
               return
             }
-              FirebaseManager.shared.firestore.collection(FirebaseConstants.locationVideos)
+            
+        
+        FirebaseManager.shared.firestore.collection(FirebaseConstants.locationVideos)
                   .addDocument(data: [FirebaseConstants.videoUrl: downloadURL.absoluteString,
                                       FirebaseConstants.timestamp: dateString,
                                       FirebaseConstants.fromId: self.currentUser!.uid,
@@ -374,7 +381,7 @@ class UserManager: ObservableObject {
                 clubs?.forEach { club in
                     let userLoc = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
                     let distance = userLoc.distance(from: club.location)
-                    if distance <  1609/160.9 //1609*102
+                    if distance <  1609/16.09 //1609*102
                     {
                         print("checked in club")
                         clubThatIsNear = club

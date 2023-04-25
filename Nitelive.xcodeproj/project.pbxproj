@@ -28,6 +28,7 @@
 		220CD93D28CB46D9008E346D /* SparkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD93628CB46D8008E346D /* SparkError.swift */; };
 		220CD93E28CB46D9008E346D /* Spark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD93828CB46D9008E346D /* Spark.swift */; };
 		220CD94028CB46E0008E346D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CD93F28CB46E0008E346D /* SignInView.swift */; };
+		220ED50629F7D14D004D2619 /* UploadManager .swift in Sources */ = {isa = PBXBuildFile; fileRef = 220ED50529F7D14D004D2619 /* UploadManager .swift */; };
 		22112FFF2864745B00247D53 /* UserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22112FFE2864745B00247D53 /* UserNameView.swift */; };
 		221130012865BB7600247D53 /* DirectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221130002865BB7600247D53 /* DirectionsView.swift */; };
 		221B7C5528C35E6500AEB9C3 /* NotificationShotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221B7C5428C35E6500AEB9C3 /* NotificationShotView.swift */; };
@@ -133,6 +134,7 @@
 		220CD93828CB46D9008E346D /* Spark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spark.swift; sourceTree = "<group>"; };
 		220CD93928CB46D9008E346D /* SparkFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkFirestore.swift; sourceTree = "<group>"; };
 		220CD93F28CB46E0008E346D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		220ED50529F7D14D004D2619 /* UploadManager .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UploadManager .swift"; sourceTree = "<group>"; };
 		22112FFE2864745B00247D53 /* UserNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameView.swift; sourceTree = "<group>"; };
 		221130002865BB7600247D53 /* DirectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsView.swift; sourceTree = "<group>"; };
 		221B7C5428C35E6500AEB9C3 /* NotificationShotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationShotView.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				226C6EC5282D0EA500D1D866 /* UserManager.swift */,
+				220ED50529F7D14D004D2619 /* UploadManager .swift */,
 				221CC8732822884800AFC176 /* FirebaseData.swift */,
 				224D339628D8718400C570AC /* LocationManager.swift */,
 			);
@@ -807,6 +810,7 @@
 				226C6EDB282FAA7700D1D866 /* VideoPlayback.swift in Sources */,
 				22D3AC16282BB39100428135 /* ClubView.swift in Sources */,
 				224D339728D8718400C570AC /* LocationManager.swift in Sources */,
+				220ED50629F7D14D004D2619 /* UploadManager .swift in Sources */,
 				2246DDFA28C0A65800337FBA /* MyAppDelegate.swift in Sources */,
 				224F6E6E284E095F001F9AC6 /* RecordingTimer.swift in Sources */,
 				224F6E5128476EDC001F9AC6 /* ShotViewHostingController.swift in Sources */,
@@ -951,7 +955,7 @@
 				CODE_SIGN_ENTITLEMENTS = Nitelive/Nitelive.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
 				DEVELOPMENT_TEAM = 45MN72G8RH;
 				ENABLE_PREVIEWS = YES;
@@ -993,7 +997,7 @@
 				CODE_SIGN_ENTITLEMENTS = Nitelive/Nitelive.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
 				DEVELOPMENT_TEAM = 45MN72G8RH;
 				ENABLE_PREVIEWS = YES;
@@ -1097,7 +1101,7 @@
 				CODE_SIGN_ENTITLEMENTS = Nitelive/Nitelive.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_ASSET_PATHS = "\"Nitelive/Preview Content\"";
 				DEVELOPMENT_TEAM = 45MN72G8RH;
 				ENABLE_PREVIEWS = YES;

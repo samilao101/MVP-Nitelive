@@ -168,7 +168,7 @@ struct ClubberDetailView: View {
                 Text(user.username)
                     .bold()
                     .frame(width: 280, height: 44)
-                    .background(.gray)
+                    .background(Color.gray.ignoresSafeArea())
                     .foregroundColor(.white)
                     .cornerRadius(8)
                     .padding()
