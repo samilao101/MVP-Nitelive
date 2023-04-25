@@ -31,7 +31,6 @@ class UploadManager {
                     
                 }
                 
-                
                 var downloadCount = 0
                 
                 func downloadURL() {
