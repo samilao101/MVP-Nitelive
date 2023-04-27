@@ -12,7 +12,7 @@ class UploadManager {
     
     var uploadCount = 0
     
-    func uploadVideo(storageRef: StorageReference, handler: @escaping (Result<URL,Error>) -> Void, videoURL: URL ) {
+    func uploadVideo(storageRef: StorageReference, videoURL: URL,  handler: @escaping (Result<URL,Error>) -> Void) {
         
         func upload() {
             

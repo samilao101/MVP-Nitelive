@@ -246,38 +246,26 @@ class UserManager: ObservableObject {
         
         let storageRef = FirebaseManager.shared.storage.reference(withPath: "\(FirebaseConstants.locationVideos)/\(clubId)/\(videoId)")
                 
-        
-        storageRef.putFile(from: videoURL, metadata: nil) { metadata, error in
-            
-            if let error = error {
+        uploadManager.uploadVideo(storageRef: storageRef, videoURL: videoURL) { result in
+            switch result {
+            case .success(let downloadURL):
+                FirebaseManager.shared.firestore.collection(FirebaseConstants.locationVideos)
+                          .addDocument(data: [FirebaseConstants.videoUrl: downloadURL.absoluteString,
+                                              FirebaseConstants.timestamp: dateString,
+                                              FirebaseConstants.fromId: self.currentUser!.uid,
+                                              FirebaseConstants.email: self.currentUser!.email,
+                                              FirebaseConstants.profileImageUrl: self.currentUser!.profileImageUrl,
+                                              FirebaseConstants.id: videoId,
+                                              FirebaseConstants.clubId: clubId,
+                                              FirebaseConstants.clubName: clubName
+                                             ])
+                      
+                handler(.success(true))
+            case .failure(let error):
                 handler(.failure(error))
             }
-            
-            
-      
-            
-        storageRef.downloadURL { (url, error) in
-            guard let downloadURL = url else {
-                handler(.failure(error!))
-              return
-            }
-            
-        
-        FirebaseManager.shared.firestore.collection(FirebaseConstants.locationVideos)
-                  .addDocument(data: [FirebaseConstants.videoUrl: downloadURL.absoluteString,
-                                      FirebaseConstants.timestamp: dateString,
-                                      FirebaseConstants.fromId: self.currentUser!.uid,
-                                      FirebaseConstants.email: self.currentUser!.email,
-                                      FirebaseConstants.profileImageUrl: self.currentUser!.profileImageUrl,
-                                      FirebaseConstants.id: videoId,
-                                      FirebaseConstants.clubId: clubId,
-                                      FirebaseConstants.clubName: clubName
-                                     ])
-              
-              handler(.success(true))
-              
-            }
         }
+            
         
     }
     

@@ -106,7 +106,7 @@ struct LoginCameraView: View {
     private func persistImageToStorage() {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         let ref = FirebaseManager.shared.storage.reference(withPath: "\(FirebaseConstants.profileImages)/\(uid)/\(uid)")
-        guard let imageData = self.capturedImaged?.jpegData(compressionQuality: 0.1) else { return }
+        guard let imageData = self.capturedImaged?.jpegData(compressionQuality: 0.7) else { return }
         ref.putData(imageData, metadata: nil) { metadata, err in
             if let err = err {
                 print(err)

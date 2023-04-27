@@ -17,6 +17,7 @@ struct RecorderView: View {
     @Binding var showRecorder: Bool
     @EnvironmentObject var vm : UserManager
     @State var uploadingVideo = false
+    @State var errorUploadingVideo = false
     @State var flipCamera: Bool = false
 
     
@@ -29,8 +30,24 @@ struct RecorderView: View {
                     if uploadingVideo {
                         ProgressView("Uploading")
                             .frame(width: 100, height: 100, alignment: .center)
-                            .scaleEffect(4)
-                        
+                            .scaleEffect(2)
+                    }
+                    
+                    if errorUploadingVideo {
+                        VStack {
+                            Button {
+                                errorUploadingVideo = false
+                                vm.uploadVideo(videoUrl: videoURL){ res in dealWithResult(result: res)}
+                            } label: {
+                                HStack {
+                                    Image(systemName: "arrow.clockwise")
+                                    Text("Retry")
+                                }
+                            }
+                            .font(.system(size: 24))
+                            .foregroundColor(.white)
+
+                        }
                     }
                     
                     VStack {
@@ -52,20 +69,8 @@ struct RecorderView: View {
                             Spacer()
                             VStack{
                                 Button {
-                                    uploadingVideo.toggle()
-                                    vm.uploadVideo(videoUrl: videoURL){ result in
-                                        switch result {
-                                            
-                                        case .success(_):
-                                            videoURL = nil
-                                            showRecorder = false
-                                            
-                                            uploadingVideo.toggle()
-                                        case .failure(let error):
-                                            uploadingVideo.toggle()
-                                            print(error.localizedDescription)
-                                        }
-                                    }
+                                    uploadingVideo = true
+                                    vm.uploadVideo(videoUrl: videoURL){ res in dealWithResult(result: res)}
                                     
                                 } label: {
                                     Image(systemName: "arrow.up.circle")
@@ -161,5 +166,20 @@ struct RecorderView: View {
             }
         }
     }
+    
+    func dealWithResult(result: Result<Bool, Error> ) {
+        switch result {
+        case .success(_):
+            videoURL = nil
+            showRecorder = false
+            uploadingVideo = false 
+        case .failure(let error):
+            uploadingVideo = false
+            errorUploadingVideo = true
+            print(error.localizedDescription)
+        }
+    }
+    
+  
     
 }
