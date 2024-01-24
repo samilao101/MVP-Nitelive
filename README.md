@@ -1,15 +1,16 @@
-# Paiper
+
+# Nitelive
 
 ## Overview
-Paiper transforms research papers into podcast formats, making academic research more accessible. It features interactive discussions using a Language Model (LLM) to enrich the learning experience.
+Nitelive is a social app for nightlife enthusiasts. Discover dance clubs and share your experiences through live videos.
 
 ## Features
-- **Paper-to-Podcast Conversion**: Converts research papers into audio format for easy listening.
-- **Interactive Discussions**: Facilitates discussions about research content using a Language Model.
-- **Accessibility Enhanced**: Makes academic material accessible to a wider audience.
-- **User-Friendly Interface**: Simple and intuitive for an effortless user experience.
+- **Club Discovery**: Find and explore dance clubs nearby.
+- **Live Video Sharing**: Share live experiences with the community in real-time.
+- **Social Interaction**: Connect and share tips about your favorite nightlife spots.
+- **User-Friendly Design**: Easy-to-use interface for an enhanced nightlife experience.
 
 ## Getting Started
-Clone the repository to get started:
+Clone the repository to begin:
 ```bash
-git clone https://github.com/samilao101/ResearchAI
+git clone https://github.com/samilao101/MVP-Nitelive
