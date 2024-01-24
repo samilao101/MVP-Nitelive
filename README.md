@@ -4,6 +4,12 @@
 ## Overview
 Nitelive is a social app for nightlife enthusiasts. Discover dance clubs and share your experiences through live videos.
 
+
+
+https://github.com/samilao101/MVP-Nitelive/assets/21692781/1b3154d9-f8e6-4123-86e3-93a1d9dfe38f
+
+
+
 ## Features
 - **Club Discovery**: Find and explore dance clubs nearby.
 - **Live Video Sharing**: Share live experiences with the community in real-time.
