@@ -6,7 +6,10 @@ Nitelive is a social app for nightlife enthusiasts. Discover dance clubs and sha
 
 
 
-https://github.com/samilao101/MVP-Nitelive/assets/21692781/1b3154d9-f8e6-4123-86e3-93a1d9dfe38f
+
+https://github.com/samilao101/MVP-Nitelive/assets/21692781/cb514e07-b33a-46cc-a320-8b1b69cbcf8c
+
+
 
 
 
