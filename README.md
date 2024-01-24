@@ -1,21 +1,15 @@
-Nitelive
-Overview
-Nitelive is a cutting-edge social application tailored for nightlife enthusiasts. It helps users discover the best dance clubs in town and share their experiences through live videos.
+# Paiper
 
-Features
-Club Discovery: Find and explore popular dance clubs near you.
-Live Video Sharing: Share your nightlife experiences with friends and the Nitelive community in real-time.
-Social Interaction: Connect with other users, share tips, and discuss your favorite spots.
-User-Friendly Interface: Designed for ease of use to enhance your nightlife adventure.
-Getting Started
-To get started with Nitelive, clone the repository from GitHub:
+## Overview
+Paiper transforms research papers into podcast formats, making academic research more accessible. It features interactive discussions using a Language Model (LLM) to enrich the learning experience.
 
-bash
-Copy code
-git clone https://github.com/samilao101/MVP-Nitelive
-Usage
-For instructions on how to use Nitelive, refer to the application documentation.
+## Features
+- **Paper-to-Podcast Conversion**: Converts research papers into audio format for easy listening.
+- **Interactive Discussions**: Facilitates discussions about research content using a Language Model.
+- **Accessibility Enhanced**: Makes academic material accessible to a wider audience.
+- **User-Friendly Interface**: Simple and intuitive for an effortless user experience.
 
-Contributing
-We encourage community contributions to Nitelive. Please review the contributing guidelines before making a contribution.
-
+## Getting Started
+Clone the repository to get started:
+```bash
+git clone https://github.com/samilao101/ResearchAI
